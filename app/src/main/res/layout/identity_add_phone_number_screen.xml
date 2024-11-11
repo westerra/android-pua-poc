@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.android.identity.journey:user-profile-journey:3.3.5 -->
+<!-- Add a layout detector element. -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <com.westerra.release.profile.components.AddPhoneNumberScreenDetector
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:visibility="invisible" />
+
+  <ProgressBar
+      android:id="@+id/userProfileJourney_addPhoneNumberScreen_waitingIndicator"
+      style="@style/Widget.BackbaseIdentity.UserProfileJourney.ProgressBar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+
+      android:layout_gravity="center"
+      android:visibility="gone" />
+
+  <include
+      android:id="@+id/userProfileJourney_addPhoneNumberScreen_errorLayout"
+      layout="@layout/identity_personal_information_error"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:paddingStart="?spacerMedium"
+      android:paddingEnd="?spacerMedium"
+      android:visibility="gone" />
+
+  <androidx.core.widget.NestedScrollView
+      android:id="@+id/userProfileJourney_addPhoneNumberScreen_scrollingContainer"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="?spacerLarge"
+      android:fillViewport="true"
+      android:paddingTop="?attr/actionBarSize">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+      <com.google.android.material.card.MaterialCardView
+          android:id="@+id/userProfileJourney_addPhoneNumberScreen_cardContent"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+
+          android:layout_margin="?spacerMedium"
+          android:elevation="?elevationMedium"
+
+          app:layout_constraintVertical_bias="0"
+          app:layout_constraintBottom_toTopOf="@id/userProfileJourney_addPhoneNumberScreen_okButton"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/userProfileJourney_addPhoneNumberScreen_cardContentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+          <TextView
+              android:id="@+id/userProfileJourney_addPhoneNumberScreen_phoneTitle"
+              style="@style/Widget.BackbaseIdentity.UserProfileJourney.TextView.EditSubtitle"
+
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="start"
+              android:layout_marginTop="?spacerLarge"
+              android:layout_marginBottom="?spacerMedium"
+
+              tools:text="@string/identity.userprofile.phonenumber.add.label" />
+
+          <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/userProfileJourney_addPhoneNumberScreen_textInputLayout"
+              style="?attr/inputLayoutStyle"
+
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+
+              android:elevation="?elevationSmall">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userProfileJourney_addPhoneNumberScreen_textInput"
+                style="?inputEditTextStyle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+
+                android:inputType="phone" />
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <TextView
+              android:id="@+id/userProfileJourney_addPhoneNumberScreen_phoneTypeTitle"
+              style="@style/Widget.BackbaseIdentity.UserProfileJourney.TextView.EditSubtitle"
+
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="start"
+              android:layout_marginBottom="?spacerMedium"
+
+              tools:text="@string/identity.userprofile.phonenumber.add.type.header" />
+
+          <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/userProfileJourney_addPhoneNumberScreen_phoneTypeRecyclerView"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+      </com.google.android.material.card.MaterialCardView>
+
+      <com.backbase.android.design.button.BackbaseButton
+          android:id="@+id/userProfileJourney_addPhoneNumberScreen_okButton"
+          style="?buttonStylePrimary"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+
+          android:layout_marginStart="?spacerMedium"
+          android:layout_marginEnd="?spacerMedium"
+          android:layout_marginBottom="?spacerXSmall"
+
+          app:layout_constraintBottom_toTopOf="@id/userProfileJourney_addPhoneNumberScreen_cancelButton"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          tools:text="@string/identity.userprofile.phonenumber.add.ok" />
+
+      <com.backbase.android.design.button.BackbaseButton
+          android:id="@+id/userProfileJourney_addPhoneNumberScreen_cancelButton"
+          style="?buttonStyleSecondary"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+
+          android:layout_marginStart="?spacerMedium"
+          android:layout_marginEnd="?spacerMedium"
+          android:layout_marginBottom="?spacerMedium"
+
+          android:textAppearance="?textAppearanceBody1"
+          app:cornerRadius="?radiusProminentButton"
+
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          tools:text="@string/identity.userprofile.phonenumber.add.cancel" />
+
+      <com.backbase.android.design.inlinealert.InlineAlert
+          android:id="@+id/userProfileJourney_addPhoneNumberScreen_inlineAlert"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+
+          android:layout_marginStart="?spacerMedium"
+          android:layout_marginTop="?spacerXLarge"
+          android:layout_marginEnd="?spacerMedium"
+
+          android:visibility="gone"
+          app:alertType="danger"
+          app:layout_constraintEnd_toEndOf="parent"
+
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:showDismissAction="true" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.core.widget.NestedScrollView>
+
+  <include
+      android:id="@+id/userProfileJourney_addPhoneNumberScreen_loadingLayout"
+      layout="@layout/identity_delete_personal_info_loading"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:visibility="gone" />
+
+  <com.google.android.material.appbar.MaterialToolbar
+      android:id="@+id/identity_add_phonenumber_toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      android:layout_marginTop="?spacerLarge"
+      android:background="@null"
+      app:contentInsetLeft="0dp"
+      app:contentInsetStart="0dp"
+      app:contentInsetStartWithNavigation="0dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:menu="@menu/identity_app_bar_menu"
+      app:navigationContentDescription="@string/identity.userprofile.personalinfo.accessibility.back"
+      app:navigationIcon="?attr/iconArrowBack"
+      app:titleTextColor="?colorTextDefault" />
+
+</FrameLayout>

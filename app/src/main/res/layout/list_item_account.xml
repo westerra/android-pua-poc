@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.engagementchannels:notifications-journey:4.3.5 -->
+<!-- Id added to root element for automation testing. -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/accountListItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="?spacerMedium"
+    android:layout_marginEnd="?spacerMedium"
+    android:elevation="?elevationSmall"
+    android:foreground="?selectableItemBackground"
+    tools:theme="@style/Theme.Backbase.Fullscreen">
+
+    <com.backbase.android.design.icon.IconView
+        android:id="@+id/accountIconView"
+        android:layout_width="@dimen/grid_10"
+        android:layout_height="@dimen/grid_10"
+        android:layout_marginStart="?spacerMedium"
+        android:layout_marginTop="?spacerMedium"
+        android:layout_marginBottom="?spacerMedium"
+        android:backgroundTint="?colorPrimary"
+        android:padding="?sizerSmall"
+        app:backgroundRadius="?radiusMedium"
+        app:iconColor="?colorOnPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="contentDescription" />
+
+    <TextView
+        android:id="@+id/accountNameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?spacerSmall"
+        android:layout_marginEnd="?spacerSmall"
+        android:ellipsize="end"
+        android:textAlignment="viewStart"
+        android:textColor="?colorOnBackground"
+        android:textSize="@dimen/notification_settings_account_list_item_title_font_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/notificationsEnabledIconView"
+        app:layout_constraintStart_toEndOf="@id/accountIconView"
+        app:layout_constraintTop_toTopOf="@id/accountIconView"
+        tools:text="My current account" />
+
+    <TextView
+        android:id="@+id/accountNumberTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?spacerSmall"
+        android:layout_marginEnd="?spacerSmall"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAlignment="viewStart"
+        android:textColor="?colorTextSupport"
+        android:textSize="@dimen/notification_settings_account_list_item_body_font_size"
+        app:layout_constraintEnd_toStartOf="@id/notificationsEnabledIconView"
+        app:layout_constraintStart_toEndOf="@id/accountIconView"
+        app:layout_constraintTop_toBottomOf="@id/accountNameTextView"
+        tools:text="NL22BUNQ2040823409" />
+
+    <com.backbase.android.design.icon.IconView
+        android:id="@+id/notificationsEnabledIconView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="?spacerMedium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="contentDescription" />
+</androidx.constraintlayout.widget.ConstraintLayout>

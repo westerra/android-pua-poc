@@ -1,0 +1,341 @@
+<resources>
+  <string name="app_name">WesterraCU</string>
+  <string name="splash_screen_text">Welcome</string>
+  <string name="current_account_title">Spending accounts</string>
+  <string name="credit_card_title">Credit cards</string>
+  <string name="debit_card_title">Debit cards</string>
+  <string name="investment_account_title">Investment accounts</string>
+  <string name="loan_account_title">Loan accounts</string>
+  <string name="savings_account_title">Savings accounts</string>
+  <string name="term_deposit_title">Term deposits</string>
+  <string name="general_account_title">General accounts</string>
+  <string name="not_connected_title">No internet connection</string>
+  <string name="try_again">TRY AGAIN</string>
+  <string name="not_connected_subtitle">It seems you\'re not connected to a network</string>
+  <string name="empty_string"> </string>
+
+  <!-- Authentication Journey -->
+  <string name="log_in_button_title">LOG IN</string>
+  <string name="forgot_credentials_text">FORGOT CREDENTIALS?</string>
+  <string name="forgot_username_title">Forgot username</string>
+  <string name="forgot_passcode_button_title">FORGOT PASSCODE?</string>
+  <string name="forgot_username_option_text">Forgot Username?</string>
+  <string name="forgot_password_option_text">Forgot Password?</string>
+  <string name="forgot_username_subtitle">Please enter your email address to receive instructions.</string>
+  <string name="email_placeholder">Email Address</string>
+  <string name="confirm_email_address">CONFIRM EMAIL ADDRESS</string>
+  <string name="instruction_sent_email_title">Instructions have been sent to your email.</string>
+  <string name="check_email_steps_description">Check your email for steps to recover your username</string>
+  <string name="done_button_title">DONE</string>
+  <string name="submit_button_title">SUBMIT</string>
+  <string name="confirm_button_title">CONFIRM</string>
+  <string name="welcome_back">Welcome back</string>
+  <string name="custom_login_link_message">Pay on the go with your Westerra card through Google™ or Samsung Pay® and enjoy the same protection and benefits. Learn more: <u>WesterraCU.com</u></string>
+  <string name="enable_biometric_button_title">ENABLE ID</string>
+  <string name="reset_button_title">RESET</string>
+  <string name="close_title">Close</string>
+
+  <!-- Accounts and Transactions -->
+  <string name="my_accounts_title">My accounts</string>
+  <string name="account_details_title">Account details</string>
+  <string name="balance_details_title">Balance Details</string>
+  <string name="available_balance_title">Available Balance</string>
+  <string name="current_balance_title">Current Balance</string>
+  <string name="account_number_title">Account Number</string>
+  <string name="account_type_title">Account Type</string>
+  <string name="aba_routing_number_title">Routing Number</string>
+  <string name="account_opening_date_title">Account Opening Date</string>
+  <string name="account_owners_title">Account Owner(s)</string>
+  <string name="last_updated_date_title">Last Updated Date</string>
+  <string name="loan_details_title">Loan Details</string>
+  <string name="general_title">General</string>
+  <string name="available_credit_title">Available Credit</string>
+  <string name="credit_limit_title">Credit Limit</string>
+  <string name="interest_rate_title">Interest Rate</string>
+  <string name="next_payment_amount_due_title">Next Payment Amount Due</string>
+  <string name="next_payment_due_date_title">Next Payment Due Date</string>
+  <string name="statement_closing_date_title">Statement Closing Date</string>
+  <string name="payment_details_title">Payment Details</string>
+  <string name="minimum_payment_amount_due_title">Minimum Payment Amount Due</string>
+  <string name="interest_details_title">Interest Details</string>
+  <string name="purchase_apr_title">Purchase APR</string>
+  <string name="banking_details_title">Banking Details</string>
+  <string name="other_title">Other</string>
+  <string name="routing_number_title">Routing Number</string>
+  <string name="please_try_again_button_text">RETRY</string>
+  <string name="statements_loading_failed_message">Statements for joint accounts are not available.\n\nIf this is not a joint account, please try again or contact us for assistance.</string>
+  <string name="upcoming_title">Upcoming</string>
+  <string name="more_details_title">More Details</string>
+  <string name="network_failure_title">Network Failure</string>
+  <string name="network_failure_message">Oops! Something went wrong. Please try again.</string>
+  <string name="oops_error_message">Oops! Something went wrong.</string>
+  <string name="make_payment_title">Make Payment</string>
+  <string name="more_details_message">Click the button for more information about this loan.</string>
+  <string name="statements_title">Statements</string>
+  <string name="details_title">Details</string>
+
+  <!-- Payments Journey -->
+  <string name="make_transfer_title">Make a transfer</string>
+  <string name="continue_review_button_text">CONTINUE TO REVIEW</string>
+  <string name="confirm_transfer_button_text">CONFIRM AND TRANSFER</string>
+  <string name="confirm_schedule_button_text">CONFIRM AND SCHEDULE</string>
+  <string name="transfer_executed_immediate_message">Your transfer will be executed immediately</string>
+  <string name="warning_title">Warning</string>
+  <string name="error_title">Error</string>
+  <string name="choose_future_date_text">The start date cannot be today\'s date. Please choose a future date.</string>
+  <string name="future_transfer_load_cc_not_allowed">Future transfer from a loan account or credit card is not allowed.</string>
+  <string name="rates_fees_title">Rates &amp; Fees</string>
+  <string name="cash_advance_rules_fees_apply">Standard cash advance rates and fees apply</string>
+  <string name="when_title">When</string>
+  <string name="transfer_done_title">Transfer Done</string>
+  <string name="transfer_scheduled_title">Transfer Scheduled</string>
+  <string name="transfer_rejected_title">Whoops!</string>
+  <string name="transfer_completed_message">Your transfer has been completed.</string>
+  <string name="transfer_scheduled_message">Your money transfer was successfully scheduled.</string>
+  <string name="transfer_rejected_message">
+    Your transfer couldn\'t be processed. Please try again in a minute or call member services at 303–321–4209.
+    \n\n <b>Click the DONE button to return to the previous page.</b>
+  </string>
+  <string name="transfer_error_message_suffix">\n\n <b>Click the DONE button to return to the previous page.</b></string>
+  <string name="continue_button_text">CONTINUE</string>
+  <string name="done_button_text">DONE</string>
+  <string name="go_back_text">GO BACK</string>
+  <string name="note_title">Note</string>
+  <string name="enter_note_placeholder_text">Enter note</string>
+  <string name="done">Done</string>
+
+
+  <!-- Move Money -->
+  <string name="move_money_title">Move money</string>
+  <string name="transfer_westerra_member_title">Transfer to Westerra member</string>
+  <string name="transfer_activity_title">Transfer activity</string>
+  <string name="bill_pay_title">Pay bills</string>
+  <string name="payment_activity_title">Payment activity</string>
+  <string name="external_transfer_pay_title">External transfers &amp; pay people</string>
+
+
+  <!-- Deposit Check (RDC) Journey -->
+  <string name="deposit_check_title">Deposit a check</string>
+  <string name="deposit_check_subtitle">Deposit a check with your device\'s camera</string>
+  <string name="check_submitted_title">Check submitted!</string>
+  <string name="edit_check_details_title">Edit check details</string>
+  <string name="unverified_check_title">Unverified check</string>
+  <string name="to_account_title">To Account</string>
+  <string name="verify_check_button_text">VERIFY CHECK</string>
+  <string name="confirm_deposit_button_text">CONFIRM AND DEPOSIT</string>
+  <string name="got_it_button_text">GOT IT</string>
+  <string name="edit_check_details_button_text">EDIT CHECK DETAILS</string>
+  <string name="confirm_as_is_button_text">CONFIRM AS IS</string>
+  <string name="checks_multiple_payees_deposited_message">
+    Checks payable to multiple payees cannot be deposited into a single owner’s account.
+  </string>
+
+
+  <!-- More Menu -->
+  <string name="more_menu_title">More</string>
+  <string name="manage_title">MANAGE</string>
+  <string name="manage_notifications_title">Manage notifications</string>
+  <string name="manage_contacts_title">Manage contacts</string>
+  <string name="contacts_title">Contacts</string>
+  <string name="contact_us_title">CONTACT US</string>
+  <string name="messages_title">Messages</string>
+  <string name="security_title">SECURITY</string>
+  <string name="log_out_title">Log out</string>
+  <string name="find_us">Find us</string>
+  <string name="search_title">Search</string>
+  <string name="my_profile_title">My profile</string>
+  <string name="address_line_1">Address line 1</string>
+  <string name="address_line_2">Address line 2 (optional)</string>
+  <string name="city_or_town">City or town</string>
+  <string name="state_title">State</string>
+  <string name="postal_zip_code">Postal or ZIP code</string>
+  <string name="home_title">Home</string>
+  <string name="mailing_title">Mailing</string>
+  <string name="save_changes">Save changes</string>
+  <string name="change_address">Change address</string>
+  <string name="add_address">Add address</string>
+  <string name="add_an_address">Add an address</string>
+  <string name="change_phone_number">Change phone number</string>
+  <string name="add_phone_number">Add phone number</string>
+  <string name="add_a_phone_number">Add a phone number</string>
+  <string name="log_out_message">Are you sure you want to log out?</string>
+  <string name="change_passcode_title">Change passcode</string>
+  <string name="enable_biometrics">Enable biometrics</string>
+  <string name="update_required_title">App Update Required</string>
+  <string name="update_required_message">Please update your app to the latest version to enjoy the newest features and security enhancements.</string>
+  <string name="update_now">Update Now</string>
+  <string name="maybe_later">Maybe Later</string>
+  <string name="switch_account_title">Switch account</string>
+  <string name="notifications_title">Notifications</string>
+  <string name="edit_accounts_title">Edit accounts</string>
+  <string name="new_message_title">New message</string>
+  <string name="inbox_tab_title">Inbox</string>
+  <string name="sent_tab_title">Sent</string>
+  <string name="drafts_tab_title">Drafts</string>
+  <string name="open_new_account">Open a new account</string>
+  <string name="card_rewards_title">Card rewards</string>
+  <string name="dispute_transaction">Dispute transaction</string>
+  <string name="schedule_appointment">Schedule an appointment</string>
+  <string name="change_password_title">Change password</string>
+  <string name="btp_title">Explore Westerra products</string>
+  <string name="change_password_message">To change your password, we must verify your current one first</string>
+  <string name="change_password_restrictions">Your new password must contain:\n\n\u2022 A minimum of 9 characters\n\u2022 At least one UPPERCASE letter\n\u2022 At least one lowercase letter\n\u2022 At least one number\n\u2022 At least one special character\n\nYour new password <u>CANNOT</u> be:\n\n\u2022 Your username\n\u2022 Your email address\n\u2022 Any of the last 5 previous passwords</string>
+  <string name="delete_account_title">Delete Account</string>
+  <string name="account_deletion_title">Contact Us</string>
+  <string name="account_deletion_message">Please contact a representative to assist with account deletion.</string>
+  <string name="account_deletion_phone">303-321-4209</string>
+
+  <!-- Manage Notifications -->
+  <string name="notification_details_title">Notification details</string>
+  <string name="balance_title">Balance</string>
+  <string name="receive_notifications_current_balance_subtitle">Receive notifications when your current balance is lower than a set amount</string>
+  <string name="transactions_title">Transactions</string>
+  <string name="receive_notifications_transaction_subtitle">Receive notifications when a transaction posts to your account</string>
+  <string name="save_amount_text">SAVE AMOUNT</string>
+  <string name="sent_mobile_sms_description">Sent to your mobile phone number</string>
+  <string name="sent_email_description">Sent to your email address</string>
+  <string name="wont_notified_transactions_subtitle">You won\'t be notified about your transactions.</string>
+
+  <!-- Manage Contacts -->
+  <string name="add_contact_title">Add Contact</string>
+  <string name="edit_contact_title">Edit Contact</string>
+  <string name="name_label_title">Last Name (Or Business Name)</string>
+  <string name="name_placeholder_text">Enter last name (or business name)</string>
+  <string name="save_button_text">SAVE</string>
+  <string name="add_contacts_payment_journey_message">You can add contacts by tapping <b>···</b> (<b>More</b>) > <b>Contacts</b> > <b>+</b></string>
+
+  <!-- BTP -->
+  <string name="empty_products_message">No products are currently available for your account.</string>
+  <string name="empty_accounts_message">No accounts are currently available to transfer funds.</string>
+  <string name="go_back_button_text">Go Back</string>
+  <string name="please_try_again_soon">Please try again soon!</string>
+  <string name="please_try_again">Please try again.</string>
+  <string name="open_checking_account">Open Checking Account</string>
+  <string name="open_savings_account">Open Savings Account</string>
+  <string name="open_account">Open Account</string>
+  <string name="apply_for_credit_card">Apply for Credit Card</string>
+  <string name="open_cd">Open CD</string>
+  <string name="intro_title">Explore Westerra Products</string>
+  <string name="product_picker_title">Recommended Products</string>
+  <string name="from">From</string>
+  <string name="more_information">More information</string>
+  <string name="more_info">More info</string>
+  <string name="please_confirm">Please confirm</string>
+  <string name="product_confirm_message_format">Click OK to add the \"%s\" product to your account.</string>
+  <string name="success">Success!</string>
+  <string name="account_created_message">Account created successfully, you should receive an email confirmation and your new account will appear in you accounts list shortly.</string>
+  <string name="account_failure_message_formatted">There was an issue with funding the account, please transfer %s into this account within 25 days to avoid having this account be automatically deactivated. Your new account will appear in you accounts list within the next day.</string>
+  <string name="whoops">Whoops!</string>
+  <string name="something_went_wrong">Something went wrong.</string>
+  <string name="spending">Spending</string>
+  <string name="savings">Savings</string>\
+  <string name="available_balance">Available balance</string>
+  <string name="westerra_account_agreement">Westerra Account Agreement</string>
+  <string name="savings_rates">Savings Rates</string>
+  <string name="fee_schedule">Fee Schedule</string>
+  <string name="electronic_disclosure_consent">Electronic Disclosure and Consent</string>
+  <string name="agree_terms_conditions">By creating an account, you agree with Westerra’s terms &amp; conditions</string>
+  <string name="irs_withholdings">I certify that I’m not subject to IRS backup withholdings.</string>
+  <string name="wegotya_intro">We understand that life happens! If you want Westerra to authorize and pay overdrafts on one-time and recurring debit card transactions, make your election below. If you prefer for us not to pay, Opting Out will occur when the box is not selected.</string>
+  <string name="wegotya_disclosure">WeGotYa Courtesy Pay Disclosure</string>
+  <string name="wegotya_checkbox">I want Westerra Credit Union to authorize and pay overdrafts on my one-time and recurring debit card transactions, through WeGotYa/Courtesy Pay.</string>
+  <string name="updates_disclosures_website">Updates to disclosures will be on our website.</string>
+  <string name="the_fine_print">The Fine Print</string>
+  <string name="payment_details">Payment Details</string>
+  <string name="review">Review</string>
+  <string name="amount">Amount</string>
+  <string name="note_optional_parenthesis">Note (optional)</string>
+  <string name="enter_note">Enter note</string>
+  <string name="transferring">Transferring</string>
+  <string name="dollar_zero_placeholder">$0.00</string>
+  <string name="from_account_formatted">From %s</string>
+  <string name="to_account_formatted">To %s</string>
+  <string name="when">When</string>
+  <string name="add_more_products">Add more products</string>
+  <string name="payment_description">Payment Description</string>
+  <string name="transfer_execute_immediately">Your transfer will execute immediately</string>
+  <string name="fund_account">Fund Account</string>
+  <string name="lets_fund_account">Let\'s fund your account!</string>
+  <string name="fund_account_message_1">In order to activate your Westerra account, it will need to be funded.</string>
+  <string name="fund_account_message_2">Please select one of your Westerra accounts on the following screen and enter the amount you would like to open your new account with.</string>
+  <string name="minimum_balance_requirement_formatted">A minimum of %s is required to open this account. If the account is not funded within 25 days, it may be removed.</string>
+  <string name="no_minimum_balance_requirement">If the account is not funded within 25 days, it may be removed.</string>
+  <string name="new_account_member_number_formatted">The new account will be created for member number %s.</string>
+  <string name="continue_title">Continue</string>
+  <string name="pdf">PDF</string>
+  <string name="page_counter_formatted">%1$d / %2$d</string>
+  <string name="next">Next</string>
+  <string name="download">Download</string>
+  <string name="share">Share</string>
+  <string name="share_url">Share URL</string>
+  <string name="btp_intro_title">Let\'s make this easy</string>
+  <string name="btp_intro_message_1">Adding a new share is now just a few taps away!</string>
+  <string name="btp_intro_message_2">What are you looking for?</string>
+  <string name="btp_intro_call_us">Not all products are available for online enrollment. Please contact us to learn more.</string>
+  <string name="contact_westerra">Contact Westerra</string>
+  <string name="btp_not_finding">Not finding it? Contact us!</string>
+  <string name="call">Call</string>
+  <string name="message">Message</string>
+  <string name="loading_document">Loading document…</string>
+  <string name="you_have_an_account">You already have an account of this type</string>
+  <string name="you_have_reached_account_limit">You have reached the limit for accounts of this type</string>
+  <string name="you_are_not_eligible">You are not eligible</string>
+
+  <string name="debit_transaction_text">Outgoing</string>
+  <string name="credit_transaction_text">Incoming</string>
+  <string name="credit">Credit</string>
+  <string name="debit">Debit</string>
+  <string name="expiry_date_title">Good through</string>
+  <string name="statement_types">Statement types</string>
+
+  <string name="account_messages">Account messages</string>
+  <string name="account_closed">Account Closed</string>
+  <string name="locked">LOCKED</string>
+  <string name="monthly_statement">monthly statement</string>
+  <string name="tax_statement">tax statement</string>
+  <string name="other">other</string>
+
+  <string name="bill_pay">Bill Pay</string>
+  <string name="bill_pay_description">View the bill pay dashboard</string>
+  <string name="back">Back</string>
+  <string name="make_transfer">Make a Transfer</string>
+
+  <string name="to">To</string>
+  <string name="balance">0.00</string>
+  <string name="transfer_title">Make a Transfer</string>
+  <string name="accounts">Accounts</string>
+  <string name="move_money">Move Money</string>
+  <string name="cards">Cards</string>
+  <string name="more">More</string>
+  <string name="welcome">Welcome</string>
+  <string name="welcome_message">Welcome to digital banking!</string>
+  <string name="enroll_digital_banking">Enroll in digital banking</string>
+  <string name="end_of_list">You have reached the end of the list</string>
+  <string name="scheduled_transfers_description">Edit or cancel upcoming transfers</string>
+
+  <string name="account_closed_subtitle">Account Closed</string>
+  <string name="type_title">Type</string>
+  <string name="date_created_title">Date Created</string>
+  <string name="description_title">Description</string>
+  <string name="statement_description_title">Statement Description</string>
+  <string name="notes_title">Notes</string>
+
+  <string name="remaining_balance_title">Remaining Balance</string>
+
+  <string name="original_loan_amount_title">Original loan amount</string>
+  <string name="session_expired_title">Session expired</string>
+  <string name="please_login_again_message">Please log in again.</string>
+  <string name="account_number_label_title">Account Number</string>
+  <string name="account_number_placeholder_text">Enter account number</string>
+  <string name="insert_member_account_input_hint">Insert member account number</string>
+  <string name="google_places_api_key">AIzaSyAxSiPRpCqmWpySO8MlhSpfv2LCgfeJvJQ</string>
+
+  <!-- Intercept Advertisement -->
+  <string name="intercept_ad_title">Reminder: Activate Your Card(s) Now</string>
+  <string name="intercept_ad_message">We want to ensure members\' use of their Westerra debit and credit cards are not disrupted!\n\nIf you have recently received a new debit or credit card and have NOT activated it, please do so as soon as possible. To activate your card, call 1-866-762-0558.</string>
+
+  <!-- Backbase overrides, string substitution not formatted correctly for multiple insertions. -->
+  <string name="cardsManagement.travelNotice.travelNoticeCardSelection.labels.contentDescription.cardNotSelected">%1$s, ending in %2$s, not selected</string>
+  <string name="cardsManagement.travelNotice.travelNoticeCardSelection.labels.contentDescription.cardSelected">%1$s, ending in %2$s, selected</string>
+  <string name="financialInsights.insights.insightsScreen.labels.totalSpendingForMonth.title">Total spending for %1$s is %2$s</string>
+</resources>

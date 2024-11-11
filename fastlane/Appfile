@@ -1,0 +1,2 @@
+json_key_file("app/play_store_pk.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
+package_name("com.westerra.release.prod.release") # e.g. com.krausefx.app

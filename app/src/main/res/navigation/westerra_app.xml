@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/us_app_navigation"
+    android:label="US retail application"
+    app:startDestination="@+id/splashScreen">
+
+    <include app:graph="@navigation/nav_btp" />
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.backbase.android.retail.journey.app.common.splash.SplashScreen"
+        android:label="Splash screen"
+
+        tools:layout="@layout/splash_screen">
+
+        <action
+            android:id="@+id/action_splashScreen_to_enrollment"
+            app:destination="@id/selfEnrollmentJourney"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popUpTo="@id/us_app_navigation"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_splashScreen_to_app"
+            app:destination="@id/authenticationJourney"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popUpTo="@id/us_app_navigation"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_splashScreen_to_localeSelector"
+            app:destination="@id/localeSelectorJourney"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popUpTo="@id/us_app_navigation"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/appUpdaterJourney"
+        android:name="com.backbase.android.updater.AppUpdaterJourney"
+        android:label="App Updater Journey"
+        tools:layout="@layout/app_updater_journey_update_screen">
+
+        <action
+            android:id="@+id/action_appUpdaterJourney_to_localeSelectorJourney"
+            app:destination="@id/localeSelectorJourney" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/selfEnrollmentJourney"
+        android:name="com.backbase.android.identity.journey.self_enrollment.screens.SelfEnrollmentJourney"
+        android:label="Self Enrollment Journey"
+        tools:layout="@layout/fragment_self_enrollment_journey">
+
+        <action
+            android:id="@+id/action_selfEnrollment_to_auth"
+            app:destination="@id/authenticationJourney"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popUpTo="@id/us_app_navigation"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/localeSelectorJourney"
+        android:name="com.backbase.android.retail.journey.locale_selector.LocaleSelectorJourney">
+
+        <action
+            android:id="@+id/action_localeSelector_to_selfEnrollment"
+            app:destination="@id/selfEnrollmentJourney"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popUpTo="@id/us_app_navigation"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_localeSelector_to_authentication"
+            app:destination="@id/authenticationJourney"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popUpTo="@id/us_app_navigation"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/bottomMenuScreen"
+        android:name="com.backbase.android.retail.journey.app.common.menu.BottomMenuScreen"
+        android:label="Bottom menu screen"
+        tools:layout="@layout/bottom_menu_screen">
+
+        <action
+            android:id="@+id/action_mainScreen_to_authenticationJourney"
+            app:destination="@id/authenticationJourney"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_slide_and_fade_out"
+            app:popUpTo="@id/us_app_navigation"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_mainScreen_to_messagesJourney"
+            app:destination="@id/messagesJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_mainScreen_to_placesJourney"
+            app:destination="@id/placesJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_mainScreen_to_findUsWeb"
+            app:destination="@id/findUsWeb"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_mainScreen_to_findUsCustom"
+            app:destination="@id/findUsCustom"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_mainScreen_to_rtcJourney"
+            app:destination="@id/rtcJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_mainScreen_to_userProfileJourney"
+            app:destination="@id/userProfileJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_mainScreen_to_depositCheck"
+            app:destination="@id/rdcJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_mainScreen_to_notificationsJourney"
+            app:destination="@id/notificationsJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_mainScreen_to_upcomingPaymentsJourney"
+            app:destination="@id/upcomingPaymentsJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_mainScreen_to_paymentsJourney"
+            app:destination="@id/paymentJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_mainScreen_to_workspaceSwitcherJourney"
+            app:destination="@id/usApp.workspaceJourneySwitcherScreen"
+            app:popUpTo="@id/bottomMenuScreen"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_bottomMenuScreen_to_billPayNavigation"
+            app:destination="@id/billPayNavigation" />
+
+        <action
+            android:id="@+id/action_bottomMenuScreen_to_rdcJourney"
+            app:destination="@id/rdcJourney" />
+
+        <action
+            android:id="@+id/action_bottomMenuScreen_to_amplifiSSONavigation"
+            app:destination="@id/amplifiSSONavigation" />
+
+        <action
+            android:id="@+id/action_bottomMenuScreen_to_accountDetails"
+            app:destination="@id/amplifiSSONavigation"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out"  />
+
+        <action
+            android:id="@+id/action_bottomMenuScreen_to_accountStatements"
+            app:destination="@id/amplifiSSONavigation"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out"  />
+
+        <action
+            android:id="@+id/action_bottomMenuScreen_to_btp"
+            app:destination="@id/nav_btp"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_slide_and_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/authenticationJourney"
+        android:name="com.backbase.android.identity.journey.authentication.AuthenticationJourney"
+        android:label="Authentication Journey"
+        tools:layout="@layout/identity_authentication_journey">
+
+        <action
+            android:id="@+id/action_authenticationJourney_to_userContextSelectorJourney"
+            app:destination="@id/userContextSelectorJourney"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_fade_out"
+            app:popUpTo="@id/us_app_navigation"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_authenticationJourneyFragment_to_workspaceSelector"
+            app:destination="@id/workspaces_selector"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_fade_out"
+            app:popUpTo="@id/us_app_navigation"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/changePasswordFlow"
+        android:name="com.backbase.android.identity.journey.userprofile.password.ChangePassword" />
+
+    <fragment
+        android:id="@+id/userContextSelectorJourney"
+        android:name="com.backbase.android.retail.journey.user_context_selector.UserContextSelectorJourney"
+        android:label="User Context Selector Journey">
+
+        <action
+            android:id="@+id/action_userContextSelectorJourney_to_mainScreen"
+            app:destination="@id/bottomMenuScreen"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out"
+            app:popUpTo="@id/us_app_navigation"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/workspaces_selector"
+        android:name="com.backbase.android.business.journey.workspaces.view.WorkspaceSelectorFragment"
+        android:label="@string/usApp.workspaces.label.workspaceSelector"
+        tools:layout="@layout/fragment_workspace_selector">
+
+        <argument
+            android:name="configurationName"
+            android:defaultValue="Default_Workspace_Selector_WorkspaceSelectorScreenConfiguration_Config"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_workspaceSelectorJourney_to_mainScreen"
+            app:destination="@id/bottomMenuScreen"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out"
+            app:popUpTo="@id/us_app_navigation"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_workspaceSelectorJourney_to_authenticationJourney"
+            app:destination="@id/authenticationJourney"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_slide_and_fade_out"
+            app:popUpTo="@id/us_app_navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/usApp.workspaceJourneySwitcherScreen"
+        android:name="com.backbase.android.business.journey.workspaces.view.WorkspaceSwitcherBottomSheet"
+        android:label="@string/usApp.workspaces.switcher.screenLabel">
+
+        <argument
+            android:name="configurationName"
+            android:defaultValue="Default_Workspace_Switcher_WorkspaceSwitcherScreenConfiguration_Config"
+            app:argType="string" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/messagesJourney"
+        android:name="com.backbase.engagementchannels.messages.MessagesJourney"
+        android:label="Messages Journey"
+        tools:layout="@layout/messages_journey" />
+
+    <fragment
+        android:id="@+id/placesJourney"
+        android:name="com.backbase.android.retail.journey.places.PlacesJourney"
+        android:label="Places Journey"
+        tools:layout="@layout/rpj_places_journey" />
+
+    <fragment
+        android:id="@+id/findUsWeb"
+        android:name="com.westerra.release.places.FindUsWebFragment"
+        android:label="Find Us" />
+
+    <fragment
+        android:id="@+id/findUsCustom"
+        android:name="com.westerra.release.places.FindUsCustomFragment"
+        android:label="Find Us" />
+
+    <fragment
+        android:id="@+id/rtcJourney"
+        android:name="com.backbase.android.retail.journey.rtc.RTCJourney"
+        android:label="RTC Journey"
+        tools:layout="@layout/rtc_journey" />
+
+    <fragment
+        android:id="@+id/userProfileJourney"
+        android:name="com.backbase.android.identity.journey.userprofile.UserProfileJourney"
+        android:label="User Profile Journey"
+        tools:layout="@layout/identity_user_profile_journey" />
+
+    <fragment
+        android:id="@+id/notificationsJourney"
+        android:name="com.backbase.engagementchannels.notifications.NotificationsJourney"
+        android:label="Notifications Journey"
+        tools:layout="@layout/notifications_journey" />
+
+    <fragment
+        android:id="@+id/upcomingPaymentsJourney"
+        android:name="com.backbase.android.retail.journey.payments.upcoming.UpcomingPaymentsJourney"
+        android:label="Upcoming Payments Journey"
+        tools:layout="@layout/upcoming_payment_journey" >
+
+        <action
+            android:id="@+id/action_upcomingPaymentsJourney_edit_payment"
+            app:destination="@id/paymentJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentJourney"
+        android:name="com.backbase.android.retail.journey.payments.PaymentJourney"
+        android:label="Payment Journey"
+        tools:layout="@layout/payments_journey">
+
+        <action
+            android:id="@+id/action_paymentJourney_to_upcomingPaymentsJourney"
+            app:destination="@id/upcomingPaymentsJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out"
+            app:popUpTo="@id/upcomingPaymentsJourney"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/rdcJourney"
+        android:name="com.backbase.android.retail.journey.rdc.RdcJourney"
+        android:label="RDC Journey"
+        tools:layout="@layout/rdc_journey" />
+
+    <fragment
+        android:id="@+id/accounts_and_transactions_journey"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.AccountsAndTransactionsJourney"
+        android:label="Accounts and Transactions Journey"
+        tools:layout="@layout/accounts_and_transactions_journey" />
+
+    <action
+        android:id="@+id/action_global_paymentJourney_cashAdvance"
+        app:destination="@id/paymentJourney"
+        app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+        app:exitAnim="@anim/us_app_transition_fade_out"
+        app:popEnterAnim="@anim/us_app_transition_fade_in"
+        app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+    <action
+        android:id="@+id/action_global_paymentJourney_transfer"
+        app:destination="@id/paymentJourney"
+        app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+        app:exitAnim="@anim/us_app_transition_fade_out"
+        app:popEnterAnim="@anim/us_app_transition_fade_in"
+        app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+    <action
+        android:id="@+id/action_global_paymentJourney_pay"
+        app:destination="@id/paymentJourney"
+        app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+        app:exitAnim="@anim/us_app_transition_fade_out"
+        app:popEnterAnim="@anim/us_app_transition_fade_in"
+        app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+    <action
+        android:id="@+id/action_global_authenticationJourney"
+        app:destination="@id/authenticationJourney"
+        app:enterAnim="@anim/us_app_transition_fade_in"
+        app:exitAnim="@anim/us_app_transition_slide_and_fade_out"
+        app:popEnterAnim="@anim/us_app_transition_fade_in"
+        app:popExitAnim="@anim/us_app_transition_slide_and_fade_out"
+        app:popUpTo="@id/us_app_navigation"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_changePasswordFlow"
+        app:destination="@id/changePasswordFlow"
+        app:enterAnim="@anim/us_app_transition_fade_in"
+        app:exitAnim="@anim/us_app_transition_slide_and_fade_out"
+        app:popEnterAnim="@anim/us_app_transition_fade_in"
+        app:popExitAnim="@anim/us_app_transition_slide_and_fade_out"
+        app:popUpTo="@id/bottomMenuScreen"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/action_global_bottomMenuScreen"
+        app:destination="@id/bottomMenuScreen"
+        app:enterAnim="@anim/us_app_transition_fade_in"
+        app:exitAnim="@anim/us_app_transition_slide_and_fade_out"
+        app:popEnterAnim="@anim/us_app_transition_fade_in"
+        app:popExitAnim="@anim/us_app_transition_slide_and_fade_out"
+        app:popUpTo="@id/us_app_navigation"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_accounts_and_transactions_Journey"
+        app:destination="@id/accounts_and_transactions_journey"
+        app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+        app:exitAnim="@anim/us_app_transition_fade_out"
+        app:popEnterAnim="@anim/us_app_transition_fade_in"
+        app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+    <action
+        android:id="@+id/action_global_appUpdater"
+        app:destination="@id/appUpdaterJourney"
+        app:enterAnim="@anim/us_app_transition_fade_in"
+        app:exitAnim="@anim/us_app_transition_fade_out"
+        app:popUpTo="@id/us_app_navigation"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_localeSelector"
+        app:destination="@id/localeSelectorJourney"
+        app:enterAnim="@anim/us_app_transition_fade_in"
+        app:exitAnim="@anim/us_app_transition_fade_out"
+        app:popUpTo="@id/us_app_navigation"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_selfEnrollment"
+        app:destination="@id/selfEnrollmentJourney"
+        app:enterAnim="@anim/us_app_transition_fade_in"
+        app:exitAnim="@anim/us_app_transition_fade_out"
+        app:popUpTo="@id/us_app_navigation"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_paymentJourney_payLoan"
+        app:destination="@id/paymentJourney"
+        app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+        app:exitAnim="@anim/us_app_transition_fade_out"
+        app:popEnterAnim="@anim/us_app_transition_fade_in"
+        app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+    <action
+        android:id="@+id/action_global_paymentJourney_payLoanAdvance"
+        app:destination="@id/paymentJourney"
+        app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+        app:exitAnim="@anim/us_app_transition_fade_out"
+        app:popEnterAnim="@anim/us_app_transition_fade_in"
+        app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+    <fragment
+        android:id="@+id/billPayNavigation"
+        android:name="com.westerra.release.sso.payveris.PayverisSSOFragment"
+        tools:layout="@layout/fragment_web_view"/>
+
+    <fragment
+        android:id="@+id/amplifiSSONavigation"
+        android:name="com.westerra.release.sso.amplifi.AmplifiSSOFragment"
+        tools:layout="@layout/fragment_web_view" />
+    <action
+        android:id="@+id/action_global_messagesJourney"
+        app:destination="@id/messagesJourney"
+        app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+        app:exitAnim="@anim/us_app_transition_fade_out"
+        app:popEnterAnim="@anim/us_app_transition_fade_in"
+        app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+</navigation>

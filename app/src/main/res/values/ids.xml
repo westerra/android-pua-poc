@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <item name="moreMenuJourney_destination_notificationSettingsScreen" type="id">
+    <!--    @+id/moreMenuJourney_action_moreMenuScreen_to_notificationSettingsScreen-->
+  </item>
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.android.retail.journey:remote-deposit-capture-journey:4.0.4
+     Adds a custom message to the screen. -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@android:color/white"
+    tools:parentTag="com.google.android.material.card.MaterialCardView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="?attr/spacerSmall"
+
+        tools:padding="8dp">
+
+        <com.backbase.android.retail.journey.rdc.form.view.AmountInputView
+            android:id="@+id/amountInputView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.backbase.android.retail.journey.rdc.shared.DepositImageView
+            android:id="@+id/chequeInputView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?spacerXSmall"
+            app:layout_constraintTop_toBottomOf="@+id/amountInputView"
+
+            tools:layout_marginTop="4dp"/>
+
+        <!-- This below material text view is added intentionally as per requirement -->
+        <!-- This did not come with OOTB remote deposit capture library -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtv_endorse_check_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textAlignment="textStart"
+            android:fontFamily="@font/circular_xx_medium"
+            android:text="@string/checks_multiple_payees_deposited_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chequeInputView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

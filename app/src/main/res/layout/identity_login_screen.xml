@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.android.identity.journey:authentication-journey:4.4.3
+     Add custom message with external link. -->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/authenticationJourney_loginScreen_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        tools:background="?colorPrimary">
+
+        <ImageView
+            android:id="@+id/authenticationJourney_passcodeScreen_dismissView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="?selectableItemBackground"
+            android:padding="?sizerMedium"
+            android:src="@drawable/identity_authentication_journey_ic_close"
+            android:visibility="gone"
+            android:contentDescription="@string/close_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Space
+            android:id="@+id/authenticationJourney_loginScreen_topSpace"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            app:layout_constraintBottom_toTopOf="@+id/authenticationJourney_loginScreen_titleLogoView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintVertical_weight="1" />
+
+        <ImageView
+            android:id="@+id/authenticationJourney_loginScreen_titleLogoView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:adjustViewBounds="true"
+            android:importantForAccessibility="no"
+            android:maxHeight="@dimen/identity_AuthenticationJourney_loginScreen_titleLogoMaxHeight"
+            android:paddingStart="?spacerXLarge"
+            android:paddingEnd="?spacerXLarge"
+            android:paddingBottom="?spacerLarge"
+            android:scaleType="centerInside"
+
+            app:layout_constraintBottom_toTopOf="@+id/authenticationJourney_loginScreen_titleView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_topSpace"
+
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/authenticationJourney_loginScreen_titleView"
+            style="@style/Widget.BackbaseIdentity.AuthenticationJourney.TextView.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="?spacerMedium"
+
+            android:visibility="invisible"
+            android:gravity="center"
+            android:textAlignment="center"
+
+            app:layout_constraintBottom_toTopOf="@+id/authenticationJourney_loginScreen_middleSpace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_titleLogoView"
+
+            tools:text="@string/identity.authentication.login.labels.title"
+            tools:textColor="?colorOnPrimary" />
+
+        <TextView
+            android:id="@+id/authenticationJourney_loginScreen_customTitle"
+            style="@style/Widget.BackbaseIdentity.AuthenticationJourney.TextView.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="?spacerMedium"
+            android:gravity="center"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/authenticationJourney_loginScreen_middleSpace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_titleLogoView"
+            android:text="@string/welcome_back"
+            tools:textColor="?colorOnPrimary" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/authenticationJourney_loginScreen_linkFrame"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+
+            app:layout_constraintTop_toBottomOf="@id/authenticationJourney_loginScreen_titleView"
+            app:layout_constraintStart_toStartOf="@+id/authenticationJourney_loginScreen_titleView"
+            app:layout_constraintEnd_toEndOf="@+id/authenticationJourney_loginScreen_titleView"
+            android:layout_marginTop="?spacerMedium"
+            android:paddingHorizontal="?spacerSmall">
+
+          <TextView
+              android:id="@+id/authenticationJourney_loginScreen_linkText"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              android:text="@string/custom_login_link_message"
+              style="@style/Widget.BackbaseIdentity.AuthenticationJourney.TextView.Title"
+              android:textSize="14sp"
+              android:textAlignment="center"
+              tools:textColor="?colorOnPrimary"
+              tools:text="@string/custom_login_link_message" />
+
+          <com.westerra.release.views.ExternalLinkButton
+              android:id="@+id/authenticationJourney_loginScreen_linkButton"
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              app:layout_constraintTop_toTopOf="@+id/authenticationJourney_loginScreen_linkText"
+              app:layout_constraintBottom_toBottomOf="@+id/authenticationJourney_loginScreen_linkText"
+              app:layout_constraintStart_toStartOf="@+id/authenticationJourney_loginScreen_linkText"
+              app:layout_constraintEnd_toEndOf="@+id/authenticationJourney_loginScreen_linkText"
+              android:background="?android:attr/selectableItemBackground"
+              />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/authenticationJourney_loginScreen_progressBar"
+            style="@style/Widget.BackbaseIdentity.AuthenticationJourney.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_troubleshootButton"
+
+            tools:indeterminateTint="?colorOnPrimary" />
+
+        <Space
+            android:id="@+id/authenticationJourney_loginScreen_middleSpace"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            app:layout_constraintBottom_toTopOf="@+id/authenticationJourney_loginScreen_passcodeView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_titleView"
+            app:layout_constraintVertical_weight="1" />
+
+        <com.backbase.android.identity.journey.authentication.passcode.IdentityPasscodeView
+            android:id="@+id/authenticationJourney_loginScreen_passcodeView"
+            style="@style/Widget.BackbaseIdentity.AuthenticationJourney.PasscodeView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="noHideDescendants"
+            app:layout_constraintBottom_toTopOf="@+id/authenticationJourney_loginScreen_troubleshootButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_middleSpace"
+
+            tools:passcodeLength="5" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/authenticationJourney_loginScreen_troubleshootButton"
+            style="?attr/buttonStyleLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="?spacerMedium"
+            android:layout_marginEnd="?spacerMedium"
+
+            android:enabled="false"
+            app:layout_constraintBottom_toTopOf="@+id/authenticationJourney_loginScreen_bottomSpace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/authenticationJourney_loginScreen_passcodeView"
+            app:rippleColor="?colorPrimaryVariant"
+
+            tools:text="@string/identity.authentication.passcode.login.buttons.troubleshoot"
+            tools:textColor="?colorOnPrimary" />
+
+        <Space
+            android:id="@+id/authenticationJourney_loginScreen_bottomSpace"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            app:layout_constraintBottom_toTopOf="@+id/authenticationJourney_loginScreen_passcodeKeyboard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_troubleshootButton"
+            app:layout_constraintVertical_weight="1" />
+
+        <com.backbase.android.identity.journey.authentication.passcode.PasscodeKeyboard
+            android:id="@+id/authenticationJourney_loginScreen_passcodeKeyboard"
+            style="@style/Widget.BackbaseIdentity.AuthenticationJourney.PasscodeKeyboard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_bottomSpace" />
+
+        <Space
+            android:id="@+id/authenticationJourney_snackbarAnchor"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

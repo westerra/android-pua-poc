@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/accounts_and_transactions_journey"
+    android:label="Accounts and Transactions Journey"
+    app:startDestination="@+id/accountsAndTransactionsJourney_accountsScreen"
+    tools:ignore="UnusedNavigation">
+
+    <include app:graph="@navigation/account_statements_journey_nav_graph" />
+
+    <fragment
+        android:id="@+id/accountsAndTransactionsJourney_accountsScreen"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.accounts.AccountsScreen"
+        android:label="Product Summary"
+
+        tools:layout="@layout/accounts_transactions_journey_accounts_screen">
+
+        <action
+            android:id="@+id/action_accountsScreen_to_transactionsScreen"
+            app:destination="@id/accountsTransactionsJourney_destination_transactionsScreen"
+            app:enterAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_in"
+            app:exitAnim="@anim/accounts_transactions_journey_transition_fade_out"
+            app:popEnterAnim="@anim/accounts_transactions_journey_transition_fade_in"
+            app:popExitAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@id/accountsTransactionsJourney_action_accountsScreen_to_manageAccountsBottomSheet"
+            app:destination="@id/accountsTransactionsJourney_destination_manageAccountsBottomSheet" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/accountsTransactionsJourney_destination_transactionsScreen"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.transactions.list.TransactionsScreen"
+        android:label="Transaction List"
+        tools:layout="@layout/accounts_transactions_journey_transactions_list_screen">
+
+        <action
+            android:id="@+id/accountsTransactionsJourney_action_transactionsScreen_to_transactionDetailsScreen"
+            app:destination="@id/accountsTransactionsJourney_transactionDetailsScreen"
+            app:enterAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_in"
+            app:exitAnim="@anim/accounts_transactions_journey_transition_fade_out"
+            app:popEnterAnim="@anim/accounts_transactions_journey_transition_fade_in"
+            app:popExitAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/accountsTransactionsJourney_action_transactionsScreen_to_transactionsSearchScreen"
+            app:destination="@id/accountsTransactionsJourney_destination_transactionsSearchScreen"
+            app:enterAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_in"
+            app:exitAnim="@anim/accounts_transactions_journey_transition_fade_out"
+            app:popEnterAnim="@anim/accounts_transactions_journey_transition_fade_in"
+            app:popExitAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@id/accountsTransactionsJourney_action_transactionsScreen_to_accountDetailsScreen"
+            app:destination="@id/accountsTransactionsJourney_destination_accountDetailsScreen"
+            app:enterAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_in"
+            app:exitAnim="@anim/accounts_transactions_journey_transition_fade_out"
+            app:popEnterAnim="@anim/accounts_transactions_journey_transition_fade_in"
+            app:popExitAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@id/accountsTransactionsJourney_action_transactionsScreen_to_quickActionsBottomSheet"
+            app:destination="@id/accountsTransactionsJourney_destination_quickActionsBottomSheet" />
+
+        <action
+            android:id="@id/accountsTransactionsJourney_action_transactionsScreen_to_externalAccountUnlinking"
+            app:destination="@id/accountsTransactionsJourney_destination_externalAccountUnlinkingScreen" />
+
+        <action
+            android:id="@+id/accountsTransactionsJourney_action_transactionsScreen_to_dmiSSONavigation"
+            app:destination="@id/accountsTransactionsJourney_destination_dmiSSOWebViewScreen"
+            app:enterAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_in"
+            app:exitAnim="@anim/accounts_transactions_journey_transition_fade_out"
+            app:popEnterAnim="@anim/accounts_transactions_journey_transition_fade_in"
+            app:popExitAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@id/accountsTransactionsJourney_destination_accountDetailsScreen"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.account_details.AccountDetailsScreen"
+        tools:layout="@layout/accounts_transactions_journey_account_details_screen">
+
+        <action
+            android:id="@id/accountsTransactionsJourney_action_accountDetailsScreen_to_accountDetailsFieldEditorScreen"
+            app:destination="@id/accountsTransactionsJourney_destination_accountDetailsFieldEditorScreen" />
+
+        <action
+            android:id="@id/accountsTransactionsJourney_action_accountDetailsScreen_to_loanDocumentViewerScreen"
+            app:destination="@id/accountsTransactionsJourney_destination_loanDocumentViewer" />
+
+        <action
+            android:id="@id/accountsTransactionsJourney_action_accountDetailsScreen_to_tooltipScreen"
+            app:destination="@id/accountsTransactionsJourney_destination_tooltipScreen" />
+
+        <action
+            android:id="@+id/accountsTransactionsJourney_action_to_dmiSSONavigation"
+            app:destination="@id/accountsTransactionsJourney_destination_dmiSSOWebViewScreen"
+            app:enterAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_in"
+            app:exitAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_out"  />
+
+    </fragment>
+
+    <dialog
+        android:id="@id/accountsTransactionsJourney_destination_accountDetailsFieldEditorScreen"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.account_details.field_editor.AccountDetailsFieldEditorScreen"
+        tools:layout="@layout/accounts_transactions_journey_account_detail_field_editor">
+        <action
+            android:id="@id/accountsTransactionsJourney_action_accountDetailsFieldEditorScreen_to_completeScreen"
+            app:destination="@id/accountsTransactionsJourney_destination_completeScreen" />
+
+    </dialog>
+
+    <dialog
+        android:id="@id/accountsTransactionsJourney_destination_completeScreen"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.complete.CompleteScreen"
+        tools:layout="@layout/accounts_transactions_journey_complete_screen" />
+
+    <fragment
+        android:id="@+id/accountsTransactionsJourney_destination_transactionsSearchScreen"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.transactions.search.TransactionsSearchScreen"
+        android:label="Transactions Search"
+        tools:layout="@layout/accounts_transactions_journey_transactions_list_screen">
+
+        <action
+            android:id="@id/accountsTransactionsJourney_action_transactionsSearchScreen_to_transactionDetailsScreen"
+            app:destination="@id/accountsTransactionsJourney_transactionDetailsScreen"
+            app:enterAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_in"
+            app:exitAnim="@anim/accounts_transactions_journey_transition_fade_out"
+            app:popEnterAnim="@anim/accounts_transactions_journey_transition_fade_in"
+            app:popExitAnim="@anim/accounts_transactions_journey_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@id/accountsTransactionsJourney_action_transactionsSearchScreen_to_transactionAmountFilter"
+            app:destination="@id/accountsTransactionsJourney_destination_transactionAmountFilter" />
+
+        <action
+            android:id="@id/accountsTransactionsJourney_action_transactionsSearchScreen_to_transactionBookingDateFilter"
+            app:destination="@id/accountsTransactionsJourney_destination_transactionBookingDateFilter" />
+
+        <action
+            android:id="@id/accountsTransactionsJourney_action_transactionsSearchScreen_to_transactionCreditDebitFilter"
+            app:destination="@id/accountsTransactionsJourney_destination_transactionCreditDebitFilter" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/accountsTransactionsJourney_transactionDetailsScreen"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.transactions.details.TransactionDetailsScreen"
+        android:label="Transaction Details"
+        tools:layout="@layout/accounts_transactions_journey_transaction_details">
+
+        <action
+            android:id="@id/accountsTransactionsJourney_action_transactionDetails_to_transactionCheckImages"
+            app:destination="@id/accountsTransactionsJourney_destination_transactionCheckImages" />
+
+        <action
+            android:id="@id/accountsTransactionsJourney_action_transactionDetailsScreen_to_quickActionsBottomSheet"
+            app:destination="@id/accountsTransactionsJourney_destination_transactionDetails_quickActionsBottomSheet" />
+    </fragment>
+
+    <fragment
+        android:id="@id/accountsTransactionsJourney_destination_transactionCheckImages"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.transactions.gallery.TransactionCheckImagesScreen"
+        android:label="CheckImageScreen"
+        tools:layout="@layout/accounts_transactions_journey_check_image_screen" />
+
+    <fragment
+        android:id="@id/accountsTransactionsJourney_destination_transactionAmountFilter"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.transactions.filter.amount.TransactionAmountFilterScreen"
+        android:label="TransactionAmountFilterScreen"
+        tools:layout="@layout/accounts_transactions_journey_transaction_amount_filter_screen" />
+
+    <fragment
+        android:id="@id/accountsTransactionsJourney_destination_transactionBookingDateFilter"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.transactions.filter.date.TransactionBookingDateFilterScreen"
+        android:label="TransactionBookingDatFilterScreen"
+        tools:layout="@layout/accounts_transactions_journey_transaction_amount_filter_screen" />
+
+    <fragment
+        android:id="@id/accountsTransactionsJourney_destination_transactionCreditDebitFilter"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.transactions.filter.credit_debit.TransactionCreditDebitFilterScreen"
+        android:label="TransactionCreditDebitFilterScreen"
+        tools:layout="@layout/accounts_transactions_journey_transaction_credit_debit_filter_screen" />
+
+    <fragment
+        android:id="@id/accountsTransactionsJourney_destination_loanDocumentViewer"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.loan_document_viewer.LoanDocumentViewerScreen"
+        android:label="LoanDocumentViewerScreen"
+        tools:layout="@layout/accounts_transactions_journey_loan_document_viewer_screen" />
+
+    <dialog
+        android:id="@id/accountsTransactionsJourney_destination_quickActionsBottomSheet"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.transactions.quick_actions.QuickActionItemsBottomSheetFragment"
+        android:label="Transactions QAB Bottom Sheet" />
+
+    <dialog
+        android:id="@id/accountsTransactionsJourney_destination_manageAccountsBottomSheet"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.accounts.manage_accounts.ManageAccountsBottomSheetFragment"
+        android:label="Manage Accounts Bottom Sheet" />
+
+    <dialog
+        android:id="@id/accountsTransactionsJourney_destination_transactionDetails_quickActionsBottomSheet"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.transactions.details.quick_actions.TransactionDetailsQuickActionItemsBottomSheetFragment"
+        android:label="Transaction Details QAB Bottom Sheet" />
+
+    <fragment
+        android:id="@id/accountsTransactionsJourney_destination_editAccountsScreen"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.accounts.manage_accounts.edit_accounts.EditAccountsScreen"
+        android:label="EditAccountsScreen"
+        tools:layout="@layout/accounts_transactions_journey_edit_accounts_screen" />
+
+    <fragment
+        android:id="@id/accountsTransactionsJourney_destination_externalAccountLinkingScreen"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.accounts.manage_accounts.account_linking.ExternalAccountLinkingScreen"
+        android:label="ExternalAccountLinkingScreen" />
+
+    <dialog
+        android:id="@id/accountsTransactionsJourney_destination_externalAccountUnlinkingScreen"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.accounts.manage_accounts.account_unlinking.ExternalAccountUnlinkingScreen"
+        android:label="ExternalAccountUnlinkingScreen" />
+
+    <dialog
+        android:id="@id/accountsTransactionsJourney_destination_tooltipScreen"
+        android:name="com.backbase.android.retail.journey.accounts_and_transactions.account_details.tooltip_icon.TooltipScreen"
+        android:label="TooltipPopupScreen" />
+
+    <fragment
+        android:id="@+id/accountsTransactionsJourney_destination_dmiSSOWebViewScreen"
+        android:name="com.westerra.release.sso.dmi.DMISSOFragment"
+        tools:layout="@layout/fragment_web_view" />
+
+</navigation>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.android.design:design-system:4.6.1 -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="?spacerXLarge"
+    android:layout_marginEnd="?spacerXLarge">
+
+    <com.backbase.android.design.icon.IconView
+        android:id="@+id/iconView"
+        style="?iconWithBackgroundStyle"
+        android:layout_width="@dimen/bds_state_view_icon_view_width"
+        android:layout_height="@dimen/bds_state_view_icon_view_height"
+        android:padding="?spacerMedium"
+        app:backgroundRadius="?radiusMax"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Changes made here to add margins and adjust vertical spacing. -->
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="?spacerLarge"
+        android:paddingHorizontal="?spacerLarge"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iconView"
+        tools:text="Oops, loading failed" />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="?spacerLarge"
+        android:paddingHorizontal="?spacerLarge"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="Something went wrong.\nPlease try again." />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/primary_action"
+        style="?buttonStylePrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?spacerLarge"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/message"
+        tools:text="Primary action"
+        tools:visibility="visible" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/secondary_action"
+        style="?buttonStyleSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?spacerLarge"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/primary_action"
+        tools:text="Secondary action"
+        tools:visibility="visible" />
+
+</merge>

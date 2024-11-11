@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.engagementchannels:notifications-journey:4.3.5
+     Adds custom colors to notification switches. -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:theme="@style/Theme.Backbase.Fullscreen">
+
+    <ImageView
+        android:id="@+id/channelIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/ic_channel_push" />
+
+    <TextView
+        android:id="@+id/channelLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?spacerMedium"
+        android:layout_marginEnd="?spacerSmall"
+        android:textAlignment="viewStart"
+        android:textColor="?colorOnBackground"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/channelSwitch"
+        app:layout_constraintStart_toEndOf="@id/channelIcon"
+        app:layout_constraintTop_toTopOf="@id/channelIcon"
+        tools:text="channelLabel" />
+
+    <TextView
+        android:id="@+id/channelDetails"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?spacerXSmall"
+        android:layout_marginEnd="?spacerSmall"
+        android:textAlignment="viewStart"
+        android:textColor="?colorTextSupport"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/channelSwitch"
+        app:layout_constraintStart_toStartOf="@id/channelLabel"
+        app:layout_constraintTop_toBottomOf="@id/channelLabel"
+        tools:text="Sent to your primary phone number" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/channelSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?spacerMedium"
+        app:thumbTint="@color/custom_notification_switch_selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

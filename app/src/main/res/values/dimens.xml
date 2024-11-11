@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pdf_toolbar_height">60dp</dimen>
+    <dimen name="toolbar_image_size">24dp</dimen>
+    <dimen name="collapsing_space_height">100dp</dimen>
+    <dimen name="intercept_ad_image_offset">-40dp</dimen>
+    <dimen name="intercept_ad_below_image_offset">-90dp</dimen>
+</resources>

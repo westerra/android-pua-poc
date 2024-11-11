@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.android.retail.journey:contacts-journey:4.0.4
+     Add custom layout to hide editing contact account number field. -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/rcj_contactFormScreen_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:background="?colorSurface">
+
+  <com.google.android.material.appbar.MaterialToolbar
+      android:id="@+id/rcj_contactFormScreen_toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+
+      app:contentInsetStartWithNavigation="0dp"
+      app:layout_constraintBottom_toTopOf="@+id/rcj_contactFormScreen_scrollContainer"
+
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0"
+      app:layout_constraintVertical_chainStyle="packed"
+      app:titleTextColor="?colorOnSurface"
+
+      tools:title="@string/contacts.contactForm.add.navigation.title" />
+
+  <ScrollView
+      android:id="@+id/rcj_contactFormScreen_scrollContainer"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+
+      app:layout_constraintBottom_toTopOf="@+id/rcj_contactFormScreen_submitButton"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/rcj_contactFormScreen_toolbar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?spacerMedium"
+        android:layout_marginEnd="?spacerMedium"
+
+        android:orientation="vertical">
+
+      <TextView
+          android:id="@+id/rcj_contactFormScreen_nameLabel"
+
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="?spacerLarge"
+
+          android:labelFor="@+id/rcj_contactFormScreen_nameLayout"
+          android:textAppearance="?textAppearanceFormLabel"
+          android:textColor="?colorOnSurface"
+
+          tools:ignore="LabelFor"
+          tools:text="@string/contacts.contactForm.name.title" />
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/rcj_contactFormScreen_nameLayout"
+          style="?attr/inputLayoutStyle"
+
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="?spacerXSmall"
+
+          android:elevation="?elevationSmall">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rcj_contactFormScreen_nameField"
+            style="?inputEditTextStyle"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:inputType="text"
+
+            tools:hint="@string/contacts.contactForm.name.placeholder" />
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.westerra.release.contacts.EditContactAccountNumberLayout
+          android:id="@+id/rcj_contactFormScreen_identifierContainer"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+
+          android:orientation="vertical" />
+    </LinearLayout>
+  </ScrollView>
+
+  <com.backbase.android.design.button.BackbaseButton
+      android:id="@+id/rcj_contactFormScreen_submitButton"
+
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+
+      android:layout_marginStart="?spacerMedium"
+      android:layout_marginEnd="?spacerMedium"
+      android:layout_marginBottom="?spacerLarge"
+
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/rcj_contactFormScreen_scrollContainer"
+
+      tools:text="@string/contacts.contactForm.submit" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

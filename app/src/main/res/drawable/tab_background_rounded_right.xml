@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file is from payments journey drawable folder -->
+<!-- Be Careful while making changes to this file -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:top="?spacerSmall"
+        android:bottom="?spacerSmall">
+        <selector>
+            <item android:state_selected="true">
+                <shape>
+                    <solid android:color="@color/tabBackgroundColor"/>
+                    <stroke android:color="@color/tabUnselectedBackgroundColor"
+                        android:width="2dp" />
+                    <corners android:radius="8dp"
+                        android:topLeftRadius="0dp"
+                        android:bottomLeftRadius="0dp" />
+                </shape>
+            </item>
+
+            <item android:state_selected="false">
+                <shape>
+                    <solid android:color="@color/tabUnselectedBackgroundColor"/>
+                    <stroke android:color="@color/tabUnselectedBackgroundColor"
+                        android:width="0dp"
+                        android:right="-0dp" />
+                    <corners android:radius="8dp"
+                        android:topLeftRadius="0dp"
+                        android:bottomLeftRadius="0dp" />
+                </shape>
+            </item>
+
+        </selector>
+    </item>
+</layer-list>

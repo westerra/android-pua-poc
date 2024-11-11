@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorOnBackground"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_collapsing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorOnBackground"
+                app:contentScrim="@color/toolbarContentScrim"
+                app:statusBarScrim="@color/transparent"
+                app:titleEnabled="true"
+                app:title="@string/intro_title"
+                android:fitsSystemWindows="true"
+                app:collapsedTitleGravity="start"
+                app:collapsedTitleTextColor="@color/textColorPrimary"
+                app:collapsedTitleTextAppearance="@style/CollapsedToolbarTitle"
+                app:expandedTitleGravity="start|bottom"
+                app:expandedTitleTextColor="@color/textColorPrimary"
+                app:expandedTitleTextAppearance="@style/ExpandedToolbarTitle"
+                app:expandedTitleMarginStart="@dimen/large"
+                app:expandedTitleMarginEnd="@dimen/large"
+                app:expandedTitleMarginBottom="@dimen/large"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <Space
+                    android:id="@+id/expanded_size"
+                    android:layout_width="1dp"
+                    android:layout_height="@dimen/collapsing_space_height"
+                    android:background="@color/transparent"/>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    style="@style/CollapsingToolbar">
+
+                    <FrameLayout
+                        android:id="@+id/back_button"
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:background="?android:selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="@dimen/toolbar_image_size"
+                            android:layout_height="@dimen/toolbar_image_size"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_back_arrow"
+                            android:contentDescription="@string/back"/>
+
+                    </FrameLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:overScrollMode="always"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/bottom_spacer"
+                    android:layout_marginHorizontal="@dimen/large"
+                    android:layout_marginTop="@dimen/large"
+                    android:layout_marginBottom="@dimen/large"
+                    card_view:cardCornerRadius="@dimen/medium"
+                    card_view:cardElevation="@dimen/small">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/large">
+
+                        <TextView
+                            android:id="@+id/title_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="@string/btp_intro_title"
+                            android:paddingBottom="@dimen/large"
+                            style="@style/Btp.TextView.Intro.Title"/>
+
+                        <TextView
+                            android:id="@+id/message_1_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/title_text"
+                            android:paddingBottom="@dimen/large"
+                            android:text="@string/btp_intro_message_1"
+                            style="@style/Btp.TextView.Intro.Body"/>
+
+                        <TextView
+                            android:id="@+id/message_2_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/message_1_text"
+                            android:paddingBottom="@dimen/large"
+                            android:text="@string/btp_intro_message_2"
+                            android:textAlignment="center"
+                            style="@style/Btp.TextView.Intro.Body"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/spending_card"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/message_2_text"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/savings_card"
+                            android:layout_marginHorizontal="@dimen/large"
+                            android:layout_marginTop="@dimen/large"
+                            card_view:cardCornerRadius="@dimen/medium"
+                            card_view:cardElevation="@dimen/small">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/spending_clicker"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?android:selectableItemBackground">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/wcu_vertical_debit"
+                                    android:contentDescription="@string/spending"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintDimensionRatio="1:1" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/spending_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/spending_card"
+                            app:layout_constraintStart_toStartOf="@id/spending_card"
+                            app:layout_constraintEnd_toEndOf="@id/spending_card"
+                            android:layout_marginTop="@dimen/medium"
+                            android:text="@string/spending"
+                            style="@style/Btp.TextView.Intro.Body"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/savings_card"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/message_2_text"
+                            app:layout_constraintStart_toEndOf="@+id/spending_card"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginHorizontal="@dimen/large"
+                            android:layout_marginTop="@dimen/large"
+                            card_view:cardCornerRadius="@dimen/medium"
+                            card_view:cardElevation="@dimen/small">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/savings_clicker"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?android:selectableItemBackground">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/wcu_piggy_bank"
+                                    android:contentDescription="@string/savings"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintDimensionRatio="1:1" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/savings_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/savings_card"
+                            app:layout_constraintStart_toStartOf="@id/savings_card"
+                            app:layout_constraintEnd_toEndOf="@id/savings_card"
+                            android:layout_marginTop="@dimen/medium"
+                            android:text="@string/savings"
+                            style="@style/Btp.TextView.Intro.Body"/>
+
+                        <Space
+                            android:id="@+id/spacer"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintTop_toBottomOf="@+id/spending_text"
+                            app:layout_constraintBottom_toTopOf="@id/bottom_text"/>
+
+                        <com.westerra.release.btp.components.CallMessageTextView
+                            android:id="@+id/bottom_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/spacer"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginTop="@dimen/large"
+                            android:text="@string/btp_intro_call_us"
+                            style="@style/Btp.TextView.Intro.Body"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <Space
+                    android:id="@+id/bottom_spacer"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    app:layout_constraintTop_toBottomOf="@+id/card_layout"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginStart="-16dp"
+        android:background="@color/colorOnBackground">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_contents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:clipChildren="false">
+
+            <FrameLayout
+                android:id="@+id/back_button"
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:focusable="true"
+                android:clickable="true"
+                android:background="?android:selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_back_arrow"
+                    android:contentDescription="@string/back"
+                    android:padding="12dp"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/back_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingEnd="0dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/circular_xx_medium"
+                tools:text="Toolbar Title"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+</layout>

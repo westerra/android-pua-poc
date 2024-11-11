@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.android.retail.journey:app-common4.7.0.1
+     Adds InterceptAdvertisementDetector. -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <com.westerra.release.bottommenu.InterceptAdvertisementDetector
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:visibility="invisible"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+
+  <androidx.fragment.app.FragmentContainerView
+      android:id="@+id/bottomMenuScreen_navHostFragmentContainer"
+      android:name="androidx.navigation.fragment.NavHostFragment"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+
+      android:background="?android:colorBackground"
+      android:tag="BottomMenuNavHostFragment"
+
+      app:defaultNavHost="true"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/bottomMenuScreen_menuView" />
+
+  <com.google.android.material.bottomnavigation.BottomNavigationView
+      android:id="@+id/bottomMenuScreen_menuView"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+
+      tools:layout_height="100dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

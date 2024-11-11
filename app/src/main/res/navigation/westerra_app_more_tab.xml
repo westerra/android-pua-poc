@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/usApp_moreTab"
+    app:startDestination="@+id/moreJourney">
+
+    <fragment
+        android:id="@+id/moreJourney"
+        android:name="com.backbase.android.retail.journey.more.MoreJourney"
+        android:label="More Journey">
+
+        <action
+            android:id="@+id/action_moreMenu_to_financialInsightsJourney"
+            app:destination="@id/financialInsightsJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_moreMenu_to_contactsJourney"
+            app:destination="@id/contactsJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_moreMenu_to_placesJourney"
+            app:destination="@id/placesJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_moreMenu_to_localeSelectorJourney"
+            app:destination="@id/localeSelectorJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_moreMenu_to_settingsMoreJourney"
+            app:destination="@id/settingsMoreJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_moreMenu_to_depositsMenu"
+            app:destination="@id/depositsMoreJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/financialInsightsJourney"
+        android:name="com.backbase.android.retail.journey.financialinsights.FinancialInsightsJourney" />
+
+    <fragment
+        android:id="@+id/contactsJourney"
+        android:name="com.backbase.android.retail.journey.contacts.ContactsJourney" />
+
+    <fragment
+        android:id="@+id/placesJourney"
+        android:name="com.backbase.android.retail.journey.places.PlacesJourney"
+        android:label="Places Journey" />
+
+    <fragment
+        android:id="@+id/localeSelectorJourney"
+        android:name="com.backbase.android.retail.journey.locale_selector.LocaleSelectorJourney" />
+
+    <fragment
+        android:id="@+id/userProfileJourney"
+        android:name="com.backbase.android.identity.journey.userprofile.UserProfileJourney" />
+
+    <fragment
+        android:id="@+id/authenticationJourney"
+        android:name="com.backbase.android.identity.journey.authentication.AuthenticationJourney">
+
+        <action
+            android:id="@+id/action_enableBiometrics_to_settingsMoreJourney"
+            app:destination="@id/settingsMoreJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsMoreJourney"
+        android:name="com.backbase.android.retail.journey.more.MoreJourney">
+
+        <action
+            android:id="@+id/action_settingsMoreMenu_to_userProfileJourney"
+            app:destination="@id/userProfileJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_settingsMoreMenu_to_enableBiometrics"
+            app:destination="@id/authenticationJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/depositsMoreJourney"
+        android:name="com.backbase.android.retail.journey.more.MoreJourney">
+
+        <action
+            android:id="@+id/action_depositsMoreMenu_to_depositCheck"
+            app:destination="@id/rdcJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+        <action
+            android:id="@+id/action_depositsMoreMenu_to_depositHistory"
+            app:destination="@id/rdhJourney"
+            app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"
+            app:popEnterAnim="@anim/us_app_transition_fade_in"
+            app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/rdcJourney"
+        android:name="com.backbase.android.retail.journey.rdc.RdcJourney"
+        android:label="Remote Deposit Capture Journey" />
+
+    <fragment
+        android:id="@+id/rdhJourney"
+        android:name="com.backbase.android.retail.journey.rdh.RemoteDepositHistoryJourney"
+        android:label="Remote Deposit History Journey" />
+
+</navigation>

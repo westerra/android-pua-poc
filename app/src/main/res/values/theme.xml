@@ -1,0 +1,7 @@
+<resources>
+
+  <style name="ApplicationTheme" parent="Theme.BackbaseRetail">
+    <!--Override Backbase Design System attributes here to change your application's theme-->
+  </style>
+
+</resources>

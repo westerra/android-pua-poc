@@ -1,0 +1,298 @@
+{
+  "project_info": {
+    "project_number": "561032792118",
+    "project_id": "westerracu-ebb72",
+    "storage_bucket": "westerracu-ebb72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561032792118:android:8b0dba00c957a223ba7097",
+        "android_client_info": {
+          "package_name": "com.westerra.release.dev.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChMOs5XQh5DaSH-3tjwKiAuOFwrxhDrAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "561032792118-62ntln1t63fuoat9g759ejaultbg275s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.westerracu.mobile.sit"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561032792118:android:ed6f5b746e191e09ba7097",
+        "android_client_info": {
+          "package_name": "com.westerra.release.dev.release"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChMOs5XQh5DaSH-3tjwKiAuOFwrxhDrAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "561032792118-62ntln1t63fuoat9g759ejaultbg275s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.westerracu.mobile.sit"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561032792118:android:a7ddb68e7edbda93ba7097",
+        "android_client_info": {
+          "package_name": "com.westerra.release.prod.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChMOs5XQh5DaSH-3tjwKiAuOFwrxhDrAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "561032792118-62ntln1t63fuoat9g759ejaultbg275s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.westerracu.mobile.sit"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561032792118:android:64acd72bb0653421ba7097",
+        "android_client_info": {
+          "package_name": "com.westerra.release.prod.release"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChMOs5XQh5DaSH-3tjwKiAuOFwrxhDrAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "561032792118-62ntln1t63fuoat9g759ejaultbg275s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.westerracu.mobile.sit"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561032792118:android:aa219bcef35906a1ba7097",
+        "android_client_info": {
+          "package_name": "com.westerra.release.sit.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChMOs5XQh5DaSH-3tjwKiAuOFwrxhDrAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "561032792118-62ntln1t63fuoat9g759ejaultbg275s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.westerracu.mobile.sit"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561032792118:android:98890ce46634268dba7097",
+        "android_client_info": {
+          "package_name": "com.westerra.release.sit.release"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChMOs5XQh5DaSH-3tjwKiAuOFwrxhDrAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "561032792118-62ntln1t63fuoat9g759ejaultbg275s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.westerracu.mobile.sit"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561032792118:android:1af208e6d04515fcba7097",
+        "android_client_info": {
+          "package_name": "com.westerra.release.uat.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChMOs5XQh5DaSH-3tjwKiAuOFwrxhDrAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "561032792118-62ntln1t63fuoat9g759ejaultbg275s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.westerracu.mobile.sit"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561032792118:android:12242550b21cd941ba7097",
+        "android_client_info": {
+          "package_name": "com.westerra.release.uat.release"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChMOs5XQh5DaSH-3tjwKiAuOFwrxhDrAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561032792118-3t0q46oimths1rd95fah9k9mtbg9tvso.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "561032792118-62ntln1t63fuoat9g759ejaultbg275s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.westerracu.mobile.sit"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

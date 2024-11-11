@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.android.retail.journey:upcoming-payments-journey:3.2.0
+     Customized to remove the edit button. -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detail_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="?attr/spacerMedium"
+    android:paddingEnd="?attr/spacerMedium"
+    android:paddingBottom="?attr/spacerMedium"
+    tools:showIn="@layout/upcoming_payment_detail_listing">
+
+    <com.backbase.android.design.amount.AmountTextView
+        android:id="@+id/amount"
+        style="@style/UpcomingPaymentsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/spacerSmall"
+        android:maxLines="1"
+        android:textAlignment="viewEnd"
+        android:textAppearance="@style/TextAppearance.Backbase.H5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="USD 575.000.000.000.00" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/schedule"
+        style="@style/UpcomingPaymentsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/spacerSmall"
+        android:textAppearance="?attr/textAppearanceSubtitle2Regular"
+        android:textColor="?attr/colorTextSupport"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/amount"
+        tools:text="Scheduled for Aug 16, 2020" />
+
+    <com.backbase.android.design.badge.Badge
+        android:id="@+id/status_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/sizerSmall"
+        app:badgeType="warning"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/schedule"
+        tools:text="Pending" />
+
+    <!--region Chained Actions-->
+
+    <!-- edit button hidden because api doesn't support it and app crashes when clicked. -->
+    <com.backbase.android.design.icon.IconButtonLayout
+        android:id="@+id/edit_button_layout"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:translationY="-2dp"
+        android:visibility="gone"
+        android:clickable="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible"
+        tools:text="@string/upcoming_payments_detail_headers_action_edit_title">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/edit_action_button"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:clickable="false"
+            android:visibility="gone"
+            android:src="@drawable/backbase_ic_edit"
+            android:importantForAccessibility="no"/>
+
+    </com.backbase.android.design.icon.IconButtonLayout>
+
+    <com.backbase.android.design.icon.IconButtonLayout
+        android:id="@+id/delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/spacerLarge"
+        android:visibility="gone"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status_badge"
+        app:layout_constraintBottom_toTopOf="@+id/detail_field_list_container"
+        app:icon="@drawable/backbase_ic_close"
+        app:error="true"
+        tools:visibility="visible"
+        tools:text="@string/upcoming_payments_detail_headers_action_delete_title"/>
+
+    <!--endregion-->
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/detail_field_list_container"
+        style="@style/UpcomingPaymentsJourneyDetailsCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/delete_button"
+        app:layout_constraintVertical_bias="0">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/detail_field_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/payment_detail_field_item" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/payment_non_editable_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/spacerSmall"
+        android:paddingStart="?attr/sizerMedium"
+        android:paddingEnd="?attr/sizerMedium"
+        android:textAppearance="?attr/textAppearanceCaption"
+        android:textColor="?attr/colorTextSupport"
+        android:textAlignment="center"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/detail_field_list_container"
+        app:layout_constraintStart_toStartOf="@id/detail_field_list_container"
+        app:layout_constraintTop_toBottomOf="@id/detail_field_list_container"
+        tools:visibility="visible"
+        tools:text="@string/upcoming_payments_detail_p2p_pending_non_editable_payment_message"
+        tools:layout_marginTop="8dp"
+        tools:layout_marginEnd="16dp"
+        tools:layout_marginStart="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

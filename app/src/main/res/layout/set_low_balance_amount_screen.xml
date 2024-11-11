@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.engagementchannels:notifications-journey:4.3.5
+     Customized to pin the submit button at bottom of the screen. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?android:colorBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="?spacerMedium"
+            android:layout_marginTop="?spacerMedium"
+            android:layout_marginEnd="?spacerMedium"
+            android:fontFamily="@font/circular_xx_regular"
+            android:textColor="?colorTextSupport"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:text="@string/low_balance_notification_settings_balance_subtitle" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/amountEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="?spacerMedium"
+            android:layout_marginTop="?spacerMedium"
+            android:layout_marginEnd="?spacerMedium"
+            android:background="@null"
+            android:digits="0123456789"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textColor="?colorOnBackground"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+            tools:ignore="Autofill,LabelFor"
+            tools:text="$0" />
+
+        <com.backbase.android.design.button.BackbaseButton
+            android:id="@+id/saveAmountButton"
+            style="?attr/buttonStylePrimary"
+            android:layout_marginStart="?spacerMedium"
+            android:layout_marginEnd="?spacerMedium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/amountEditText"
+            app:layout_constraintVertical_bias="0.98" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+

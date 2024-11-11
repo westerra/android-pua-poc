@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="WesterraTheme" parent="Theme.BackbaseRetail">
+
+    <!-- Custom Color applied for all headings and body -->
+    <item name="android:textColorPrimary">@color/textColorPrimary</item>
+    <item name="colorPrimary">@color/primaryColor</item>
+    <item name="colorOnPrimary">@color/colorOnPrimary</item>
+    <item name="colorSecondary">@color/colorSecondary</item>
+    <item name="colorOnSecondary">@color/colorOnSecondary</item>
+    <item name="colorFoundation">@color/colorOnBackground</item>
+
+  <!-- Applies to "transfer to member" and "transfer to westerra member" flow while selecting payment party in list -->
+    <item name="colorSelected">@color/paymentPartySelectedColor</item>
+
+    <item name="bottomNavigationStyle">@style/CustomBottomNavigationStyle</item>
+    <item name="iconWithBackgroundStyle">@style/CustomIconStyle</item>
+    <item name="textAppearanceHeadline1">@style/CustomTextAppearanceHeadline1</item>
+    <item name="textAppearanceHeadline2">@style/CustomTextAppearanceHeadline2</item>
+    <item name="textAppearanceHeadline3">@style/CustomTextAppearanceHeadline3</item>
+    <item name="textAppearanceHeadline4">@style/CustomTextAppearanceHeadline4</item>
+    <item name="textAppearanceHeadline5">@style/CustomTextAppearanceHeadline5</item>
+    <item name="textAppearanceHeadline6">@style/CustomTextAppearanceHeadline6</item>
+    <item name="textAppearanceBody1">@style/CustomTextAppearanceBody1</item>
+    <item name="textAppearanceBody1Medium">@style/CustomTextAppearanceBody1Medium</item>
+    <item name="textAppearanceBody2">@style/CustomTextAppearanceBody2</item>
+    <item name="textAppearanceBody2Medium">@style/CustomTextAppearanceBody2Medium</item>
+    <item name="textAppearanceSubtitle2">@style/CustomTextAppearanceSubtitle2</item>
+    <item name="badgeViewStyle">@style/CustomBadgeViewStyle</item>
+    <item name="summaryStackChipStyle">@style/TransactionDetailsSummaryStackChipStyle</item>
+  </style>
+
+  <style name="CustomTextAppearanceHeadline1" parent="TextAppearance.MaterialComponents.Headline1">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="CustomTextAppearanceHeadline2" parent="TextAppearance.MaterialComponents.Headline2">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="CustomTextAppearanceHeadline3" parent="TextAppearance.MaterialComponents.Headline3">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="CustomTextAppearanceHeadline4" parent="TextAppearance.MaterialComponents.Headline4">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="CustomTextAppearanceHeadline5" parent="TextAppearance.MaterialComponents.Headline5">
+    <item name="fontFamily">@font/circular_xx_font_weight_700</item>
+    <item name="android:fontFamily">@font/circular_xx_font_weight_700</item>
+  </style>
+
+  <style name="CustomTextAppearanceHeadline6" parent="TextAppearance.MaterialComponents.Headline6">
+    <item name="fontFamily">@font/circular_xx_font_weight_700</item>
+    <item name="android:fontFamily">@font/circular_xx_font_weight_700</item>
+  </style>
+
+  <style name="CustomTextAppearanceBody1" parent="TextAppearance.Backbase.Body1">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="CustomTextAppearanceBody1Medium" parent="TextAppearance.Backbase.Body1.Medium">
+    <item name="fontFamily">@font/circular_xx_medium</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+  </style>
+
+  <style name="CustomTextAppearanceBody2" parent="TextAppearance.Backbase.Body2">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="CustomTextAppearanceBody2Medium" parent="TextAppearance.Backbase.Body2.Medium">
+    <item name="fontFamily">@font/circular_xx_medium</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+  </style>
+
+  <style name="CustomTextAppearanceSubtitle2" parent="TextAppearance.Backbase.Subtitle2.Medium">
+    <item name="fontFamily">@font/circular_xx_medium</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+  </style>
+  
+  <style name="CustomBottomNavigationStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+    <item name="itemIconTint">@drawable/custom_bottom_navigation_selector</item>
+    <item name="itemTextColor">@drawable/custom_bottom_navigation_selector</item>
+  </style>
+
+  <style name="CustomIconStyle" parent="Widget.Backbase.IconView.WithBackground">
+    <item name="iconColor">@color/iconColor</item>
+    <item name="android:backgroundTint">@color/iconBackgroundColor</item>
+  </style>
+
+  <style name="CollapsedToolbarTitle" parnet="Widget.Design.CollapsingToolbar">
+    <item name="android:textSize">20dp</item>
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:ellipsize">end</item>
+    <item name="android:maxLines">1</item>
+    <item name="fontFamily">@font/circular_xx_bold</item>
+  </style>
+
+  <style name="ExpandedToolbarTitle" parnet="Widget.Design.CollapsingToolbar">
+    <item name="android:textSize">26dp</item>
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:ellipsize">end</item>
+    <item name="android:maxLines">1</item>
+    <item name="fontFamily">@font/circular_xx_bold</item>
+  </style>
+
+  <!-- Accounts and Transactions Related Styles -->
+  <style name="AccountRowTitleStyle" parent="TextAppearance.Backbase.Subtitle1.Medium">
+    <item name="fontFamily">@font/circular_xx_medium</item>
+  </style>
+
+  <style name="AccountRowSubTitleStyle" parent="AccountListItemSupportTextAppearance">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="AccountRowRightAccessoryTextStyle" parent="TextAppearance.Backbase.Subtitle1">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <!-- Messages Journey Styles -->
+  <style name="ConversationListItemSenderTextStyle">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+    <item name="android:ellipsize">end</item>
+    <item name="android:maxLines">1</item>
+    <item name="android:textColor">?colorOnBackground</item>
+    <item name="android:textSize">14sp</item>
+  </style>
+
+  <style name="ConversationListItemTitleTextStyle">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+    <item name="android:ellipsize">end</item>
+    <item name="android:maxLines">1</item>
+    <item name="android:textColor">?colorOnBackground</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:textStyle">bold</item>
+  </style>
+
+  <style name="ConversationListItemPreviewTextStyle">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+    <item name="android:ellipsize">end</item>
+    <item name="android:maxLines">1</item>
+    <item name="android:textColor">?colorTextSupport</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:textStyle">normal</item>
+  </style>
+
+  <style name="ConversationListItemDateTextStyle">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+    <item name="android:drawablePadding">?spacerXSmall</item>
+    <item name="android:textColor">?colorOnSurface</item>
+    <item name="android:textSize">14sp</item>
+    <item name="android:textStyle">normal</item>
+  </style>
+
+  <style name="CustomBadgeViewStyle" parent="Widget.Backbase.Badge">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="CustomMessagesTabTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">
+    <item name="android:textAllCaps">false</item>
+  </style>
+
+  <!-- Payments Journey Styles -->
+  <style name="AccountNumber">
+    <item name="android:textAppearance">@style/TextAppearance.Backbase.Subtitle2.Regular</item>
+    <item name="android:textColor">?android:textColorSecondary</item>
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="BalanceTitle">
+    <item name="android:textAppearance">@style/TextAppearance.Backbase.Subtitle2.Regular</item>
+    <item name="android:textColor">?android:textColorSecondary</item>
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="FormAmountInput">
+    <item name="android:inputType">numberDecimal</item>
+    <item name="android:imeOptions">actionDone</item>
+    <item name="android:maxLines">1</item>
+    <item name="android:ellipsize">end</item>
+    <item name="android:textCursorDrawable">@drawable/edittext_color_cursor</item>
+    <item name="android:background">@drawable/edittext_color_underline_selector</item>
+    <item name="fontFamily">@font/circular_xx_medium</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+  </style>
+
+  <style name="Amount">
+    <item name="android:textAppearance">@style/TextAppearance.Backbase.Body1.Medium</item>
+    <item name="fontFamily">@font/circular_xx_medium</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+  </style>
+
+  <style name="ContactsGroupSectionTitle">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+    <item name="android:maxLines">2</item>
+  </style>
+
+  <style name="FormTextView">
+    <item name="android:maxLines">4</item>
+    <item name="android:ellipsize">end</item>
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="ScheduleTabLayoutTextAppearance" parent="TextAppearance.MaterialComponents.Caption">
+    <item name="textAllCaps">false</item>
+    <item name="font">@font/circular_xx_medium</item>
+    <item name="fontFamily">@font/circular_xx_medium</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+  </style>
+
+  <!-- Notification Journey Styles -->
+  <style name="BBNotificationsDateStyle">
+    <item name="android:maxLines">1</item>
+    <item name="android:textSize">@dimen/notifications_list_item_secondary_font_size</item>
+    <item name="android:textAlignment">textEnd</item>
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="BBNotificationsSubtitleStyle">
+    <item name="android:ellipsize">end</item>
+    <item name="android:maxLines">2</item>
+    <item name="android:textAlignment">textStart</item>
+    <item name="android:textSize">@dimen/notifications_list_item_preview_font_size</item>
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="BBNotificationsTitleStyle">
+    <item name="android:ellipsize">end</item>
+    <item name="android:maxLines">1</item>
+    <item name="android:textSize">@dimen/notifications_list_item_title_font_size</item>
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="toolbarExpandedTextAppearance" parent="TextAppearance.AppCompat.Display1">
+    <item name="android:textSize">24sp</item>
+    <item name="android:textColor">?colorOnBackground</item>
+    <item name="android:textStyle">bold</item>
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <!-- Override Default Styles -->
+  <style name="TextAppearance.Backbase.Subtitle1" parent="@style/TextAppearance.MaterialComponents.Subtitle1">
+    <item name="fontFamily">@font/circular_xx_regular</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+    <item name="android:textColor">?android:textColorPrimary</item>
+  </style>
+
+  <style name="AmountInputTextStyle" parent="@style/TextAppearance.Backbase.H4">
+    <item name="fontFamily">@font/circular_xx_medium</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+  </style>
+  
+  <!-- Other styles -->
+
+  <style name="PdfPageCounterStyle">
+    <item name="android:textSize">16sp</item>
+    <item name="fontFamily">@font/circular_xx_medium</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textAlignment">center</item>
+    <item name="android:background">@color/transparent_black_background</item>
+  </style>
+
+  <style name="ClosedAccountStyle_light" parent="WesterraTheme">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textColor">#D32F2F</item>
+    <item name="android:drawableStart">@drawable/backbase_ic_add_box</item>
+  </style>
+
+  <style name="ClosedAccountStyle_dark">
+    <item name="android:textColor">#FF6A61</item>
+  </style>
+
+  <style name="AmountEditTextTheme">
+    <item name="colorControlNormal">@color/amountColorControl</item>
+    <item name="colorControlActivated">@color/amountColorControl</item>
+    <item name="colorControlHighlight">@color/amountColorControl</item>
+    <item name="android:textColorHint">@color/amountHintColor</item>
+  </style>
+
+  <style name="RoundedBottomSheetDialog" parent="@style/Theme.Design.BottomSheetDialog">
+    <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
+    <item name="android:windowIsFloating">false</item>
+    <item name="android:navigationBarColor">@color/bottomSheetBottomColor</item>
+    <item name="android:statusBarColor">@android:color/transparent</item>
+  </style>
+
+  <style name="Widget.BackbaseIdentity.UserProfileJourney.TextView.CurrentPasswordSubTitle" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textAppearance">?textAppearanceBody2</item>
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textAlignment">center</item>
+  </style>
+
+  <style name="Widget.BackbaseIdentity.UserProfileJourney.TextView.CurrentPasswordTitle" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textAppearance">?textAppearanceHeadline5</item>
+    <item name="android:textColor">@color/textColorPrimary</item>
+  </style>
+
+  <style name="Widget.BackbaseIdentity.UserProfileJourney.TextView.Description" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textAppearance">?textAppearanceBody2</item>
+    <item name="android:textSize">11sp</item>
+    <item name="lineSpacing">0dp</item>
+    <item name="android:textColor">@color/textColorPrimary</item>
+  </style>
+
+  <style name="Btp.TextView.Header" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/lightText</item>
+    <item name="android:textSize">14sp</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="Btp.TextView.ListHeader" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:fontFamily">@font/circular_xx_light</item>
+  </style>
+
+  <style name="Btp.TextView.Body" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="Btp.TextView.Intro.Title" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">24sp</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+    <item name="android:textAlignment">textStart</item>
+  </style>
+
+  <style name="Btp.TextView.Intro.Body" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+    <item name="android:textAlignment">textStart</item>
+    <item name="android:autoLink">phone</item>
+    <item name="android:textColorLink">@color/aquaLink</item>
+  </style>
+
+  <style name="Btp.TextView.Footer" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+    <item name="android:textAlignment">center</item>
+    <item name="android:autoLink">phone</item>
+    <item name="android:textColorLink">@color/aquaLink</item>
+  </style>
+
+  <style name="Btp.TextView.AccountName" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+  </style>
+
+  <style name="Btp.TextView.Book" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:fontFamily">@font/circular_xx_book</item>
+  </style>
+
+  <style name="Btp.TextView.Light" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:fontFamily">@font/circular_xx_light</item>
+  </style>
+
+  <style name="Btp.TextView.AccountAmount" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+    <item name="android:textAlignment">viewEnd</item>
+  </style>
+
+  <style name="Btp.TextView.Result.Title" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">34sp</item>
+    <item name="android:fontFamily">@font/circular_xx_book</item>
+    <item name="android:textAlignment">center</item>
+  </style>
+
+  <style name="Btp.TextView.Result.Body" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+    <item name="android:textAlignment">center</item>
+    <item name="android:autoLink">phone</item>
+    <item name="android:textColorLink">@color/aquaLink</item>
+  </style>
+
+  <style name="Btp.TextView.Requirements.Title" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">26sp</item>
+    <item name="android:fontFamily">@font/circular_xx_book</item>
+  </style>
+
+  <style name="Btp.TextView.Amount" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">20sp</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="Btp.TextView.AmountInput" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">28sp</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="Btp.TextView.NotesInput" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="Btp.TextView.Requirement" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/primary</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="Btp.TextView.Requirements.Body" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+  </style>
+
+  <style name="Btp.TextView.Title.Book" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">24sp</item>
+    <item name="android:fontFamily">@font/circular_xx_book</item>
+  </style>
+
+  <style name="Btp.TextView.Title.Regular" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+    <item name="android:textAlignment">center</item>
+  </style>
+
+  <style name="Btp.TextView.Title.Medium" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">20sp</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+    <item name="android:textAlignment">center</item>
+  </style>
+
+  <style name="Btp.TextView.SubTitle.Medium" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+    <item name="android:textAlignment">center</item>
+  </style>
+
+  <style name="Btp.TextView.Link" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/aquaLink</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+  </style>
+
+  <style name="Btp.Button.MoreInfo" parent="Widget.MaterialComponents.Button">
+    <item name="android:textAppearance">?textAppearanceBody1Medium</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:background">@color/clear</item>
+    <item name="android:foreground">?android:selectableItemBackground</item>
+  </style>
+
+  <style name="Btp.Button.AccountCta" parent="Widget.MaterialComponents.Button">
+    <item name="android:textAppearance">?textAppearanceBody1Medium</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:background">@color/submitButtonBackgroundColor</item>
+    <item name="android:foreground">?android:selectableItemBackground</item>
+  </style>
+
+  <style name="Btp.Button.Retry" parent="Widget.MaterialComponents.Button">
+    <item name="android:textAppearance">?textAppearanceBody1Medium</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:textColor">@color/primary</item>
+    <item name="android:fontFamily">@font/circular_xx_medium</item>
+    <item name="android:background">?android:selectableItemBackground</item>
+  </style>
+
+  <style name="InterceptAd.TextView.Title" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">28sp</item>
+    <item name="android:fontFamily">@font/circular_xx_bold</item>
+    <item name="android:textAlignment">textStart</item>
+    <item name="android:autoLink">phone</item>
+    <item name="android:textColorLink">@color/aquaLink</item>
+  </style>
+
+  <style name="InterceptAd.TextView.Message" parent="Widget.MaterialComponents.TextView">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:fontFamily">@font/circular_xx_regular</item>
+    <item name="android:textAlignment">textStart</item>
+    <item name="android:autoLink">phone</item>
+    <item name="android:textColorLink">@color/aquaLink</item>
+  </style>
+
+  <style name="Widget.MaterialComponents.Button.DialPhone" parent="Widget.MaterialComponents.Button">
+    <item name="android:textAppearance">?textAppearanceBody1Medium</item>
+    <item name="android:textSize">14sp</item>
+    <item name="android:textColor">@color/submitButtonTextColor</item>
+  </style>
+
+  <style name="TransactionDetailsSummaryStackChipStyle"
+      parent="@style/Widget.Backbase.SummaryStackChip">
+    <item name="closeIconVisible">false</item>
+    <item name="android:clickable">false</item>
+    <item name="android:textAppearance">?textAppearanceBody2</item>
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="chipBackgroundColor">@color/aquaLightest</item>
+    <item name="chipStrokeWidth">0dp</item>
+    <item name="chipCornerRadius">8sp</item>
+  </style>
+
+  <style name="SecondaryButton" parent="TextAppearance.AppCompat.Button">
+    <item name="android:textColor">@color/textColorPrimary</item>
+    <item name="android:background">@drawable/secondary_button_outline</item>
+    <item name="android:backgroundTint">@color/textColorPrimary</item>
+  </style>
+
+  <style name="CustomToolbar" parent="Widget.AppCompat.Toolbar">
+    <item name="android:background">@color/toolbarContentScrim</item>
+    <item name="android:layout_marginStart">-16dp</item>
+    <item name="android:layout_marginBottom">1dp</item>
+    <item name="android:elevation">4dp</item>
+    <item name="android:theme">@style/WesterraTheme</item>
+    <item name="android:title">@string/empty_string</item>
+    <item name="fontFamily">@font/circular_xx_light</item>
+  </style>
+
+  <style name="CollapsingToolbar" parent="Widget.AppCompat.Toolbar">
+    <item name="android:background">@color/transparent</item>
+    <item name="android:layout_marginStart">-16dp</item>
+    <item name="android:theme">@style/WesterraTheme</item>
+    <item name="android:title">@string/empty_string</item>
+    <item name="fontFamily">@font/circular_xx_light</item>
+    <item name="layout_collapseMode">pin</item>
+  </style>
+
+</resources>

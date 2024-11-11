@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="primary">#99d6d4</color>
+  <color name="colorOnBackground">#101820</color>
+
+  <color name="foundation">#f5f6f7</color>
+  <color name="onFoundation">@color/defaultTextOnLight_noDisable</color>
+  <color name="surface">#ffffff</color>
+  <color name="onSurface">@color/defaultTextOnLight_noDisable</color>
+  <color name="surfaceDisabled">#dedede</color>
+
+  <color name="shimmer">#ebebeb</color>
+  <color name="inputBorder">#c5c5c5</color>
+  <color name="separator">#dedede</color>
+
+  <color name="defaultText">@color/defaultTextOnLight</color>
+  <color name="supportText">@color/supportTextOnLight</color>
+  <color name="disabledText">@color/disabledTextOnLight</color>
+  <color name="defaultText_noDisable">@color/defaultTextOnLight_noDisable</color>
+  <color name="supportText_noDisable">@color/supportTextOnLight_noDisable</color>
+
+  <color name="defaultTextInverse">@color/defaultTextOnDark</color>
+  <color name="supportTextInverse">@color/supportTextOnDark</color>
+  <color name="disabledTextInverse">@color/disabledTextOnDark</color>
+  <color name="defaultTextInverse_noDisable">@color/defaultTextOnDark_noDisable</color>
+  <color name="supportTextInverse_noDisable">@color/supportTextOnDark_noDisable</color>
+
+  <color name="defaultTextOnLight_noDisable">#101820</color>
+  <color name="defaultTextOnLight">@color/selector_default_text_on_light</color>
+  <color name="supportTextOnLight_noDisable">#616161</color>
+  <color name="supportTextOnLight">@color/selector_support_text_on_light</color>
+  <color name="disabledTextOnLight">#a2a2a2</color>
+
+  <color name="defaultTextOnDark_noDisable">#ffffff</color>
+  <color name="defaultTextOnDark">@color/selector_default_text_on_dark</color>
+  <color name="supportTextOnDark_noDisable">#bbbbbb</color>
+  <color name="supportTextOnDark">@color/selector_support_text_on_dark</color>
+  <color name="disabledTextOnDark">#666666</color>
+
+  <!-- APP WIDE COLORS -->
+  <color name="submitButtonTextColor">#0079c9</color>
+  <color name="colorOnPrimary">#FFFFFF</color>
+  <color name="submitButtonBackgroundColor">@android:color/white</color>
+  <color name="textColorPrimary">#ffffff</color>
+  <color name="aquaLink">#4E9598</color>
+
+  <!-- Bottom Navigation Colors -->
+  <color name="bottomNavigationColor">#9CDBD9</color>
+
+  <!-- AUTHENTICATION SCREEN COLORS -->
+  <color name="primaryColor">#99d6d4</color>
+  <color name="authenticationBackgroundColor">#101820</color>
+
+  <!-- Transactions List Screen -->
+  <color name="iconColor">#FFFFFF</color>
+  <color name="iconBackgroundColor">#99d6d4</color>
+
+  <!-- ACCOUNTS SCREEN COLORS -->
+  <color name="accountIconBackground">@color/colorOnPrimary</color>
+  <color name="accountIconForeground">@color/defaultTextOnLight_noDisable</color>
+  <color name="colorSecondary">@color/colorOnPrimary</color>
+  <color name="colorOnSecondary">@color/defaultTextOnLight_noDisable</color>
+  <color name="accountStatementCategoryBackgroundColour">#dde0e9</color>
+
+  <!-- ACCOUNTS STATEMENTS SCREEN COLORS -->
+  <color name="accountStatementIconColour">#32477b</color>
+
+  <!-- Messages List Item background color -->
+  <color name="messageListIconBackground">#9CDBD9</color>
+  <color name="messageListIconText">#FFFFFF</color>
+
+  <!-- MORE MENU SCREEN COLORS -->
+  <color name="iconForeground">#99000000</color>
+  <color name="iconBackground">#FFFFFF</color>
+
+  <!-- CARD MANAGEMENT LOCK ICON -->
+  <color name="lockIcon">#F5F5F5</color>
+  <color name="cardIconHoloGrayLight">#33999999</color>
+  <color name="trans">#80000000</color>
+
+  <!-- Payments journey schedule selector tab background color -->
+  <color name="tabBackgroundColor">#6F6F74</color>
+  <color name="tabTextColor">#FFFFFF</color>
+  <color name="tabUnselectedBackgroundColor">#39393D</color>
+  <color name="tabUnselectedTextColor">#FFFFFF</color>
+
+  <!-- Payment Journey Party Account selection color -->
+  <color name="paymentPartySelectedColor">#666666</color>
+
+  <!-- Payments journey amount input colors -->
+  <color name="amountColorControl">#EB0505</color>
+  <color name="amountHintColor">#BBBBBB</color>
+
+  <!-- NOTIFICATION SETTINGS SWITCH COLORS -->
+  <color name="switchOn">#9CDBD9</color>
+  <color name="switchOff">#4E9598</color>
+
+  <color name="bottomSheetBottomColor">#262627</color>
+
+  <!-- Alerts -->
+  <color name="alertBackgroundTint">#292B2F</color>
+
+  <!--  TEXT TEST-->
+  <color name="debit">#80000000</color>
+  <color name="credit">#008464</color>
+
+  <color name="moreInfoButtonBackground">#292B2F</color>
+  <color name="toolbarContentScrim">#292B2F</color>
+</resources>

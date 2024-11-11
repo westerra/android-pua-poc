@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.android.retail.journey:payments-journey:4.2.5
+     Add TextView to allow showing api error messages instead of default error messaging. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="?android:attr/colorBackground">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="?attr/spacerSmall"
+        android:importantForAccessibility="no"
+        tools:src="@drawable/ic_success_check"
+        tools:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/ResultViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/spacerSmall"
+        android:layout_marginStart="?attr/spacerMedium"
+        android:layout_marginEnd="?attr/spacerMedium"
+
+        tools:textSize="34sp"
+        tools:text="Success but this very long title should be multiline!"
+        tools:layout_marginTop="8dp" />
+
+    <com.westerra.release.payments.components.TransferErrorMessageTextView
+        android:id="@+id/subtitle"
+        style="@style/ResultViewSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?attr/spacerMedium"
+        android:layout_marginTop="?attr/sizerSmall"
+        android:layout_marginEnd="?attr/spacerMedium"
+
+        tools:textSize="16sp"
+        tools:text="Your money transfer has been successfully sent. Congrats on that. You have money now."
+        tools:layout_marginTop="8dp" />
+
+</LinearLayout>

@@ -1,0 +1,240 @@
+# .circleci/config.yml
+version: 2.1
+
+orbs:
+  gh: circleci/github-cli@2.3.0
+  android: circleci/android@2.5.0
+  gradle: circleci/gradle@3.0.0
+
+jobs:
+  create-pr-from-develop-to-main:
+    machine:
+      image: ubuntu-2004:202201-02
+    parameters:
+      token:
+        description: |
+          Pass Github token
+        type: env_var_name
+    steps:
+      - gh/setup
+      - gh/clone
+      - run:
+          command: |
+            PR_STATUS=$(gh pr view --json state | jq -r .state)
+            if [[ "$PR_STATUS" = "OPEN" ]]; then echo "PR already open" ; else gh pr create --title "PR develop -> main" --body "PR from develop branch to main branch" --base main; fi
+          name: Create Pull Request   
+
+  deploy:
+    environment:
+      FL_OUTPUT_DIR: output
+    docker:
+      - image: circleci/android:api-30
+    resource_class: xlarge
+    steps:
+      - checkout
+
+      - run:
+          name: Install Homebrew, add keys, setup environment
+          command: |
+            echo "Starting install steps"
+            ruby -v
+            yes | sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || true
+            sudo sh -c "(echo; echo 'eval \"$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\"') >> /home/$USER/.bashrc"
+            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+            echo "Brew install finished"
+            brew -v
+            echo "Fix permissions"
+            sudo chown -R circleci /home/linuxbrew/.linuxbrew/Cellar /home/linuxbrew/.linuxbrew/Homebrew /home/linuxbrew/.linuxbrew/bin /home/linuxbrew/.linuxbrew/etc /home/linuxbrew/.linuxbrew/etc/bash_completion.d /home/linuxbrew/.linuxbrew/include /home/linuxbrew/.linuxbrew/lib /home/linuxbrew/.linuxbrew/opt /home/linuxbrew/.linuxbrew/sbin /home/linuxbrew/.linuxbrew/share /home/linuxbrew/.linuxbrew/share/doc /home/linuxbrew/.linuxbrew/share/man /home/linuxbrew/.linuxbrew/share/man/man1 /home/linuxbrew/.linuxbrew/share/zsh /home/linuxbrew/.linuxbrew/share/zsh/site-functions /home/linuxbrew/.linuxbrew/var/homebrew/linked /home/linuxbrew/.linuxbrew/var/homebrew/locks
+            chmod u+w /home/linuxbrew/.linuxbrew/Cellar /home/linuxbrew/.linuxbrew/Homebrew /home/linuxbrew/.linuxbrew/bin /home/linuxbrew/.linuxbrew/etc /home/linuxbrew/.linuxbrew/etc/bash_completion.d /home/linuxbrew/.linuxbrew/include /home/linuxbrew/.linuxbrew/lib /home/linuxbrew/.linuxbrew/opt /home/linuxbrew/.linuxbrew/sbin /home/linuxbrew/.linuxbrew/share /home/linuxbrew/.linuxbrew/share/doc /home/linuxbrew/.linuxbrew/share/man /home/linuxbrew/.linuxbrew/share/man/man1 /home/linuxbrew/.linuxbrew/share/zsh /home/linuxbrew/.linuxbrew/share/zsh/site-functions /home/linuxbrew/.linuxbrew/var/homebrew/linked /home/linuxbrew/.linuxbrew/var/homebrew/locks
+            sudo chown -R circleci /home/linuxbrew/.linuxbrew
+            echo "Add keys"
+            curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+            echo "Apt-get update"
+            sudo apt-get update
+            echo "Finished install steps"
+
+      - run:
+          name: install chruby
+          command: |
+            wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+            tar -xzvf chruby-0.3.9.tar.gz
+            cd chruby-0.3.9/
+            sudo make install
+
+      - run: ruby-install ruby 2.7.6
+
+      - run:
+          name: Set chruby
+          command: |
+            echo 'source /usr/local/share/chruby/chruby.sh' >> $BASH_ENV
+            echo 'chruby ruby-2.7.6' >> $BASH_ENV 
+
+      - run:
+          name: chmod permissions
+          command: chmod +x ./gradlew
+
+      - run:
+          name: publish aws waf to maven local
+          command: |
+            ./gradlew publishToMavenLocal
+
+      - run:
+          name: Build and Deploy via Fastlane
+          command: |
+            bundle install
+            echo $SA_KEY > credentials.json
+            GOOGLE_APPLICATION_CREDENTIALS=credentials.json fastlane --verbose $FASTLANE_LANE
+          no_output_timeout: 20m
+
+      - store_artifacts:
+          path: output
+
+  upload-play-store:
+    environment:
+      FL_OUTPUT_DIR: output
+    docker:
+      - image: circleci/android:api-30
+    resource_class: xlarge
+    steps:
+      - checkout
+
+      - run:
+          name: Install Homebrew, add keys, setup environment
+          command: |
+            echo "Starting install steps"
+            ruby -v
+            yes | sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || true
+            sudo sh -c "(echo; echo 'eval \"$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\"') >> /home/$USER/.bashrc"
+            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+            echo "Brew install finished"
+            brew -v
+            echo "Fix permissions"
+            sudo chown -R circleci /home/linuxbrew/.linuxbrew/Cellar /home/linuxbrew/.linuxbrew/Homebrew /home/linuxbrew/.linuxbrew/bin /home/linuxbrew/.linuxbrew/etc /home/linuxbrew/.linuxbrew/etc/bash_completion.d /home/linuxbrew/.linuxbrew/include /home/linuxbrew/.linuxbrew/lib /home/linuxbrew/.linuxbrew/opt /home/linuxbrew/.linuxbrew/sbin /home/linuxbrew/.linuxbrew/share /home/linuxbrew/.linuxbrew/share/doc /home/linuxbrew/.linuxbrew/share/man /home/linuxbrew/.linuxbrew/share/man/man1 /home/linuxbrew/.linuxbrew/share/zsh /home/linuxbrew/.linuxbrew/share/zsh/site-functions /home/linuxbrew/.linuxbrew/var/homebrew/linked /home/linuxbrew/.linuxbrew/var/homebrew/locks
+            chmod u+w /home/linuxbrew/.linuxbrew/Cellar /home/linuxbrew/.linuxbrew/Homebrew /home/linuxbrew/.linuxbrew/bin /home/linuxbrew/.linuxbrew/etc /home/linuxbrew/.linuxbrew/etc/bash_completion.d /home/linuxbrew/.linuxbrew/include /home/linuxbrew/.linuxbrew/lib /home/linuxbrew/.linuxbrew/opt /home/linuxbrew/.linuxbrew/sbin /home/linuxbrew/.linuxbrew/share /home/linuxbrew/.linuxbrew/share/doc /home/linuxbrew/.linuxbrew/share/man /home/linuxbrew/.linuxbrew/share/man/man1 /home/linuxbrew/.linuxbrew/share/zsh /home/linuxbrew/.linuxbrew/share/zsh/site-functions /home/linuxbrew/.linuxbrew/var/homebrew/linked /home/linuxbrew/.linuxbrew/var/homebrew/locks
+            sudo chown -R circleci /home/linuxbrew/.linuxbrew
+            echo "Install gpg"
+            brew install gpg
+            echo "Install gpg done"
+            gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+            echo "Add keys"
+            curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+            echo "Apt-get update"
+            sudo apt-get update
+            echo "Finished install steps"
+
+      - run:
+          name: install chruby
+          command: |
+            wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+            tar -xzvf chruby-0.3.9.tar.gz
+            cd chruby-0.3.9/
+            sudo make install
+
+      - run: ruby-install ruby 2.7.6
+
+      - run:
+          name: Set chruby
+          command: |
+            echo 'source /usr/local/share/chruby/chruby.sh' >> $BASH_ENV
+            echo 'chruby ruby-2.7.6' >> $BASH_ENV 
+
+      - run:
+          name: chmod permissions
+          command: chmod +x ./gradlew
+
+      - run:
+          name: Bundle install
+          command: bundle install
+
+      - run:
+          name: Play Store prod release upload using Fastlane
+          command: bundle exec fastlane playstoreprodupload --verbose
+          no_output_timeout: 15m
+
+workflows:
+  deployment:
+    jobs:
+      - deploy:
+          name: Deploy-DEV-to-Firebase
+          context: android-dev
+          filters:
+            branches:
+              only:
+                - develop
+                - dev-ops/ci-cd-dev
+
+      - request-to-deploy-in-UAT:
+          type: approval
+          requires:
+            - Deploy-DEV-to-Firebase
+          filters:
+            branches:
+              only:
+                - develop
+                - dev-ops/ci-cd-dev
+
+      - deploy:
+          name: Deploy-UAT-to-Firebase
+          context: android-uat
+          requires:
+            - request-to-deploy-in-UAT 
+          filters:
+            branches:
+              only:
+                - develop
+                - dev-ops/ci-cd-dev
+
+      - approval-for-creating-pr-from-develop-to-main:
+          requires:
+            - Deploy-UAT-to-Firebase
+          type: approval
+          filters:
+            branches:
+              only:
+                - develop
+
+      - create-pr-from-develop-to-main:
+          requires:
+            - approval-for-creating-pr-from-develop-to-main
+          token: GITHUB_TOKEN
+          filters:
+            branches:
+              only:
+                - develop
+
+      - request-to-deploy-in-PROD:
+          type: approval
+          filters:
+            branches:
+              only:
+                - main
+
+      - deploy:
+          name: Deploy-PROD-to-Firebase
+          context: android-prod
+          requires:
+            - request-to-deploy-in-PROD 
+          filters:
+            branches:
+              only:
+                - main
+
+      - request-to-deploy-to-play-store:
+          requires:
+            - Deploy-PROD-to-Firebase
+          type: approval
+          filters:
+            branches:
+              only:
+                - main
+
+      - upload-play-store:
+          name: Deploy-Prod-To-Play-Store
+          requires:
+            - request-to-deploy-to-play-store
+          filters:
+            branches:
+              only:
+                - main
+
+# VS Code Extension Version: 1.5.1

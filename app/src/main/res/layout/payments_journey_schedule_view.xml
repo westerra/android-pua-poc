@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.android.retail.journey:payments-journey:4.2.5
+     Customize some colors-->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    tools:background="@android:color/white"
+    tools:layout_marginTop="4dp"
+    tools:parentTag="com.google.android.material.card.MaterialCardView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scheduleContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="?attr/spacerSmall"
+
+        tools:padding="8dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/scheduleTitle"
+            style="@style/FormTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceFormLabel"
+            android:textAlignment="viewStart"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:lineHeight="?attr/spacerLarge"
+
+            tools:text="@string/retail_payments_schedule_field_header"
+            tools:textAppearance="@style/TextAppearance.Backbase.Body1.Medium"/>
+
+        <com.backbase.android.design.badge.Badge
+            android:id="@+id/dueDateBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/creditScoreMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?spacerSmall"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?attr/colorTextSupport"
+            android:textAlignment="viewStart"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/scheduleTitle"
+
+            tools:text="Payments made before the due date may improve your credit score."
+            tools:textAppearance="@style/TextAppearance.Backbase.Body2"
+            tools:visibility="visible" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/schedule_selector_tabs_height"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/creditScoreMessage"
+            app:tabIndicatorHeight="0dp"
+            app:tabTextColor="@color/tabUnselectedTextColor"
+            app:tabSelectedTextColor="@color/tabTextColor"
+            app:tabTextAppearance="@style/ScheduleTabLayoutTextAppearance"
+
+            tools:background="#efefff"
+            tools:layout_height="48dp"/>
+
+        <include
+            layout="@layout/payments_journey_schedule_view_item"
+            android:id="@+id/later"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+
+            tools:visibility="visible" />
+
+        <!-- region Tab: Recurring -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/recurringTab"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+
+            tools:visibility="gone">
+
+            <include
+                layout="@layout/payments_journey_schedule_view_item"
+                android:id="@+id/frequency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <include
+                layout="@layout/payments_journey_schedule_view_item"
+                android:id="@+id/starting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="?spacerSmall"
+                app:layout_constraintTop_toBottomOf="@+id/frequency"
+                tools:layout_marginTop="8dp"/>
+
+            <include
+                layout="@layout/payments_journey_schedule_view_item"
+                android:id="@+id/ending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="?spacerSmall"
+                app:layout_constraintTop_toBottomOf="@+id/starting"
+                tools:layout_marginTop="8dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- endregion -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

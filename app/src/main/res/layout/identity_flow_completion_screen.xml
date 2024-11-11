@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.android.identity.journey:authentication-journey:4.4.3
+     Adjust spacing and sizing of elements. -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/authenticationJourney_flowCompleteScreen_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/authenticationJourney_flowCompleteScreen_dismissView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="?selectableItemBackground"
+        android:padding="?sizerMedium"
+        android:src="@drawable/identity_authentication_journey_ic_close"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/authenticationJourney_flowCompleteScreen_titleLogoView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?spacerXLarge"
+
+        android:adjustViewBounds="true"
+        android:importantForAccessibility="no"
+        android:maxHeight="@dimen/identity_AuthenticationJourney_flowCompleteScreen_titleLogoMaxHeight"
+        android:paddingStart="?spacerXLarge"
+        android:paddingEnd="?spacerXLarge"
+        android:paddingBottom="?spacerLarge"
+        android:scaleType="centerInside"
+
+        app:layout_constraintBottom_toTopOf="@+id/authenticationJourney_flowCompleteScreen_imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_chainStyle="packed"
+
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/authenticationJourney_flowCompleteScreen_imageView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:adjustViewBounds="true"
+        android:importantForAccessibility="no"
+        android:maxHeight="160dp"
+        android:paddingStart="?spacerXLarge"
+        android:paddingEnd="?spacerXLarge"
+        android:paddingBottom="?spacerLarge"
+
+        app:layout_constraintBottom_toTopOf="@+id/authenticationJourney_flowCompleteScreen_titleView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintVertical_chainStyle="packed"
+
+        tools:src="@drawable/identity_ic_success" />
+
+    <TextView
+        android:id="@+id/authenticationJourney_flowCompleteScreen_titleView"
+        style="@style/Widget.BackbaseIdentity.AuthenticationJourney.TextView.Title"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="?spacerLarge"
+        android:layout_marginTop="?spacerXLarge"
+        android:textAlignment="center"
+        android:textSize="28sp"
+
+        app:layout_constraintBottom_toTopOf="@id/authenticationJourney_flowCompleteScreen_descriptionView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/authenticationJourney_flowCompleteScreen_imageView"
+
+        tools:text="@string/identity.authentication.ts.oob.success.title"
+        tools:textColor="?colorOnPrimary" />
+
+    <TextView
+        android:id="@+id/authenticationJourney_flowCompleteScreen_descriptionView"
+        style="@style/Widget.BackbaseIdentity.AuthenticationJourney.TextView.Description"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="?spacerLarge"
+        android:layout_marginTop="?spacerSmall"
+
+        android:gravity="center"
+        android:lineSpacingMultiplier="@dimen/identity_AuthenticationJourney_flowCompleteScreen_descriptionTextLineSpacingMultiplier"
+        android:textAlignment="center"
+        android:textSize="18sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_flowCompleteScreen_titleView"
+
+        tools:text="@string/identity.authentication.ts.oob.success.description"
+        tools:textColor="?colorOnPrimary" />
+
+    <com.backbase.android.design.button.BackbaseButton
+        android:id="@+id/authenticationJourney_flowCompleteScreen_confirmButton"
+        style="@style/Widget.BackbaseIdentity.ProminentButton.Inverse"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?spacerMedium"
+        android:layout_marginTop="?spacerLarge"
+        android:layout_marginEnd="?spacerMedium"
+        android:layout_marginBottom="?spacerLarge"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/authenticationJourney_flowCompleteScreen_descriptionView"
+        app:layout_constraintVertical_bias="1"
+
+        tools:text="@string/identity.authentication.ts.oob.button.done" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/selfEnrollmentJourney_selfEnrollmentScreen_container"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:paddingLeft="?spacerMedium"
+    android:paddingRight="?spacerMedium">
+
+    <ScrollView
+        android:id="@+id/selfEnrollmentJourney_selfEnrollmentScreen_scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginBottom="?spacerSmall"
+        android:scrollbars="none"
+
+        app:layout_constraintBottom_toTopOf="@+id/selfEnrollmentJourney_selfEnrollmentScreen_finishButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/selfEnrollmentJourney_selfEnrollmentScreen_icon"
+                style="@style/Widget.BackbaseIdentity.SelfEnrollmentJourney.ImageView.Icon"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+
+                android:adjustViewBounds="true"
+                android:maxHeight="@dimen/identity_AuthenticationJourney_loginScreen_titleLogoMaxHeight"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:id="@+id/selfEnrollmentJourney_selfEnrollmentScreen_welcomeMessageTitle"
+                style="@style/Widget.BackbaseIdentity.SelfEnrollmentJourney.TextView.WelcomeMessageTitle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="?spacerLarge"
+                android:textAlignment="center"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/selfEnrollmentJourney_selfEnrollmentScreen_welcomeMessageBody"
+                style="@style/Widget.BackbaseIdentity.SelfEnrollmentJourney.TextView.WelcomeMessageBody"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="?spacerMedium"
+                android:textAlignment="center"
+                android:gravity="center"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.backbase.android.design.button.BackbaseButton
+        android:id="@+id/selfEnrollmentJourney_selfEnrollmentScreen_finishButton"
+        style="?buttonStyleHighlight"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toTopOf="@+id/selfEnrollmentJourney_selfEnrollmentScreen_enrollButton"
+        app:layout_constraintEnd_toEndOf="@+id/selfEnrollmentJourney_selfEnrollmentScreen_scrollView"
+        app:layout_constraintStart_toStartOf="@+id/selfEnrollmentJourney_selfEnrollmentScreen_scrollView" />
+
+    <com.backbase.android.design.button.BackbaseButton
+        android:id="@+id/selfEnrollmentJourney_selfEnrollmentScreen_enrollButton"
+        style="?buttonStyleLink"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="42dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/selfEnrollmentJourney_selfEnrollmentScreen_scrollView"
+        app:layout_constraintStart_toStartOf="@+id/selfEnrollmentJourney_selfEnrollmentScreen_scrollView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

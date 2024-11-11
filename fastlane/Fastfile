@@ -1,0 +1,132 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+# This Fastfile is written in Ruby code
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+BUILD_NUMBER = ENV["OVERRIDE_BUILD_NUM"] || "164"
+APP_ID_DEV_DEBUG = "1:561032792118:android:8b0dba00c957a223ba7097"
+APP_ID_UAT_RELEASE = "1:561032792118:android:12242550b21cd941ba7097"
+APP_ID_PROD_RELEASE = "1:561032792118:android:64acd72bb0653421ba7097"
+
+platform :android do
+
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test connectedAndroidTest")
+  end
+
+  desc "Push DEV to Firebase App Distribution"
+  lane :upload_dev_to_firebase do |options|
+    increment_version("DEV")
+    build_and_upload_dev(options)
+  end
+
+  desc "Push UAT to Firebase App Distribution"
+  lane :upload_uat_to_firebase do |options|
+    increment_version("UAT")
+    build_and_upload_uat(options)
+  end
+
+  desc "Push PROD to Firebase App Distribution"
+  lane :upload_prod_to_firebase do |options|
+    increment_version("PROD")
+    build_and_upload_prod(options)
+  end
+
+  desc "Assemble signed prod release aab and upload to PlayStore Internal testing"
+  lane :playstoreprodupload do
+    gradle(task: 'clean')
+    gradle(
+      task: "bundle",
+      flavor: "prod",
+      build_type: "Release"
+    )
+    upload_to_play_store(
+      track: 'internal'
+    )
+  end
+
+end # platform
+
+def increment_version(build_env)
+  # 1. OVERRIDE_VERSION
+  override_build_version = ENV["OVERRIDE_BUILD_NUM"]
+  if override_build_version
+    puts "Building with OVERRIDE_BUILD_NUM build number: " + override_build_version.to_s
+    increment_version_code({ version_code: override_build_version })
+    return
+  end
+
+  # 2. Use the following logic
+  #    - DEV -> increment build number
+  #    - UAT & PROD -> use the last DEV build number
+  latest_dev_release = firebase_app_distribution_get_latest_release(app: APP_ID_DEV_DEBUG)
+  dev_build_number = latest_dev_release[:buildVersion].to_i
+
+  if build_env == "DEV"
+    dev_build_number_incremented = dev_build_number + 1
+    puts "Building with latest DEV build number INCREMENTED: " + dev_build_number_incremented.to_s
+    increment_version_code({ version_code: dev_build_number_incremented })
+    return
+  end
+
+  if build_env == "UAT" || build_env == "PROD"
+    puts "Building with latest DEV build number: " + dev_build_number.to_s
+    increment_version_code({ version_code: dev_build_number })
+    return
+  end
+
+  # 3. CIRCLE_BUILD_NUM
+  circle_build_num = ENV["CIRCLE_BUILD_NUM"]
+  if circle_build_num
+    puts "Building with CIRCLE_BUILD_NUM build number: " + circle_build_num.to_s
+    increment_version_code({ version_code: circle_build_num })
+    return
+  end
+
+  puts "Building with default build number: " + BUILD_NUMBER
+  increment_version_code({ version_code: BUILD_NUMBER })
+end
+
+def build_and_upload_dev(options)
+  build_android_app(tasks: ["assembleDevDebug", "bundleDevDebug"])
+
+  firebase_app_distribution(
+    app: APP_ID_DEV_DEBUG,
+    groups: "developers",
+    android_artifact_path: "app/build/outputs/apk/dev/debug/app-dev-debug.apk"
+  )
+end
+
+def build_and_upload_uat(options)
+  build_android_app(tasks: ["assembleUatRelease", "bundleUatRelease"])
+
+  firebase_app_distribution(
+    app: APP_ID_UAT_RELEASE,
+    groups: "westerra-testers",
+    android_artifact_path: "app/build/outputs/apk/uat/release/app-uat-release.apk"
+  )
+end
+
+def build_and_upload_prod(options)
+  build_android_app(tasks: ["assembleProdRelease", "bundleProdRelease"])
+
+  firebase_app_distribution(
+    app: APP_ID_PROD_RELEASE,
+    groups: "westerra-testers",
+    android_artifact_path: "app/build/outputs/apk/prod/release/app-prod-release.apk"
+  )
+end

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.android.identity.journey:user-profile-journey:3.3.5
+     Use custom AutoFormatProfileTextView that strips unwanted "primary" text. -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+  <androidx.constraintlayout.helper.widget.Flow
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginVertical="?spacerMedium"
+      android:orientation="vertical"
+      app:constraint_referenced_ids="userProfileJourney_personalInformationScreen_cardHeading,userProfileJourney_personalInformationScreen_cardBody"
+      app:flow_verticalGap="?spacerSmall"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/userProfileJourney_personalInformationScreen_cardEditIcon"
+      />
+
+  <com.westerra.release.profile.components.AutoFormatProfileTextView
+      android:id="@+id/userProfileJourney_personalInformationScreen_cardHeading"
+      style="@style/Widget.BackbaseIdentity.UserProfileJourney.TextView.CardContentHeading"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      tools:text="Primary" />
+
+  <TextView
+      android:id="@+id/userProfileJourney_personalInformationScreen_cardBody"
+      style="@style/Widget.BackbaseIdentity.UserProfileJourney.TextView.CardContentBody"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      tools:text="test@backbase.com" />
+
+  <ImageView
+      android:id="@+id/userProfileJourney_personalInformationScreen_cardEditIcon"
+      style="@style/Widget.BackbaseIdentity.UserProfileJourney.ImageView.Icon"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="?android:attr/selectableItemBackgroundBorderless"
+
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

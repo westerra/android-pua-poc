@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_btp"
+    app:startDestination="@id/btp_intro_fragment">
+
+    <fragment
+        android:id="@+id/btp_intro_fragment"
+        android:name="com.westerra.release.btp.fragments.BtpIntroFragment"
+        tools:layout="@layout/fragment_btp_intro">
+
+        <action
+            android:id="@+id/action_intro_to_product_picker"
+            app:destination="@id/btp_product_picker_fragment"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/btp_product_picker_fragment"
+        android:name="com.westerra.release.btp.fragments.BtpProductPickerFragment"
+        tools:layout="@layout/fragment_btp_product_picker">
+
+        <action
+            android:id="@+id/action_product_picker_to_disclosures"
+            app:destination="@id/btp_disclosures_fragment"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/btp_disclosures_fragment"
+        android:name="com.westerra.release.btp.fragments.BtpDisclosuresFragment"
+        tools:layout="@layout/fragment_btp_disclosures">
+
+        <action
+            android:id="@+id/action_disclosures_to_requirements"
+            app:destination="@id/btp_product_requirements_fragment"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"/>
+
+        <action
+            android:id="@+id/action_disclosures_to_pdf_viewer"
+            app:destination="@id/btp_pdf_viewer_fragment"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/btp_pdf_viewer_fragment"
+        android:name="com.westerra.release.btp.fragments.BtpPdfViewerFragment"
+        tools:layout="@layout/fragment_btp_pdf_viewer" />
+
+    <fragment
+        android:id="@+id/btp_product_requirements_fragment"
+        android:name="com.westerra.release.btp.fragments.BtpProductRequirementsFragment"
+        tools:layout="@layout/fragment_btp_product_requirements">
+
+        <action
+            android:id="@+id/action_requirements_to_account_picker"
+            app:destination="@id/btp_account_picker_fragment"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/btp_account_picker_fragment"
+        android:name="com.westerra.release.btp.fragments.BtpAccountPickerFragment"
+        tools:layout="@layout/fragment_btp_account_picker">
+
+        <action
+            android:id="@+id/action_account_picker_to_transfer_details"
+            app:destination="@id/btp_transfer_details_fragment"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/btp_transfer_details_fragment"
+        android:name="com.westerra.release.btp.fragments.BtpTransferDetailsFragment"
+        tools:layout="@layout/fragment_btp_transfer_details">
+
+        <action
+            android:id="@+id/action_transfer_details_to_transfer_summary"
+            app:destination="@id/btp_transfer_summary_fragment"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/btp_transfer_summary_fragment"
+        android:name="com.westerra.release.btp.fragments.BtpTransferSummaryFragment"
+        tools:layout="@layout/fragment_btp_transfer_summary">
+
+        <action
+            android:id="@+id/action_transfer_summary_to_btp_result"
+            app:destination="@id/btp_result_fragment"
+            app:enterAnim="@anim/us_app_transition_fade_in"
+            app:exitAnim="@anim/us_app_transition_fade_out"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/btp_result_fragment"
+        android:name="com.westerra.release.btp.fragments.BtpResultFragment"
+        tools:layout="@layout/fragment_btp_result" />
+
+    <action
+        android:id="@+id/action_btp_to_composeMessageScreen"
+        app:destination="@id/messagesJourney_destination_composeMessageScreen"
+        app:enterAnim="@anim/us_app_transition_slide_and_fade_in"
+        app:exitAnim="@anim/us_app_transition_fade_out"
+        app:popEnterAnim="@anim/us_app_transition_fade_in"
+        app:popExitAnim="@anim/us_app_transition_slide_and_fade_out" />
+
+    <fragment
+        android:id="@+id/messagesJourney_destination_composeMessageScreen"
+        android:name="com.backbase.engagementchannels.messages.compose.ComposeMessageScreen"
+        tools:layout="@layout/compose_message_screen" />
+
+</navigation>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="primary">#EB0505</color>
+  <color name="colorOnBackground">#F5F5F5</color>
+
+  <color name="foundation">#f5f6f7</color>
+  <color name="onFoundation">@color/defaultTextOnLight_noDisable</color>
+  <color name="surface">#ffffff</color>
+  <color name="onSurface">@color/defaultTextOnLight_noDisable</color>
+  <color name="surfaceDisabled">#dedede</color>
+
+  <color name="shimmer">#ebebeb</color>
+  <color name="inputBorder">#c5c5c5</color>
+  <color name="separator">#dedede</color>
+
+  <color name="defaultText">@color/defaultTextOnLight</color>
+  <color name="supportText">@color/supportTextOnLight</color>
+  <color name="disabledText">@color/disabledTextOnLight</color>
+  <color name="defaultText_noDisable">@color/defaultTextOnLight_noDisable</color>
+  <color name="supportText_noDisable">@color/supportTextOnLight_noDisable</color>
+  <color name="light_grey">#c5c5c5</color>
+
+  <color name="defaultTextInverse">@color/defaultTextOnDark</color>
+  <color name="supportTextInverse">@color/supportTextOnDark</color>
+  <color name="disabledTextInverse">@color/disabledTextOnDark</color>
+  <color name="defaultTextInverse_noDisable">@color/defaultTextOnDark_noDisable</color>
+  <color name="supportTextInverse_noDisable">@color/supportTextOnDark_noDisable</color>
+
+  <color name="defaultTextOnLight_noDisable">#101820</color>
+  <color name="defaultTextOnLight">@color/selector_default_text_on_light</color>
+  <color name="supportTextOnLight_noDisable">#616161</color>
+  <color name="supportTextOnLight">@color/selector_support_text_on_light</color>
+  <color name="disabledTextOnLight">#a2a2a2</color>
+
+  <color name="defaultTextOnDark_noDisable">#ffffff</color>
+  <color name="defaultTextOnDark">@color/selector_default_text_on_dark</color>
+  <color name="supportTextOnDark_noDisable">#bbbbbb</color>
+  <color name="supportTextOnDark">@color/selector_support_text_on_dark</color>
+  <color name="disabledTextOnDark">#666666</color>
+
+  <!-- APP WIDE COLORS -->
+  <color name="submitButtonTextColor">#0079c9</color>
+  <color name="colorOnPrimary">#FFFFFF</color>
+  <color name="submitButtonBackgroundColor">@android:color/white</color>
+
+  <color name="textColorPrimary">#101820</color>
+  <color name="aquaPrimary">#9CDBD9</color>
+  <color name="aquaLight">#B4E6E5</color>
+  <color name="aquaLightest">#CCF2F1</color>
+  <color name="aquaDark">#4E9598</color>
+  <color name="aquaDarkest">#014F56</color>
+  <color name="aquaLink">#004F56</color>
+
+  <!-- Bottom Navigation Colors -->
+  <color name="bottomNavigationColor">#EB0505</color>
+
+  <!-- AUTHENTICATION SCREEN COLORS -->
+  <color name="primaryColor">#e84039</color>
+  <color name="authenticationBackgroundColor">#9CDBD9</color>
+
+  <!-- Transactions List Screen -->
+  <color name="iconColor">#EB0505</color>
+  <color name="iconBackgroundColor">#D7D7D7</color>
+
+  <!-- ACCOUNTS SCREEN COLORS -->
+  <color name="accountIconBackground">@color/defaultTextOnLight_noDisable</color>
+  <color name="accountIconForeground">@color/colorOnPrimary</color>
+  <color name="colorSecondary">@color/defaultTextOnLight_noDisable</color>
+  <color name="colorOnSecondary">@color/colorOnPrimary</color>
+  <color name="accountStatementCategoryBackgroundColour">#dde0e9</color>
+
+  <!-- ACCOUNTS STATEMENTS SCREEN COLORS -->
+  <color name="accountStatementIconColour">#32477b</color>
+
+  <!-- Messages List Item background color -->
+  <color name="messageListIconBackground">#9CDBD9</color>
+  <color name="messageListIconText">#004F56</color>
+
+  <!-- MORE MENU SCREEN COLORS -->
+  <color name="iconForeground">#ffffff</color>
+  <color name="iconBackground">#9CDBD9</color>
+
+  <!-- CARD MANAGEMENT LOCK ICON -->
+  <color name="lockIcon">#F5F5F5</color>
+  <color name="cardIconHoloGrayLight">#33999999</color>
+  <color name="trans">#80000000</color>
+
+  <!-- NOTIFICATION SETTINGS SWITCH COLORS -->
+  <color name="switchOn">#9CDBD9</color>
+  <color name="switchOff">#4E9598</color>
+
+  <color name="bottomSheetBottomColor">#FFFFFF</color>
+
+  <!-- Payments journey schedule selector tab background color -->
+  <color name="tabBackgroundColor">#FFFFFF</color>
+  <color name="tabTextColor">#101820</color>
+  <color name="tabUnselectedBackgroundColor">#EEEEEF</color>
+  <color name="tabUnselectedTextColor">#414141</color>
+  <color name="editTextFocusUnderline">#285EFF</color>
+
+  <!-- Payment Journey Party Account selection color -->
+  <color name="paymentPartySelectedColor">#DDEAF6</color>
+
+  <!-- Payments journey amount input colors -->
+  <color name="amountColorControl">#EB0505</color>
+  <color name="amountHintColor">#616161</color>
+  <color name="lightText">#616161</color>
+
+  <!--  TEXT TEST-->
+  <color name="debit">#80000000</color>
+  <color name="credit">#008464</color>
+
+  <!-- Alerts -->
+  <color name="alertBackgroundTint">@color/white</color>
+
+  <color name="aqua">#54C1BD</color>
+  <color name="transparent">#00000000</color>
+  <color name="clear">#00000000</color>
+  <color name="transparent_black_background">#7f000000</color>
+  <color name="moreInfoButtonBackground">#FFFFFF</color>
+  <color name="toolbarContentScrim">#FFFFFF</color>
+  <color name="disabledSubmitButton">#B2B2B2</color>
+</resources>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.engagementchannels:messages-journey:4.3.5 -->
+<!-- Added custom element for the topics dropdown that allows setting the initial value -->
+<com.westerra.release.messages.components.CustomFittingConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:theme="@style/Theme.Backbase.Fullscreen">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                style="@style/MessagesJourneyToolbar"
+                android:elevation="0dp" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <FrameLayout
+                android:id="@+id/animationFrame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:animateLayoutChanges="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <include
+                    android:id="@+id/shimmersCompose"
+                    layout="@layout/compose_message_skeleton"
+                    android:visibility="gone" />
+
+                <include
+                    android:id="@+id/shimmersReply"
+                    layout="@layout/compose_message_reply_skeleton"
+                    android:visibility="gone" />
+
+                <include
+                    layout="@layout/base_state_view"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            </FrameLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/topicLabel"
+                            style="?textAppearanceFormLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="?spacerSmall"
+                            android:layout_marginBottom="?spacerXSmall"
+                            android:paddingStart="?spacerMedium"
+                            android:paddingEnd="?spacerSmall"
+                            android:visibility="invisible"
+                            tools:text="@string/messages_compose_topic"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/conversationThreadTopic"
+                            style="@style/ReplyTopicTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="?spacerSmall"
+                            android:layout_marginBottom="?spacerMedium"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="?spacerMedium"
+                            android:visibility="gone"
+                            tools:text="Conversation Topic"
+                            tools:visibility="visible" />
+                    </LinearLayout>
+
+                    <com.backbase.android.design.input.TextInputView
+                        android:id="@+id/topic_layout"
+                        style="@style/Widget.Backbase.TextInputLayout.Dropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="?spacerMedium"
+                        android:paddingEnd="?spacerMedium"
+                        android:textAlignment="viewStart"
+                        android:visibility="invisible"
+                        tools:visibility="visible">
+
+                        <com.westerra.release.messages.components.PrefillAutoCompleteTextView
+                            android:id="@+id/topic"
+                            style="@style/Widget.Backbase.TextInputLayout.Dropdown.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:textAlignment="viewStart"
+                            tools:ignore="LabelFor" />
+
+                    </com.backbase.android.design.input.TextInputView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/subjectLabel"
+                            style="?textAppearanceFormLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="?spacerXSmall"
+                            android:paddingStart="?spacerMedium"
+                            android:paddingEnd="?spacerSmall"
+                            android:visibility="invisible"
+                            tools:text="@string/messages_compose_subject"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/conversationThreadSubject"
+                            style="@style/ReplySubjectTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="?spacerMedium"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="?spacerMedium"
+                            android:visibility="gone"
+                            tools:text="Conversation Subject"
+                            tools:visibility="visible" />
+                    </LinearLayout>
+
+                    <com.backbase.android.design.input.TextInputView
+                        android:id="@+id/subject_layout"
+                        style="?attr/inputLayoutStyle"
+                        android:paddingStart="?spacerMedium"
+                        android:paddingEnd="?spacerMedium"
+                        android:visibility="invisible"
+                        app:endIconMode="none"
+                        tools:visibility="visible">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/subject"
+                            style="?attr/inputEditTextStyle" />
+                    </com.backbase.android.design.input.TextInputView>
+
+                    <TextView
+                        android:id="@+id/messageLabel"
+                        style="?textAppearanceFormLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="?spacerXSmall"
+                        android:paddingStart="?spacerMedium"
+                        android:paddingEnd="?spacerMedium"
+                        android:textAlignment="viewStart"
+                        android:visibility="invisible"
+                        tools:text="@string/messages_compose_message"
+                        tools:visibility="visible" />
+
+                    <com.backbase.android.design.input.TextInputView
+                        android:id="@+id/messageLayout"
+                        style="?attr/inputLayoutStyle"
+                        android:paddingStart="?spacerMedium"
+                        android:paddingEnd="?spacerMedium"
+                        android:paddingBottom="?spacerMedium"
+                        android:visibility="invisible"
+                        app:counterEnabled="true"
+                        app:endIconMode="none"
+                        tools:visibility="visible">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/body"
+                            style="?attr/inputEditTextStyle"
+                            android:gravity="top|start"
+                            android:inputType="textMultiLine"
+                            android:maxLines="12"
+                            android:minHeight="198dp"
+                            android:scrollHorizontally="false" />
+                    </com.backbase.android.design.input.TextInputView>
+
+                    <LinearLayout
+                        android:id="@+id/attachments_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="?sizerSmall"
+                        android:visibility="invisible"
+                        tools:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/attachment_text_view"
+                            style="?textAppearanceFormLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="?spacerXSmall"
+                            android:paddingStart="?spacerMedium"
+                            android:paddingEnd="?spacerMedium"
+                            android:textAlignment="viewStart"
+                            tools:text="@string/messages_compose_attachment" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/attachment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false" />
+
+                        <TextView
+                            android:id="@+id/upload_error_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="?spacerSmall"
+                            android:paddingStart="?spacerMedium"
+                            android:paddingEnd="?spacerMedium"
+                            android:textAlignment="viewStart"
+                            android:textColor="?colorDanger"
+                            android:textSize="12sp"
+                            tools:text="@string/messages_compose_upload_attachment_error" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <Space
+        android:id="@+id/messagesJourney_snackbarAnchor"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</com.westerra.release.messages.components.CustomFittingConstraintLayout>

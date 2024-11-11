@@ -1,0 +1,129 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: gradle
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Update gradle.properties file with Backbase Repo secrets
+      env:
+        BACKBASE_REPO_USERNAME: ${{ secrets.BACKBASE_REPO_USERNAME }}
+        BACKBASE_REPO_ENCRYPTED_PASSWORD: ${{ secrets.BACKBASE_REPO_ENCRYPTED_PASSWORD }}
+      shell: bash
+      run: |
+        echo backbaseRepoUsername=$BACKBASE_REPO_USERNAME >> ./gradle.properties
+        echo backbaseRepoEncryptedPassword=$BACKBASE_REPO_ENCRYPTED_PASSWORD >> ./gradle.properties
+    - name: Publish AWS WAF SDK to Maven Local Repository
+      run: ./gradlew publishToMavenLocal
+    - name: Build DevDebug with Gradle
+      run: ./gradlew buildDevDebug
+    - name: Build ProdRelease with Gradle
+      run: ./gradlew buildProdRelease
+
+  unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: gradle
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Update gradle.properties file with Backbase Repo secrets
+        env:
+          BACKBASE_REPO_USERNAME: ${{ secrets.BACKBASE_REPO_USERNAME }}
+          BACKBASE_REPO_ENCRYPTED_PASSWORD: ${{ secrets.BACKBASE_REPO_ENCRYPTED_PASSWORD }}
+        shell: bash
+        run: |
+          echo backbaseRepoUsername=$BACKBASE_REPO_USERNAME >> ./gradle.properties
+          echo backbaseRepoEncryptedPassword=$BACKBASE_REPO_ENCRYPTED_PASSWORD >> ./gradle.properties
+      - name: Publish AWS WAF SDK to Maven Local Repository
+        run: ./gradlew publishToMavenLocal
+      - name: Run Unit Tests
+        run: ./gradlew TestDevDebug
+
+  integration_tests_default_targets:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        api-level: [26,29]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: gradle
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Update gradle.properties file with Backbase Repo secrets
+        env:
+          BACKBASE_REPO_USERNAME: ${{ secrets.BACKBASE_REPO_USERNAME }}
+          BACKBASE_REPO_ENCRYPTED_PASSWORD: ${{ secrets.BACKBASE_REPO_ENCRYPTED_PASSWORD }}
+        shell: bash
+        run: |
+          echo backbaseRepoUsername=$BACKBASE_REPO_USERNAME >> ./gradle.properties
+          echo backbaseRepoEncryptedPassword=$BACKBASE_REPO_ENCRYPTED_PASSWORD >> ./gradle.properties
+      - name: Publish AWS WAF SDK to Maven Local Repository
+        run: ./gradlew publishToMavenLocal
+      - name: Run Instrumentation Tests
+        uses: ReactiveCircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api-level }}
+          target: default
+          script: ./gradlew connectedDevDebugAndroidTest
+
+  integration_tests_google_api_targets:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        api-level: [32, 33]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: gradle
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Update gradle.properties file with Backbase Repo secrets
+        env:
+          BACKBASE_REPO_USERNAME: ${{ secrets.BACKBASE_REPO_USERNAME }}
+          BACKBASE_REPO_ENCRYPTED_PASSWORD: ${{ secrets.BACKBASE_REPO_ENCRYPTED_PASSWORD }}
+        shell: bash
+        run: |
+          echo backbaseRepoUsername=$BACKBASE_REPO_USERNAME >> ./gradle.properties
+          echo backbaseRepoEncryptedPassword=$BACKBASE_REPO_ENCRYPTED_PASSWORD >> ./gradle.properties
+      - name: Publish AWS WAF SDK to Maven Local Repository
+        run: ./gradlew publishToMavenLocal
+      - name: Run Instrumentation Tests
+        uses: ReactiveCircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api-level }}
+          target: google_apis
+          arch: x86_64
+          script: ./gradlew connectedDevDebugAndroidTest

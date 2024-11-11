@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.android.retail.journey:payments-journey:4.2.5
+     Used a custom TextView for element amountHelperText to filter out invalid messages. -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    tools:background="@android:color/white"
+    tools:layout_marginTop="4dp"
+    tools:parentTag="com.google.android.material.card.MaterialCardView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/amountInputContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="?attr/spacerSmall"
+
+        tools:padding="8dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/amountTitle"
+            style="@style/FormTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceFormLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:textAlignment="viewStart"
+            app:lineHeight="?attr/spacerLarge"
+            tools:textAppearance="@style/TextAppearance.Backbase.Body1.Medium" />
+
+        <com.backbase.android.design.amount.input.InputAmountView
+            android:id="@+id/amountInputView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            app:errorIconDrawable="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/amountTitle"
+            app:prefixTextAppearance="@style/TextAppearance.Backbase.H4" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/amountArrow"
+            android:layout_width="?attr/sizerXLarge"
+            android:layout_height="?attr/sizerXLarge"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_drop_down" />
+
+        <com.backbase.android.design.amount.AmountTextView
+            android:id="@+id/amountTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?spacerSmall"
+            android:minHeight="48dp"
+            android:textAppearance="@style/TextAppearance.Backbase.H4"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/amountArrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/amountTitle"
+            app:layout_goneMarginTop="?attr/spacerLarge" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierAmountHelperText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="amountTextView, amountInputView" />
+
+        <com.westerra.release.payments.components.FilterMessagesMaterialTextView
+            android:id="@+id/amountHelperText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?spacerSmall"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?attr/colorTextSupport"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/amountArrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrierAmountHelperText" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/paymentOptionErrorText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/spacerXSmall"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="?attr/colorDanger"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/amountHelperText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

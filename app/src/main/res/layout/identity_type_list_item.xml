@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.android.identity.journey:user-profile-journey:3.3.5 -->
+<!-- Replaced container with a custom container. -->
+<com.westerra.release.profile.components.CustomTypeListItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <TextView
+      android:id="@+id/userProfileJourney_typeText"
+      style="@style/Widget.BackbaseIdentity.UserProfileJourney.TextView.EditTypeHeading"
+
+      android:layout_marginTop="?spacerMedium"
+      android:layout_marginBottom="?spacerMedium"
+
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+
+      tools:text="@string/identity.userprofile.personalinfo.phonenumber.type.home" />
+
+  <com.backbase.android.design.button.BackbaseRadioButton
+      android:id="@+id/userProfileJourney_typeRadioButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:minHeight="0dp"
+      android:minWidth="0dp"
+
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:clickable="false"
+      android:focusable="false"/>
+
+</com.westerra.release.profile.components.CustomTypeListItem>

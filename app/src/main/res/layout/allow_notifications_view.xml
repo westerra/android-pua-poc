@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original layout from com.backbase.engagementchannels:notifications-journey:4.3.5
+     Adds custom colors to notification switches. -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:theme="@style/Theme.Backbase.Fullscreen">
+
+    <TextView
+        android:id="@+id/allowLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|center_vertical"
+        android:textColor="?colorOnBackground"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Allow Notifications" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/allowSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:thumbTint="@color/custom_notification_switch_selector"
+        android:layout_gravity="end|center_vertical" />
+
+</com.google.android.material.card.MaterialCardView>

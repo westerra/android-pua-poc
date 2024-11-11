@@ -1,0 +1,22 @@
+{
+  "development": {
+    "debugEnable": true
+  },
+  "backbase": {
+    "serverURL": "https://edge.uat.bbwcu.westerracu.com/",
+    "localModelPath": "$(contextRoot)/localModel.json",
+    "experience": "",
+    "version": "6.1.5",
+    "identity": {
+      "baseURL": "https://auth.uat.bbwcu.westerracu.com/",
+      "realm": "backbase",
+      "clientId": "mobile-client",
+      "applicationKey": "retail"
+    }
+  },
+  "security": {
+    "allowedDomains": ["*"]
+  }
+}
+
+
