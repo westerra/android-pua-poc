@@ -26,6 +26,8 @@ import com.backbase.android.client.paymentorderclient2.model.Status.PROCESSED
 import com.backbase.android.client.paymentorderclient2.model.Status.READY
 import com.backbase.android.client.paymentorderclient2.model.Status.REJECTED
 import com.backbase.android.retail.journey.payments.PaymentUseCase
+import com.backbase.android.retail.journey.payments.UseCaseResult
+import com.backbase.android.retail.journey.payments.gen2_paymentorder_v2_client_2.PaymentOrderV2Client2PaymentServiceUseCase
 import com.backbase.android.retail.journey.payments.model.PaymentOrder
 import com.backbase.android.retail.journey.payments.model.PaymentOrderResponse
 import com.backbase.android.retail.journey.payments.model.PaymentSchedule
@@ -41,7 +43,7 @@ import com.westerra.release.extensions.backbase.requestedExecutionDate
 import com.westerra.release.gson.extension.createPaymentsGson
 import java.time.LocalDate
 
-abstract class CustomPaymentUseCaseBase : PaymentUseCase {
+abstract class CustomPaymentUseCaseBase(val paymentOrderV2Client2PaymentServiceUseCase: PaymentOrderV2Client2PaymentServiceUseCase) : PaymentUseCase {
 
     abstract fun createInitiateCounterpartyAccount(
         paymentOrder: PaymentOrder,
@@ -55,6 +57,10 @@ abstract class CustomPaymentUseCaseBase : PaymentUseCase {
 
     private val edgeDomain: String get() = Backbase.getInstance()!!.configuration
         .experienceConfiguration.serverURL
+
+    override suspend fun validatePaymentOrder(paymentOrder: PaymentOrder): UseCaseResult<Unit> {
+        return paymentOrderV2Client2PaymentServiceUseCase.validatePaymentOrder(paymentOrder)
+    }
 
     override suspend fun createPaymentOrder(
         paymentOrder: PaymentOrder,

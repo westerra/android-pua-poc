@@ -17,10 +17,11 @@ import com.backbase.android.retail.journey.payments.configuration.Review
 import com.backbase.android.retail.journey.payments.configuration.SavingsAccountBalanceType
 import com.backbase.android.retail.journey.payments.configuration.ScheduleReview
 import com.backbase.android.retail.journey.payments.configuration.ScheduleSelector
+import com.backbase.android.retail.journey.payments.configuration.ScheduleSelectorSections
 import com.backbase.android.retail.journey.payments.configuration.TextReview
+import com.backbase.android.retail.journey.payments.model.IdentificationType
 import com.backbase.android.retail.journey.payments.model.PaymentSchedule
 import com.westerra.release.R
-import com.westerra.release.extensions.backbase.excludeRecurringOption
 import com.westerra.release.extensions.backbase.ratesFeesTextReviewState
 import com.westerra.release.extensions.backbase.scheduleErrorsTextReviewState
 import com.westerra.release.extensions.toDeferredDrawable
@@ -46,8 +47,16 @@ object ContactsP2PConfig {
                         AmountInput {},
                         ScheduleSelector {
                             scheduleHeader = R.string.when_title.toDeferredText()
-                            excludeRecurringOption = { paymentData ->
-                                paymentData.excludeRecurringOption()
+                            //TODO - excludeRecurringOption: (paymentData: PaymentData) -> Boolean' is deprecated. Use `sections` to show or hide sections instead.
+//                            excludeRecurringOption = { paymentData ->
+//                                paymentData.excludeRecurringOption()
+//                            }
+                            sections = {
+                                mutableSetOf(
+                                    ScheduleSelectorSections.Immediate.Builder().build(),
+                                    ScheduleSelectorSections.LaterDate.Builder().apply{}.build(),
+                                   // ScheduleSelectorSections.Recurring.Builder().apply{}.build()
+                                )
                             }
                         },
                         RemittanceInfoInput {
@@ -63,7 +72,11 @@ object ContactsP2PConfig {
                     listOf(
                         AmountReview {},
                         PaymentPartyReview {
-                            toAccountNumberVisible = true
+                            //TODO - toAccountNumberVisible: Boolean' is deprecated. Use toPartyDisplayNumber instead.
+                           // toAccountNumberVisible = true
+                            toPartyDisplayNumber = { paymentParty ->
+                                paymentParty.identifications.find { it is IdentificationType.BBAN }?.identification
+                            }
                         },
                         ScheduleReview {},
                         TextReview { paymentData ->
@@ -96,10 +109,16 @@ object ContactsP2PConfig {
         return PaymentJourneyConfiguration(Currency.getInstance(Locale.US)) {
             paymentType = PAYMENT_TYPE_INTRABANK_TRANSFER
             defaultAccountIcon = R.drawable.current_icon_small.toDeferredDrawable()
-            balanceConfiguration =
+            //TODO - balanceConfiguration: BalanceConfiguration' is deprecated. Use paymentPartyBalanceConfiguration instead.
+//            balanceConfiguration =
+//                BalanceConfiguration {
+//                    savingsAccountBalanceType = SavingsAccountBalanceType.AvailableBalance()
+//                }
+            paymentPartyBalanceConfiguration = { _, _ ->
                 BalanceConfiguration {
                     savingsAccountBalanceType = SavingsAccountBalanceType.AvailableBalance()
                 }
+            }
             filteredFrequencyOptions = { _ ->
                 setOf(
                     FrequencyOption.Weekly(),

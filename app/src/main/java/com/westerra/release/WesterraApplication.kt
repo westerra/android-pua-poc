@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.backbase.android.client.gen2.paymentorderv2client2.api.PaymentOrdersApi
 import com.backbase.android.client.usermanagerclient2.api.UserProfileManagementApi
 import com.backbase.android.identity.journey.authentication.AuthenticationJourney
 import com.backbase.android.identity.journey.authentication.passcode.change_passcode.ChangePasscodeRouter
@@ -19,6 +20,7 @@ import com.backbase.android.retail.journey.payments.PaymentJourneyScope
 import com.backbase.android.retail.journey.payments.PaymentJourneyType
 import com.backbase.android.retail.journey.payments.PaymentUseCase
 import com.backbase.android.retail.journey.payments.filters.PaymentPartyListFilter
+import com.backbase.android.retail.journey.payments.gen2_paymentorder_v2_client_2.PaymentOrderV2Client2PaymentServiceUseCase
 import com.backbase.android.retail.journey.payments.model.PaymentParty
 import com.backbase.android.retail.journey.payments.model.PaymentPartyType
 import com.westerra.release.awswaf.WafApplication
@@ -122,7 +124,11 @@ class WesterraApplication : WafApplication() {
                         ContactsP2PConfig()
                     }
                     scoped<PaymentUseCase>(PaymentJourneyType.P2P) {
-                        CustomP2PPaymentUseCase()
+                        CustomP2PPaymentUseCase(
+                            PaymentOrderV2Client2PaymentServiceUseCase(
+                            paymentOrdersApi = get<PaymentOrdersApi>()
+                        )
+                        )
                     }
 
                     // customizing 'from' and 'to' payment list filter in A2A transfer

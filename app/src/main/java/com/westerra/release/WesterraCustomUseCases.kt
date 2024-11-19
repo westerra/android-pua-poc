@@ -1,9 +1,11 @@
 package com.westerra.release
 
+import com.backbase.android.client.gen2.paymentorderv2client2.api.PaymentOrdersApi
 import com.backbase.android.identity.journey.authentication.identity_auth_client_1.IdentityAuthClient1AuthenticationUseCase
 import com.backbase.android.retail.journey.accounts_and_transactions.banner.AccountsBannerResponse
 import com.backbase.android.retail.journey.accounts_and_transactions.banner.AccountsBannerUseCase
 import com.backbase.android.retail.journey.app.us.UsUseCaseDefinitions
+import com.backbase.android.retail.journey.payments.gen2_paymentorder_v2_client_2.PaymentOrderV2Client2PaymentServiceUseCase
 import com.westerra.release.accountandtransactions.CustomTransactionsUseCase
 import com.westerra.release.accountstatements.CustomAccountStatementUseCase
 import com.westerra.release.contacts.CustomContactsUseCase
@@ -29,7 +31,10 @@ fun UsUseCaseDefinitions.Builder.westerraCustomUseCases() {
     contactsUseCaseDefinition = { CustomContactsUseCase(get()) }
     paymentAccountsUseCaseDefinition = { CustomArrangementsPaymentAccountsUseCase(get()) }
     paymentContactsUseCaseDefinition = { CustomPaymentContactsUseCase(get()) }
-    paymentUseCaseDefinition = { CustomInternalPaymentUseCase() }
+    paymentUseCaseDefinition = { CustomInternalPaymentUseCase( PaymentOrderV2Client2PaymentServiceUseCase(
+        paymentOrdersApi = get<PaymentOrdersApi>()
+    )
+    ) }
     transactionsUseCaseDefinition = { CustomTransactionsUseCase(get(), get()) }
     upcomingPaymentsUseCaseDefinition = { CustomUpcomingPaymentsUseCase(get(), get()) }
     userProfileUseCaseDefinition = { CustomUserProfileUseCase(get()) }
