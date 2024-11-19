@@ -1,0 +1,37 @@
+{
+  "platform": "Android",
+  "projectDir": "./",
+  "buildVariant": [
+    {
+      "name": "devDebug",
+      "hashAssets": false
+    },
+    {
+      "name": "devRelease",
+      "hashAssets": false
+    },
+    {
+      "name": "uatDebug",
+      "hashAssets": false
+    },
+    {
+      "name": "uatRelease",
+      "hashAssets": true
+    },
+    {
+      "name": "prodDebug",
+      "hashAssets": false
+    },
+    {
+      "name": "prodRelease",
+      "hashAssets": true
+    }
+  ],
+  "algorithm": "AES/CBC/PKCS5Padding",
+  "configFiles": [
+    "config.json"
+  ],
+  "exclude": [
+    "**/images/**"
+  ]
+}
