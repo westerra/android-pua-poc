@@ -1,0 +1,114 @@
+buildscript {
+    ext.kotlin_version = '1.8.21'
+    apply from: 'gradleScripts/commonDependencies.gradle'
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$coreAndroidVersions.gradlePlugin"
+        classpath androidDeps.gmsGoogleServices
+        classpath coreDeps.kotlinGradlePlugin
+        classpath coreDeps.sonarGradlePlugin
+        classpath "com.google.firebase:firebase-crashlytics-gradle:$coreVersions.firebaseCrashlyticsGradle"
+        classpath "org.jlleitschuh.gradle:ktlint-gradle:12.1.1"
+        classpath coreDeps.bbMobilePlugin
+
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        mavenLocal()
+        google()
+        maven {
+            url = "https://repo.backbase.com/mobile3"
+            credentials {
+                username = backbaseRepoUsername
+                password = backbaseRepoEncryptedPassword
+            }
+        }
+
+        maven {
+            url 'https://storage.googleapis.com/r8-releases/raw'
+        }
+    }
+}
+
+plugins {
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
+}
+
+apply from: 'gradleScripts/sonar.gradle'
+
+allprojects {
+
+    apply plugin: "org.jlleitschuh.gradle.ktlint"
+
+    repositories {
+//        backbaseRepositories.forEach { repoName ->
+//            maven {
+//                url = "https://repo.backbase.com/$repoName"
+//                credentials {
+//                    // These credentials must be defined in your machine's global gradle.properties file:
+//                    username = backbaseRepoUsername
+//                    password = backbaseRepoEncryptedPassword
+//                }
+//            }
+//        }
+        maven {
+            url = "https://repo.backbase.com/repo"
+            credentials {
+                // These credentials must be defined in your machine's global gradle.properties file:
+                username = backbaseRepoUsername
+                password = backbaseRepoEncryptedPassword
+            }
+        }
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        mavenLocal()
+        google()
+        //noinspection JcenterRepositoryObsolete
+        jcenter()
+
+        exclusiveContent {
+            forRepository {
+                maven {
+                    url 'https://repo.mobile.jumio.ai'
+                }
+            }
+            filter {
+                includeGroup "com.jumio.android"
+                includeGroup "com.iproov.sdk"
+            }
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy {
+
+            // Reverting to an older version of objenesis due to build failure during androidTest using mockK
+            // Issue link => https://github.com/mockk/mockk/issues/281
+            force("org.objenesis:objenesis:2.6")
+          //  force("com.backbase.android.sdk:backbase:9.7.0")
+            // Excluding to avoid "More than one file was found with OS independent path 'META-INF/AL2.0' & 'META-INF/LGPL2.1'"
+            // Issue link => https://github.com/Kotlin/kotlinx.coroutines/issues/2023
+            exclude group: "org.jetbrains.kotlinx", module: "kotlinx-coroutines-debug"
+
+            // excluded to avoid redundancy coming transitively from espresso libraries.
+            exclude group: 'org.checkerframework', module: 'checker-qual'
+            eachDependency { DependencyResolveDetails details ->
+                if (details.requested.group == 'org.bouncycastle') {
+                    details.useTarget 'org.bouncycastle:' + 'bcprov-jdk18on:1.75'
+                }
+            }
+
+        }
+    }
+
+    ktlint {
+        android.set(true)
+        ignoreFailures = true
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
