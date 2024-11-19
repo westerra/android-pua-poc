@@ -118,10 +118,10 @@ class WesterraApplication : WafApplication() {
                     scoped {
                         InternalA2AConfig()
                     }
-                    scoped(PaymentJourneyType.P2P, override = true) {
+                    scoped(PaymentJourneyType.P2P) {
                         ContactsP2PConfig()
                     }
-                    scoped<PaymentUseCase>(PaymentJourneyType.P2P, override = true) {
+                    scoped<PaymentUseCase>(PaymentJourneyType.P2P) {
                         CustomP2PPaymentUseCase()
                     }
 

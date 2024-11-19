@@ -28,9 +28,7 @@ internal fun initializeKoinModulesWithDependencies(
             // in move money menu
             scope<PaymentJourneyScope> {
                 scoped(
-                    qualifier = PaymentJourneyType.P2P,
-                    override = true,
-                ) {
+                    qualifier = PaymentJourneyType.P2P) {
                     AddContactNavigationAction { _, _, _ ->
                         Snackbar.make(
                             activity.window.decorView.rootView,
@@ -41,14 +39,13 @@ internal fun initializeKoinModulesWithDependencies(
                 }
 
                 // For Internal Transfer
-                scoped(override = true) {
+                scoped {
                     getPaymentCompleteNavigationAction(navController = navController)
                 }
 
                 // for Contacts Transfer
                 scoped(
-                    qualifier = PaymentJourneyType.P2P,
-                    override = true,
+                    qualifier = PaymentJourneyType.P2P
                 ) {
                     getPaymentCompleteNavigationAction(navController = navController)
                 }
@@ -56,7 +53,7 @@ internal fun initializeKoinModulesWithDependencies(
 
             scope<RdcJourneyScope> {
                 // exit navigation from "deposit a check"(RDC) journey
-                scoped<ExitNavigateAction>(override = true) {
+                scoped<ExitNavigateAction> {
                     RDCExitNavigationAction(navController = navController)
                 }
             }
