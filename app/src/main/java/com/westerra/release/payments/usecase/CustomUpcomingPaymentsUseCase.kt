@@ -15,7 +15,14 @@ import com.backbase.android.retail.journey.payments.upcoming.datasource.PaymentO
 import com.backbase.android.retail.journey.payments.upcoming.datasource.PaymentOrderViewData
 import com.backbase.android.retail.journey.payments.upcoming.datasource.ScheduleViewData
 import com.backbase.android.retail.journey.payments.upcoming.gen2_paymentorder_v2_client_2.PaymentOrderV2Client2UpcomingPaymentsServiceUseCase
+import com.backbase.android.retail.journey.payments.upcoming.model.Cancelled
+import com.backbase.android.retail.journey.payments.upcoming.model.Expired
+import com.backbase.android.retail.journey.payments.upcoming.model.Failed
+import com.backbase.android.retail.journey.payments.upcoming.model.InProcess
 import com.backbase.android.retail.journey.payments.upcoming.model.P2PTransferData
+import com.backbase.android.retail.journey.payments.upcoming.model.Pending
+import com.backbase.android.retail.journey.payments.upcoming.model.Sent
+import com.backbase.android.retail.journey.payments.upcoming.model.Unknown
 import com.backbase.android.utils.net.NetworkConnectorBuilder
 import com.backbase.android.utils.net.request.RequestMethods
 import com.google.gson.JsonParser
@@ -59,6 +66,8 @@ class CustomUpcomingPaymentsUseCase(
         private const val P2P_TRANSFER_PAYMENT_TYPE = "P2P_TRANSFER"
         private const val REASON_CODE_PP01 = "PP01"
         private const val REASON_CODE_PP02 = "PP02"
+        internal const val REASON_CODE_PP14 = "PP14"
+
     }
 
     private val paymentOrderClient2UpcomingPaymentsServiceUseCase
@@ -260,14 +269,23 @@ class CustomUpcomingPaymentsUseCase(
             P2PTransferData
                 .Builder().apply {
                     confirmationNumber = identifiedPaymentOrder.paymentSetupId
-                    isPending = (
-                        identifiedPaymentOrder.status == Status.ACCEPTED &&
-                            identifiedPaymentOrder.reasonCode == REASON_CODE_PP01
-                        )
-                    isInProcess = (
-                        identifiedPaymentOrder.status == Status.ACCEPTED &&
-                            identifiedPaymentOrder.reasonCode == REASON_CODE_PP02
-                        )
+                    paymentStatus = when {
+                        identifiedPaymentOrder.status == Status.ACCEPTED && identifiedPaymentOrder.reasonCode == REASON_CODE_PP01 -> Pending
+                        identifiedPaymentOrder.status == Status.ACCEPTED && identifiedPaymentOrder.reasonCode == REASON_CODE_PP02 -> InProcess
+                        identifiedPaymentOrder.status == Status.REJECTED && identifiedPaymentOrder.reasonCode == REASON_CODE_PP14 -> Expired
+                        identifiedPaymentOrder.status == Status.REJECTED -> Failed
+                        identifiedPaymentOrder.status == Status.PROCESSED -> Sent
+                        identifiedPaymentOrder.status == Status.CANCELLED -> Cancelled
+                        else -> Unknown
+                    }
+//                    isPending = (
+//                        identifiedPaymentOrder.status == Status.ACCEPTED &&
+//                            identifiedPaymentOrder.reasonCode == REASON_CODE_PP01
+//                        )
+//                    isInProcess = (
+//                        identifiedPaymentOrder.status == Status.ACCEPTED &&
+//                            identifiedPaymentOrder.reasonCode == REASON_CODE_PP02
+//                        )
                 }
                 .build()
         } else {
