@@ -28,7 +28,9 @@ internal fun Application.enableSecurityControls() {
         .isRooted
     if (isRooted) crashApp()
 
-    environmentVerification.activityHijackDetector.start(this)
+ /*   TODO- ActivityHijackDetector is deprecated, Refer https://backbase.io/documentation/mobile-sdk/3.10/activity_hijacking
+       */
+   // environmentVerification.activityHijackDetector.start(this)
 }
 
 /**
@@ -58,7 +60,7 @@ private fun crashApp(code: Int = 1): Nothing = throw RuntimeException("$code")
 private class SecurityViolationHandler : SecurityViolationListener {
     override fun onSecurityViolation(violation: Response) {
         when (val responseCode = violation.responseCode) {
-            ErrorCodes.SECURITY_BREACH_ACTIVITY_HIJACKING.code -> crashApp(responseCode)
+          //  ErrorCodes.SECURITY_BREACH_ACTIVITY_HIJACKING.code -> crashApp(responseCode)
         }
     }
 }
