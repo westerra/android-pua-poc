@@ -1,5 +1,6 @@
 package com.westerra.release
 
+import android.app.Application
 import android.util.Log
 import com.backbase.android.clients.common.BigDecimalNumericJsonAdapter
 import com.backbase.android.clients.common.MoshiResponseBodyParser
@@ -7,8 +8,12 @@ import com.backbase.android.clients.common.ResponseBodyParser
 import com.backbase.android.clients.common.base64Adapter
 import com.backbase.android.clients.common.dateAdapter
 import com.backbase.android.clients.common.uuidAdapter
+import com.backbase.android.design.address.results.AddressSearchResultsProvider
 import com.backbase.android.identity.journey.authentication.AuthenticationUseCase
 import com.backbase.android.identity.journey.authentication.identity_auth_client_1.IdentityAuthClient1AuthenticationUseCase
+import com.backbase.android.identity.journey.userprofile.UserProfileConfiguration
+import com.backbase.android.identity.journey.userprofile.UserProfileJourneyScope
+import com.backbase.android.identity.journey.userprofile.address.autocomplete.UserProfileAddressSearchResultsProvider
 import com.backbase.android.retail.journey.app.common.COMMON_API_ROOT_QUALIFIER
 import com.backbase.android.retail.journey.cardsmanagement.CardsManagementJourneyScope
 import com.backbase.android.retail.journey.cardsmanagement.usecase.TravelDestinationsUseCase
@@ -84,6 +89,16 @@ internal fun WesterraAdditionalDependencies(): ModuleDeclaration = {
             },
         )
     } bind AuthenticationUseCase::class
+
+    scope<UserProfileJourneyScope> {
+        scoped {
+            UserProfileAddressSearchResultsProvider(
+                get<UserProfileConfiguration>().addAddressScreen.addressAutocompleteConfiguration,
+                get(),
+                get<Application>()
+            )
+        } bind AddressSearchResultsProvider::class
+    }
 }
 
 internal fun Scope.apiRoot() = get<String>(COMMON_API_ROOT_QUALIFIER)

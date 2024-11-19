@@ -13,20 +13,20 @@ object AddPostalAddressScreenConfig {
             isAutocompleteEnabled = false.toDeferredBoolean()
             visibleFields =
                 listOf(
-                    PostalAddressScreenConfiguration.Field.STREET,
-                    PostalAddressScreenConfiguration.Field.ADDRESS_LINE,
-                    PostalAddressScreenConfiguration.Field.CITY,
-                    PostalAddressScreenConfiguration.Field.SUBDIVISION,
-                    PostalAddressScreenConfiguration.Field.POSTCODE,
-                    PostalAddressScreenConfiguration.Field.COUNTRY,
+                    PostalAddressScreenConfiguration.Field.Street,
+                    PostalAddressScreenConfiguration.Field.AddressLine,
+                    PostalAddressScreenConfiguration.Field.City,
+                    PostalAddressScreenConfiguration.Field.Subdivision,
+                    PostalAddressScreenConfiguration.Field.Postcode,
+                    PostalAddressScreenConfiguration.Field.Country,
                 )
             requiredFields =
                 setOf(
-                    PostalAddressScreenConfiguration.Field.STREET,
-                    PostalAddressScreenConfiguration.Field.CITY,
-                    PostalAddressScreenConfiguration.Field.SUBDIVISION,
-                    PostalAddressScreenConfiguration.Field.POSTCODE,
-                    PostalAddressScreenConfiguration.Field.COUNTRY,
+                    PostalAddressScreenConfiguration.Field.Street,
+                    PostalAddressScreenConfiguration.Field.City,
+                    PostalAddressScreenConfiguration.Field.Subdivision,
+                    PostalAddressScreenConfiguration.Field.Postcode,
+                    PostalAddressScreenConfiguration.Field.Country,
                 )
             streetNameLabelText = R.string.address_line_1.toDeferredText()
             addressLineLabelText = R.string.address_line_2.toDeferredText()
