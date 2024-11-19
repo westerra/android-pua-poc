@@ -1,7 +1,6 @@
 package com.westerra.release.notifications
 
 import com.backbase.engagementchannels.notifications.AccountsGrouping
-import com.backbase.engagementchannels.notifications.NotificationSettingsAPI
 import com.backbase.engagementchannels.notifications.NotificationsConfiguration
 import com.backbase.engagementchannels.notifications.dto.AccountType
 import com.backbase.engagementchannels.notifications.screen.account.AccountNotificationSettingsConfiguration
@@ -20,12 +19,15 @@ object NotificationsConfig {
         return NotificationsConfiguration {
             // Need to set useNewNotificationJourney to true even though it's deprecated.
             // Otherwise various strings substitutions don't show up.
-            @Suppress("DEPRECATION")
-            useNewNotificationJourney = true
+            //TODO useNewNotificationJourney is removed
+//            @Suppress("DEPRECATION")
+//            useNewNotificationJourney = true
+
             notificationSettingsEnabled = true.toDeferredBoolean()
 
-            // Need to switch to NotificationSettingsAPI.ENGAGEMENTS in next upgrade 2023.03
-            notificationSettingsAPI = NotificationSettingsAPI.ACTIONS
+            //TODO notificationSettingsAPI is removed
+//            // Need to switch to NotificationSettingsAPI.ENGAGEMENTS in next upgrade 2023.03
+//            notificationSettingsAPI = NotificationSettingsAPI.ACTIONS
 
             notificationSettingsConfig = NotificationSettingsConfiguration {
                 title = R.string.manage_notifications_title.toDeferredText()
