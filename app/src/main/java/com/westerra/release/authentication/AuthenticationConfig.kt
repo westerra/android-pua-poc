@@ -7,8 +7,9 @@ import com.backbase.android.identity.journey.authentication.biometric.late_enrol
 import com.backbase.android.identity.journey.authentication.enroll.EnrollmentCompleteScreenConfiguration
 import com.backbase.android.identity.journey.authentication.forgot_credentials.ForgotCredentialsConfiguration
 import com.backbase.android.identity.journey.authentication.forgot_credentials.ForgotCredentialsOptionsScreenConfiguration
-import com.backbase.android.identity.journey.authentication.forgot_credentials.forgot_password.ForgotPasswordOtpInputScreenConfiguration
+import com.backbase.android.identity.journey.authentication.forgot_credentials.forgot_password.ForgotPasswordOtpEntryScreenConfiguration
 import com.backbase.android.identity.journey.authentication.forgot_credentials.forgot_password.ForgotPasswordUsernameInputScreenConfiguration
+import com.backbase.android.identity.journey.authentication.forgot_credentials.forgot_password.ForgotPasswordWithOtpAuthenticationScreensConfiguration
 import com.backbase.android.identity.journey.authentication.forgot_credentials.forgot_username.ForgotUsernameEmailInputScreenConfiguration
 import com.backbase.android.identity.journey.authentication.forgot_credentials.forgot_username.ForgotUsernameSuccessScreenConfiguration
 import com.backbase.android.identity.journey.authentication.login.LoginScreenConfiguration
@@ -29,7 +30,6 @@ object AuthenticationConfig {
         return AuthenticationConfiguration {
             background = R.color.authenticationBackgroundColor.toDeferredDrawable()
             showEnrollmentCompletionScreen = true.toDeferredBoolean()
-
             forgotCredentialsScreensConfiguration = ForgotCredentialsConfiguration {
                 showOptions = setOf(
                     ForgotCredentialsConfiguration.Option.FORGOT_USERNAME,
@@ -46,10 +46,21 @@ object AuthenticationConfig {
                     confirmButtonText = R.string.continue_button_text.toDeferredText()
                 }
 
-                forgotPasswordOtpInputScreen = ForgotPasswordOtpInputScreenConfiguration {
-                    background = R.color.authenticationBackgroundColor.toDeferredDrawable()
-                    confirmButtonText = R.string.submit_button_title.toDeferredText()
-                }
+                forgotPasswordWithOtpAuthenticationScreens = ForgotPasswordWithOtpAuthenticationScreensConfiguration.Builder().apply{
+                    otpInputScreen = ForgotPasswordOtpEntryScreenConfiguration.Builder().apply {
+                        background = R.color.authenticationBackgroundColor.toDeferredDrawable()
+
+                        //TODO confirmButtonText is replaced by string resource, R.string.identity_authentication_forgotPassword_otp_input_buttons_submit
+                       // confirmButtonText = R.string.submit_button_title.toDeferredText()
+
+                    }.build()
+                }.build()
+
+                //TODO replaced with forgotPasswordWithOtpAuthenticationScreens -> ForgotPasswordOtpEntryScreenConfiguration
+//                forgotPasswordOtpInputScreen = ForgotPasswordOtpInputScreenConfiguration {
+//                    background = R.color.authenticationBackgroundColor.toDeferredDrawable()
+//                    confirmButtonText = R.string.submit_button_title.toDeferredText()
+//                }
 
                 updatePasswordScreen = UpdatePasswordScreenConfiguration {
                     background = R.color.authenticationBackgroundColor.toDeferredDrawable()

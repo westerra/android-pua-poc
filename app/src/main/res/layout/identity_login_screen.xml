@@ -24,7 +24,7 @@
 
             android:background="?selectableItemBackground"
             android:padding="?sizerMedium"
-            android:src="@drawable/identity_authentication_journey_ic_close"
+            android:src="@drawable/backbase_ic_close"
             android:visibility="gone"
             android:contentDescription="@string/close_title"
             app:layout_constraintStart_toStartOf="parent"
@@ -145,7 +145,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_troubleshootButton"
+            app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_forgotPasscodeButton"
 
             tools:indeterminateTint="?colorOnPrimary" />
 
@@ -160,21 +160,34 @@
             app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_titleView"
             app:layout_constraintVertical_weight="1" />
 
+        <TextView
+            android:id="@+id/authenticationJourney_loginScreen_passcodeHint"
+            style="@style/Widget.BackbaseIdentity.AuthenticationJourney.AuthScreen.InfoText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/authenticationJourney_loginScreen_passcodeView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_middleSpace"
+            tools:textColor="?colorOnPrimary" />
+
         <com.backbase.android.identity.journey.authentication.passcode.IdentityPasscodeView
             android:id="@+id/authenticationJourney_loginScreen_passcodeView"
             style="@style/Widget.BackbaseIdentity.AuthenticationJourney.PasscodeView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:importantForAccessibility="noHideDescendants"
-            app:layout_constraintBottom_toTopOf="@+id/authenticationJourney_loginScreen_troubleshootButton"
+            app:layout_constraintBottom_toTopOf="@+id/authenticationJourney_loginScreen_forgotPasscodeButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_middleSpace"
 
             tools:passcodeLength="5" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/authenticationJourney_loginScreen_troubleshootButton"
+        <com.backbase.android.design.button.BackbaseButton
+            android:id="@+id/authenticationJourney_loginScreen_forgotPasscodeButton"
             style="?attr/buttonStyleLink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -188,7 +201,7 @@
             app:layout_constraintTop_toBottomOf="@id/authenticationJourney_loginScreen_passcodeView"
             app:rippleColor="?colorPrimaryVariant"
 
-            tools:text="@string/identity.authentication.passcode.login.buttons.troubleshoot"
+            tools:text="@string/identity.authentication.passcode.login.buttons.forgotPasscode"
             tools:textColor="?colorOnPrimary" />
 
         <Space
@@ -199,7 +212,7 @@
             app:layout_constraintBottom_toTopOf="@+id/authenticationJourney_loginScreen_passcodeKeyboard"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_troubleshootButton"
+            app:layout_constraintTop_toBottomOf="@+id/authenticationJourney_loginScreen_forgotPasscodeButton"
             app:layout_constraintVertical_weight="1" />
 
         <com.backbase.android.identity.journey.authentication.passcode.PasscodeKeyboard

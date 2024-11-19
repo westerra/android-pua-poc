@@ -16,7 +16,7 @@
 
         android:background="?selectableItemBackground"
         android:padding="?sizerMedium"
-        android:src="@drawable/identity_authentication_journey_ic_close"
+        android:src="@drawable/backbase_ic_close"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -96,7 +96,6 @@
         android:layout_marginTop="?spacerSmall"
 
         android:gravity="center"
-        android:lineSpacingMultiplier="@dimen/identity_AuthenticationJourney_flowCompleteScreen_descriptionTextLineSpacingMultiplier"
         android:textAlignment="center"
         android:textSize="18sp"
 
