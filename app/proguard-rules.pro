@@ -75,3 +75,26 @@
 -keep class com.backbase.android.retail.journey.accounts_and_transactions.accounts.tile.AccountsTile {
     <init>(...);
 }
+
+-keep class com.backbase.android.journey.dashboard.bannertile.view.BannerTile {
+    <init>(...);
+}
+
+#keep required data classes in flow selector
+-keep class com.backbase.android.flow.v2.models.** { *; }
+-keep class com.backbase.android.flow.loading.models.** { *; }
+-keep class com.backbase.android.flow.coapplicant.welcome.models.** { *; }
+-keep class com.backbase.android.flow.productselector.models.** { *; }
+-keep class com.backbase.android.flow.aboutyou.models.** { *; }
+-keep class com.backbase.android.flow.walkthrough.models.** { *; }
+-keep class com.backbase.android.flow.otp.models.** { *; }
+-keep class com.backbase.android.flow.identityverification.models.** { *; }
+-keep class com.backbase.android.flow.address.models.** { *; }
+-keep class com.backbase.android.flow.ssn.models.** { *; }
+-keep class com.backbase.android.flow.citizenship.models.** { *; }
+-keep class com.backbase.android.flow.questionnaire.models.** { *; }
+-keep class com.backbase.android.flow.credentialscreation.model.** { *; }
+-keep class com.backbase.android.flow.customerandaccountcreation.model.** { *; }
+-keep class com.backbase.android.flow.common.model.** { *; }
+
+-keep class com.backbase.android.design.phone.PhoneInputView { public <init>(...); }
