@@ -8,7 +8,7 @@ import com.backbase.engagementchannels.core.util.Result
 import com.backbase.engagementchannels.unreadnotifications.gen_notification_client_2.GetUnreadNotificationsRequest
 import com.backbase.engagementchannels.unreadnotifications.gen_notification_client_2.UnreadNotificationCount
 import com.backbase.engagementchannels.unreadnotifications.gen_notification_client_2.UnreadNotificationsUseCase
-
+//TODO Found no usage, this can be removed.
 internal class AccountsUnreadNotificationUseCase(
     private val unreadNotificationsUseCase: UnreadNotificationsUseCase,
     private val unreadNotificationsCachedTimeInSeconds: Int?,
