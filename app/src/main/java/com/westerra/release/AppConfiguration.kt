@@ -34,10 +34,25 @@ internal fun AppConfiguration(application: Application) = UsApplicationConfigura
         }
     }
 
+//    applicationFeatureFlags = listOf(
+//        UsApplicationFeatureFlag.WorkspacesJourneyFeatureFlag,
+//        UsApplicationFeatureFlag.RTCJourneyFeatureFlag,
+//        UsApplicationFeatureFlag.SelfEnrollmentFeatureFlag,
+//    )
+
+    /*TODO - Below applicationFeatureFlags from OOTB for reference
+    *  For example, Dashboard Journey is available behind the feature flag*/
     applicationFeatureFlags = listOf(
-        UsApplicationFeatureFlag.WorkspacesJourneyFeatureFlag,
+        UsApplicationFeatureFlag.AppUpdaterFeatureFlag,
+        UsApplicationFeatureFlag.DepositMenuFeatureFlag,
+        UsApplicationFeatureFlag.InactivityObserverFeatureFlag,
+        UsApplicationFeatureFlag.ChangePasswordFeatureFlag,
         UsApplicationFeatureFlag.RTCJourneyFeatureFlag,
+        UsApplicationFeatureFlag.CreditScoreJourneyFeatureFlag,
+        UsApplicationFeatureFlag.UseBiometricToggleInMoreMenu,
+        UsApplicationFeatureFlag.DashboardJourneyFeatureFlag,
         UsApplicationFeatureFlag.SelfEnrollmentFeatureFlag,
+        UsApplicationFeatureFlag.OrderNewCardFeatureFlag,
     )
 
     unreadNotificationsCachedTimeInSeconds = 5
