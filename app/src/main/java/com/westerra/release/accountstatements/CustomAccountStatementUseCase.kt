@@ -1,8 +1,9 @@
 package com.westerra.release.accountstatements
 
 import androidx.core.net.toUri
-import com.backbase.android.client.accountstatementsclient2.api.AccountStatementApi
 import com.backbase.android.client.accountstatementsclient2.model.AccountStatementJsonAdapter
+import com.backbase.android.client.gen2.accountstatementsclient2.api.AccountStatementApi
+import com.backbase.android.retail.journey.accountstatements.AccountStatementDownloadRequestParams
 import com.backbase.android.retail.journey.accountstatements.AccountStatementsRequestParams
 import com.backbase.android.retail.journey.accountstatements.AccountStatementsUseCase
 import com.backbase.android.retail.journey.accountstatements.CallState
@@ -127,5 +128,9 @@ class CustomAccountStatementUseCase(
 
     override suspend fun downloadAccountStatement(uid: String): CallState<out ByteArray> {
         return defaultAccountStatementsUseCase.downloadAccountStatement(uid = uid)
+    }
+
+    override suspend fun downloadAccountStatement(accountStatementDownloadRequestParams: AccountStatementDownloadRequestParams): CallState<out ByteArray> {
+        return defaultAccountStatementsUseCase.downloadAccountStatement(accountStatementDownloadRequestParams)
     }
 }
