@@ -1,0 +1,444 @@
+/**
+ * Please maintain alphabetical order and region-based grouping so that dependencies remain easier to read. _/\_
+ */
+
+ext {
+    sdkVersions = [
+            minSdk      : 26,
+            targetSdk   : 34,
+            compileSdk  : 34
+    ]
+
+    //region Backbase Product Dependency declarations
+    versions = [
+        accessControlClientGen2                     : '1.0.0',//Added
+        accessControlClient                         : '2.3.0',
+        accountsAndTransactionsJourney              : '4.5.0',//'2.16.19', Updated
+        accountStatementsClient                     : '1.0.0',
+        accountStatementsV2Client                   : '2.5.1', //Added
+        accountStatementsJourney                    : '4.2.0', //'2.5.1', Updated
+        actionsClient                               : '1.0.0',
+        addressAutocompleteClient                   : '1.0.0',
+        // Note regarding appCommon:
+        // 4.7.0 is the release version but Backbase made a build 4.7.0.1 for us with the
+        // code that causes a crash removed.
+        // https://support.backbase.com/hc/en-us/requests/10535
+        appCommon                                   : '6.2.1', //'4.7.0.1', Updated
+        appCenterSdkVersion                         : '4.3.1',
+        arrangementsClient                          : '1.3.1',
+        arrangementsClientV2                        : '1.2.0', //Already latest than 2024.03
+        authenticationJourney                       : '[6.1.0, 7.0.0[', //'4.4.3',
+        backbaseDesignSystem                        : '[5.0.0, 6.0.0[', //'3.19.2', Updated
+        backbaseRemoteConfig                        : '1.1.0',
+        backbaseRetailDesign                        : '1.0.0',
+        bannersUseCase                              : '6.0.0', //Added
+        beneficiaryValidationClient                 : '1.0.1', //Added
+        billPaySsoJourney                           : '2.0.0', //Added
+        billPayIntegratorClient2                    : '2.2.0', //Added
+        budgetsClient                               : '1.1.0', //Added
+        business                                    : '5.0.0', //'1.1.0', Updated
+        businessWorkspacesJourney                   : '6.1.0', //'4.0.4', Updated
+        cardsClientGen2                             : '1.2.1', //Added
+        cardsClient                                 : '2.0.0',
+        cardsManagementJourney                      : '4.4.1',//'2.9.0', Updated
+        cardsWalletClient                           : '1.0.1', //Added
+        clientsCommon                               : '1.6.2',
+        contactsJourney                             : '6.1.1', //'4.0.4',
+        contactsClient                              : '1.1.0',
+        contentservicesClient                       : '1.0.0',
+        creditScoreClient                           : '1.0.0', //Added
+        creditScoreJourney                          : '2.1.0', //Added
+        dashboardCore                               : '2.0.0', //Added
+        dashboardJourney                            : '2.2.3', //Added
+        engagementPreferencesClient                 : '1.7.1', //'1.5.0', Updated
+        engagementChannels                          : '6.1.1', //'4.3.5', Updated
+        externalAccountAggregatorClient             : '1.0.0',
+        featureFilter                               : '5.0.0', //'2.4.1', Updated
+        financialInsightsJourney                    : '3.3.0', //'1.0.0', Updated
+        firebaseBoM                                 : '31.5.0',
+        firebaseMessaging                           : '23.1.2',
+        flowselector                                : '1.0.6', //Added
+        incomeExpenseAnalyzer                       : '1.2.0',
+        journeyApp                                  : '7.4.4', //'5.6.0.5', Updated
+        journeyCommon                               : '5.1.0', //'3.0.0', Updated
+        localeSelectorJourney                       : '5.1.0', //'3.3.1', Updated
+        loansClient                                 : '1.0.0',
+        messagesClient                              : '5.2.0', //'1.0.0', Updated
+        messagesJourney                             : '6.3.0', //Added
+        miSnapVersion                               : '4.0.3',
+        moreJourney                                 : '5.1.1', //'2.7.1', Updated
+        notificationsJourney                        : '6.1.1', //Added
+        notificationClient                          : '1.0.1',
+        observability                               : '2.1.1',
+        paymentJourney                              : '6.3.1', //'4.2.5', Updated
+        paymentOrderA2aClient                       : '1.0.0',
+        paymentOrderClient                          : '1.2.0',
+        paymentOrderClientGen2                      : '1.2.0',
+        paymentOrderV2Client                        : '1.0.0',
+        placesClient                                : '1.0.0',
+        placesJourney                               : '3.4.0', //'1.2.0', Updated
+        pocketsClient                               : '1.0.0',
+        pocketsJourney                              : '4.3.0', //'2.5.3', Updated
+        pushNotifications                           : '5.1.0', //'3.2.0', Updated
+        rdcClientVersion                            : '1.0.0',
+        rdcClientVersionV2                          : '2.0.0',
+        rdcJourney                                  : '5.1.0', //'4.0.4', Updated
+        rdhJourney                                  : '3.1.0', //'1.0.1', Updated
+        rtcJourney                                  : '3.3.0', //'1.1.0', Updated
+        rtcClient                                   : '1.0.0',
+        selfEnrollmentJourney                       : '3.0.1', //'1.0.0', Updated
+        targetingClient                             : '1.0.0',
+        transactionCategoryClient                   : '2.0.2', //Added
+        transactionClient                           : '2.0.0',
+        transactionClientV2                         : '1.0.1',
+        upcomingPaymentsJourney                     : '5.3.2', //'3.2.0', Updated
+        userContextSelectorJourney                  : '2.0.0',
+        userManagerClient                           : '1.0.0',
+        userProfileJourney                          : '5.2.0', //'3.3.5', Updated
+        appUpdaterJourney                           : '1.0.0'
+    ]
+    deps = [
+        accessControlClientGen2: "com.backbase.android.clients:gen2-accesscontrol-client-3:$versions.accessControlClientGen2",
+        accessControlClient: "com.backbase.android.clients:gen-accesscontrol-client-2:$versions.accessControlClient",
+        actionsClient: "com.backbase.android.clients:gen-action-client-2:$versions.actionsClient",
+        accountsAndTransactionsJourney: "com.backbase.android.retail.journey:accounts-and-transactions-journey:$versions.accountsAndTransactionsJourney",
+        accountsAndTransactionsAccountsUseCase: "com.backbase.android.retail.journey:gen-arrangements-client-2-accounts-use-case:$versions.accountsAndTransactionsJourney",
+        accountsAndTransactionsInteropAccountStatements: "com.backbase.android.retail.journey:accounts-and-transactions-interop-account-statements:$versions.accountsAndTransactionsJourney",
+        accountsAndTransactionsFinancialInstitutionsUseCase: "com.backbase.android.retail.journey:gen-financial-institutions-1-use-case:$versions.accountsAndTransactionsJourney",
+        accountsAndTransactionsTransactionUseCase: "com.backbase.android.retail.journey:gen-transaction-client-2-transactions-use-case:$versions.accountsAndTransactionsJourney",
+        accountStatementsClient: "com.backbase.android.clients:gen-accountstatements-client-2:$versions.accountStatementsClient",
+        accountStatementsV2Client2: "com.backbase.android.clients:gen2-accountstatements-client-2:$versions.accountStatementsV2Client",
+        accountStatementsJourney: "com.backbase.android.retail.journey:account-statements-journey:$versions.accountStatementsJourney",
+        accountStatementsUseCase: "com.backbase.android.retail.journey:gen-account-statements-client-2-account-statements-use-case:$versions.accountStatementsJourney",
+        addressAutocompleteClient: "com.backbase.android.clients:gen2-addressautocomplete-client-1:$versions.addressAutocompleteClient",
+        addressAutocompleteUseCase: "com.backbase.android.identity.journey:address-autocomplete-userprofile-use-case:$versions.userProfileJourney",
+        appCommon: "com.backbase.android.retail.journey:app-common:$versions.appCommon",
+        arrangementsClient: "com.backbase.android.clients:gen-arrangement-client-2:$versions.arrangementsClient",
+        genV2ArrangementsClient2: "com.backbase.android.clients:gen2-arrangement-client-2:$versions.arrangementsClientV2",
+            //TODO Added below dependencies
+        billPaySsoJourney: "com.backbase.android.retail.journey:retail-bill-pay-sso-journey:$versions.billPaySsoJourney",
+        billPaySsoUseCase: "com.backbase.android.retail.journey:gen-billpay-integrator-client-bill-pay-sso-use-case:$versions.billPaySsoJourney",
+        genBillPayIntegratorClient2: "com.backbase.android.clients:gen2-billpayintegrator-client-2:$versions.billPayIntegratorClient2",
+        budgetsClient: "com.backbase.android.clients:gen2-budgets-client-3:$versions.budgetsClient",
+        beneficiaryValidationClient: "com.backbase.android.clients:gen2-beneficiaryvalidation-client-1:$versions.beneficiaryValidationClient",
+            //TODO END here
+        businessJourneyCommon: "com.backbase.android.business.journey:journey-common:$versions.business",
+        businessWorkspacesJourney: "com.backbase.android.business.journey:workspaces-journey:$versions.businessWorkspacesJourney",
+        businessWorkspacesUseCase: "com.backbase.android.business.journey.workspaces-journey:accesscontrol-client-2-workspaces-use-case:$versions.businessWorkspacesJourney",
+            //TODO added
+        cardsEntrustWalletUseCase: "com.backbase.android.retail.journey:entrust-wallet-use-case:$versions.cardsManagementJourney",
+        cardsManagementClientGen2: "com.backbase.android.clients:gen2-cards-client-2:$versions.cardsClientGen2",
+        cardsProductUseCase: "com.backbase.android.retail.journey:gen-2-cards-client-2-card-products-use-case:$versions.cardsManagementJourney",
+        cardsWalletClient: "com.backbase.android.clients:gen2-cardswallet-client-1:$versions.cardsWalletClient",
+        //TODO End
+        cardsManagementClient: "com.backbase.android.clients:gen-cards-client-2:$versions.cardsClient", // No use
+        cardsManagementJourney: "com.backbase.android.retail.journey:cards-management-journey:$versions.cardsManagementJourney",
+        cardsManagementUseCase: "com.backbase.android.retail.journey:gen-cards-client-2-cards-management-use-case:$versions.cardsManagementJourney",
+        cardsTravelNoticeUseCase: "com.backbase.android.retail.journey:gen-cards-client-2-travel-notice-use-case:$versions.cardsManagementJourney",
+        cardsUserManagerUseCase: "com.backbase.android.retail.journey:gen-usermanager-client-2-user-use-case:$versions.cardsManagementJourney",
+        clientsCommon: "com.backbase.android.clients:clients-common:$versions.clientsCommon",
+        clientsCommonCoroutines: "com.backbase.android.clients:clients-common-coroutines:$versions.clientsCommon",
+        contactsClient: "com.backbase.android.clients:gen-contactmanager-client-2:$versions.contactsClient",
+            //TODO Added
+        contactsClientGen2: "com.backbase.android.clients:gen2-contactmanager-client-2:1.0.0",
+            //TODO End
+        contactsFakeUseCase: "com.backbase.android.retail.journey:fake-contacts-use-case:$versions.contactsJourney",
+        contactsJourney: "com.backbase.android.retail.journey:contacts-journey:$versions.contactsJourney",
+        contactsUseCase: "com.backbase.android.retail.journey:gen-contactmanager-client-2-contacts-use-case:$versions.contactsJourney",
+            //TODO Added
+        creditScoreClient : "com.backbase.android.clients:gen2-savvymoneycreditscorer-client-1:$versions.creditScoreClient",
+        creditScoreJourney : "com.backbase.android.retail.journey:credit-score-journey:$versions.creditScoreJourney",
+        creditScoreUseCase : "com.backbase.android.retail.journey:gen2-credit-score-client-1-credit-score-use-case:$versions.creditScoreJourney",
+        dashboardCore     : "com.backbase.android.journey:dashboard-core:$versions.dashboardCore",
+        dashboardJourney  : "com.backbase.android.journey:dashboard-journey:$versions.dashboardJourney",
+            //TODO END
+        designSystem: "com.backbase.android.design:design-system:$versions.backbaseDesignSystem",
+        engagementChannelsCore: "com.backbase.engagementchannels:core:$versions.engagementChannels",
+        engagementChannelsOrchestratorBannersUseCase: "com.backbase.engagementchannels:gen-2-engagements-client-1-banners-usecase:$versions.bannersUseCase",
+        engagementPreferencesClient: "com.backbase.android.clients:gen2-engagement-client-1:$versions.engagementPreferencesClient",
+        entitlementsUseCase: "com.backbase.android.retail.feature_filter:accesscontrol-client-2-entitlements-use-case:$versions.featureFilter",
+        externalAccountAggregatorClient: "com.backbase.android.clients:gen2-externalaccountaggregator-client-1:$versions.externalAccountAggregatorClient",
+        externalAccountAggregatorUseCase: "com.backbase.android.retail.journey:gen-external-account-aggregation-client-1-use-case:$versions.accountsAndTransactionsJourney",
+        featureFilterUseCase: "com.backbase.android.retail.feature_filter:feature-filter-use-case:$versions.featureFilter",
+        financialInsightsJourney: "com.backbase.android.retail.journey:financial-insights-journey:$versions.financialInsightsJourney",
+        financialInsightsBudgetsUseCase: "com.backbase.android.retail.journey:gen-2-budgets-client-3-use-case:$versions.financialInsightsJourney", //TODO Added
+        financialInsightsTransactionCategoriesUseCase: "com.backbase.android.retail.journey:gen-2-transaction-client-2-use-case:$versions.financialInsightsJourney", //TODO Added
+        financialInsightsUseCase: "com.backbase.android.retail.journey:gen-2-income-expense-analyzer-client-1-use-case:$versions.financialInsightsJourney",
+        flowselector: "com.backbase.android.flow.selector:flow-selector-android:$versions.flowselector",
+
+        firebaseMessaging: "com.google.firebase:firebase-messaging:$versions.firebaseMessaging",
+        firebaseMessagingKtx: "com.google.firebase:firebase-messaging-ktx:$versions.firebaseMessaging",
+        firebaseAnalyticsKtx: "com.google.firebase:firebase-analytics-ktx",
+        firebaseCrashlyticsKts: "com.google.firebase:firebase-crashlytics-ktx",
+        firebaseBoM: "com.google.firebase:firebase-bom:$versions.firebaseBoM",
+        firebaseConfigKtx: "com.google.firebase:firebase-config-ktx",
+
+        genContentservicesClient: "com.backbase.android.clients:gen-contentservices-client-1:$versions.contentservicesClient",
+        genV2FinancialInstitutionManagerClient1: 'com.backbase.android.clients:gen2-financialinstitutionmanager-client-1:1.0.0',
+        genTargetingClient: "com.backbase.android.clients:gen-targeting-client-1:$versions.targetingClient",
+        identityAuthenticationJourneyFake: "com.backbase.android.identity.journey:authentication-journey-fake:$versions.authenticationJourney",
+        identityAuthenticationJourney: "com.backbase.android.identity.journey:authentication-journey:$versions.authenticationJourney",
+        identityAuthenticationJourneyUseCase: "com.backbase.android.identity.journey:identity-auth-client-1-authentication-use-case:$versions.authenticationJourney",
+        identityManagementUseCase: "com.backbase.android.identity.journey:identity-management-userprofile-use-case:$versions.userProfileJourney",
+        incomeExpenseAnalyzerClient: "com.backbase.android.clients:gen2-incomeexpenseanalyzer-client-1:$versions.incomeExpenseAnalyzer",
+        journeyCommon: "com.backbase.android.retail.journey:journey-common:$versions.journeyCommon",
+        journeyCommonKoin: "com.backbase.android.retail.journey:journey-common-koin:$versions.journeyCommon",
+        journeyFake: "com.backbase.android.retail.journey:journey-fake:$versions.journeyCommon",
+        journeyTest: "com.backbase.android.retail.journey:journey-test:$versions.journeyCommon",
+        loansClient: "com.backbase.android.clients:gen2-loans-client-1:$versions.loansClient",
+        loanDetailsUseCase: "com.backbase.android.retail.journey:gen-loans-client-1-loans-use-case:$versions.accountsAndTransactionsJourney",
+        localeSelectorJourney: "com.backbase.android.retail.journey:locale-selector-journey:$versions.localeSelectorJourney",
+        localeSelectorUseCase: "com.backbase.android.retail.journey:persistent-locale-selector-use-case:$versions.localeSelectorJourney",
+        messagesClient: "com.backbase.android.clients:gen2-message-client-5:$versions.messagesClient",
+        messagesJourney: "com.backbase.engagementchannels:messages-journey:$versions.messagesJourney",
+        messagesUseCase: "com.backbase.engagementchannels:gen2-message-client-5-messages-use-case:$versions.messagesJourney",
+        messagesMetricUseCase: "com.backbase.engagementchannels:gen-2-metric-client-1-messages-metric-use-case:$versions.messagesJourney", //TODO added
+        metricClient: "com.backbase.android.clients:gen2-metric-client-1:$versions.metric", //TODO added
+        moreJourney: "com.backbase.android.retail.journey:more-journey:$versions.moreJourney",
+        notificationSettingsUseCaseActions: "com.backbase.engagementchannels:gen-action-client-2-gen-arrangement-client-2-notification-settings-use-case:$versions.engagementChannels",//no use
+        notificationSettingsUseCaseOrchestrator: "com.backbase.engagementchannels:gen-2-engagements-client-1-notification-settings-usecase:$versions.notificationsJourney",
+        notificationAccountsUseCase: "com.backbase.engagementchannels:gen-2-arrangements-client-2-accounts-use-case:$versions.notificationsJourney",
+        notificationsClient: "com.backbase.android.clients:gen-notification-client-2:$versions.notificationClient",
+        notificationsJourney: "com.backbase.engagementchannels:notifications-journey:$versions.notificationsJourney",
+        notificationsUseCase: "com.backbase.engagementchannels:gen2-notification-client-3-notifications-use-case:$versions.notificationsJourney",
+        observability: "com.backbase.android.observability:backbase-observability-android:$versions.observability",
+        paymentJourney: "com.backbase.android.retail.journey:payments-journey:$versions.paymentJourney",
+        paymentUseCase: "com.backbase.android.retail.journey:gen2-paymentorder-v2-client-2-payments-use-case:$versions.paymentJourney",
+       // paymentUseCase: "com.backbase.android.retail.journey:gen-paymentorder-client-2-payments-use-case:$versions.paymentJourney",// removed
+        paymentAccountsUseCase: "com.backbase.android.retail.journey:gen-arrangements-client-2-payments-use-case:$versions.paymentJourney",
+        paymentBenefiniaryValidationUseCase: "com.backbase.android.retail.journey:gen2-beneficiary-validation-client-1-use-case:$versions.paymentJourney",
+        paymentExternalAccountsUseCase: "com.backbase.android.retail.journey:gen-paymentordera2a-client-1-accounts-use-case:$versions.paymentJourney",
+        paymentContactsUseCase: "com.backbase.android.retail.journey:gen-contactmanager-client-2-payments-use-case:$versions.paymentJourney",
+        paymentOrderA2aClient: "com.backbase.android.clients:gen2-paymentordera2a-client-1:$versions.paymentOrderA2aClient",
+       // paymentOrderA2aClient: "com.backbase.android.clients:gen-paymentordera2a-client-1:$versions.paymentOrderA2aClient",// removed
+        paymentOrderClient: "com.backbase.android.clients:gen-paymentorder-client-2:$versions.paymentOrderClient",
+        paymentOrderClientGen2: "com.backbase.android.clients:gen2-paymentorder-client-2:$versions.paymentOrderClientGen2",
+        paymentOrderV2Client: "com.backbase.android.clients:gen2-paymentorderv2-client-2:$versions.paymentOrderV2Client",
+        placesJourney: "com.backbase.android.retail.journey:places-journey:$versions.placesJourney",
+        placesClient: "com.backbase.android.clients:gen2-placemanager-client-2:$versions.placesClient",
+        placesUseCase: "com.backbase.android.retail.journey:gen-placemanager-client-2-places-use-case:$versions.placesJourney",
+        pocketsClient: "com.backbase.android.clients:gen-pockets-client-2:$versions.pocketsClient",
+        pocketsArrangementsUseCase: "com.backbase.android.retail.journey:gen-arrangements-client-2-arrangements-use-case:$versions.pocketsJourney",
+        pocketsGen2ArrangementsUseCase: "com.backbase.android.retail.journey:gen-2-arrangements-client-2-arrangements-use-case:$versions.pocketsJourney",
+        pocketsJourney: "com.backbase.android.retail.journey:pockets-journey:$versions.pocketsJourney",
+        pocketsPaymentsUseCase: "com.backbase.android.retail.journey:gen-paymentorder-client-2-payment-service-use-case:$versions.pocketsJourney",
+        pocketsGen2PaymentsUseCase: "com.backbase.android.retail.journey:gen2-pockets-paymentorder-client-2-payment-service-use-case:$versions.pocketsJourney",
+        pocketsTransactionsUseCase: "com.backbase.android.retail.journey:gen-2-transactions-client-2-pockets-transactions-use-case:$versions.pocketsJourney",
+        pocketsUseCase: "com.backbase.android.retail.journey:gen-pockets-client-2-pockets-use-case:$versions.pocketsJourney",
+        rdcClient: "com.backbase.android.clients:gen-remotedepositcapturer-client-2:$versions.rdcClientVersion",
+        genV2RdcClient2: "com.backbase.android.clients:gen2-remotedepositcapturer-client-2:$versions.rdcClientVersionV2",
+        rdcJourney: "com.backbase.android.retail.journey:remote-deposit-capture-journey:$versions.rdcJourney",
+        rdcJourneyMisnapAction: "com.backbase.android.retail.journey:remotedepositcapture-misnap-image-capture-action:$versions.miSnapVersion",
+        rdcJourneyRdcClient2UseCase: "com.backbase.android.retail.journey:gen-remotedepositcapturer-client-2-use-case:$versions.rdcJourney",
+        rdhJourney: "com.backbase.android.retail.journey:remote-deposit-history-journey:$versions.rdhJourney",
+        rdhJourneyRdcClient2UseCase: "com.backbase.android.retail.journey:gen-remotedepositcapturer-client-2-history-use-case:$versions.rdhJourney",
+        remoteConfig: "com.backbase.android.sdk:remote-config:$versions.backbaseRemoteConfig",
+        retailDesign: "com.backbase.android.retail.design:retail-design:$versions.backbaseRetailDesign",
+        rtcJourney :  "com.backbase.android.retail.journey:rtc-journey:$versions.rtcJourney",
+        rtcClient  :   "com.backbase.android.clients:gen2-rtc-client-1:$versions.rtcClient",
+        rtcConversationSDKUseCase :   "com.backbase.android.retail.journey:gen2-rtc-conversation-sdk-use-case:$versions.rtcJourney",
+        rtcConversationUseCase  : "com.backbase.android.retail.journey:gen2-rtc-client-1-rtc-use-case:$versions.rtcJourney",
+        selfEnrollmentJourney: "com.backbase.android.identity.journey:identity-self-enrollment-journey-android:$versions.selfEnrollmentJourney",
+        travelNoticeUseCase: "com.backbase.android.retail.journey:gen-cards-client-2-travel-notice-use-case:$versions.cardsManagementJourney",
+        transactionCategoryClient: "com.backbase.android.clients:gen2-transactioncategorycollector-client-2:$versions.transactionCategoryClient",
+        transactionClient: "com.backbase.android.clients:gen-transaction-client-2:$versions.transactionClient",
+        transactionClientV2: "com.backbase.android.clients:gen2-transactions-client-2:$versions.transactionClientV2",
+        universalApp: "com.backbase.android.retail.journey:universal-app:$versions.journeyApp",
+        upcomingPaymentsJourney: "com.backbase.android.retail.journey:upcoming-payments-journey:$versions.upcomingPaymentsJourney",
+        upcomingPaymentsUseCase: "com.backbase.android.retail.journey:gen2-paymentorder-v2-client-2-upcoming-payments-use-case:$versions.upcomingPaymentsJourney",
+        usApp: "com.backbase.android.retail.journey:us-app:$versions.journeyApp",
+      //  userContextSelectorJourney: "com.backbase.android.retail.journey:user-context-selector-journey:$versions.userContextSelectorJourney",// removed
+       // userContextUseCase: "com.backbase.android.retail.journey:gen-accesscontrol-client-2-usercontext-use-case:$versions.userContextSelectorJourney",// removed
+        userManagerClient: "com.backbase.android.clients:gen-usermanager-client-2:$versions.userManagerClient",
+        userProfileJourney: "com.backbase.android.identity.journey:user-profile-journey:$versions.userProfileJourney",
+        userProfileUseCase: "com.backbase.android.identity.journey:usermanager-userprofile-use-case:$versions.userProfileJourney",
+        unreadNotificationsUseCase: "com.backbase.engagementchannels:gen-notification-client-2-unread-notifications-use-case:$versions.notificationsJourney",
+        unreadNotificationsUseCaseV2: "com.backbase.engagementchannels:gen-2-notification-client-3-unread-notifications-use-case:$versions.notificationsJourney",
+        appUpdaterJourney: "com.backbase.android.sdk:app-updater-sdk:$versions.appUpdaterJourney",
+        appCenterAnalytics:"com.microsoft.appcenter:appcenter-analytics:$versions.appCenterSdkVersion",
+        appCenterCrashes:"com.microsoft.appcenter:appcenter-crashes:$versions.appCenterSdkVersion",
+    ]
+
+    //endregion
+
+    //region Android Dependency declarations
+    coreAndroidVersions = [
+        androidxTest                : '1.4.0',
+        androidToolsR8              : '8.2.24', //'3.3.75', Updated
+        androidxOrchestrator        : '1.4.1',
+        appCompat                   : '1.4.0',
+        coreKtx                     : '1.5.0',
+        desugarJdkLibs              : '1.1.5',
+        espresso                    : '3.4.0',
+        fragmentTesting             : '1.2.5',
+        gmsGoogleServices           : '4.3.14',
+        gradlePlugin                : '7.4.2',
+        jetpackNavigation           : '2.6.0', //'2.3.0', Updated
+        junitAndroidX               : '1.1.3',
+        playPublisher               : '3.4.0-agp4.2',
+        uiAutomator                 : '2.2.0',
+        textCorektx                 : '1.5.0',
+        jetpackCompose              : '1.1.1',
+        lifecycle                   : '2.6.1', //Added
+        kaspresso                   : '1.4.0',
+        kaspressoAllureSupport      : '1.5.1',
+        hamcrest                    : '2.2'
+    ]
+
+    androidDeps = [
+        androidGradlePlugin: "com.android.tools.build:gradle:$coreAndroidVersions.gradlePlugin",
+        androidTestCore: "androidx.test:core-ktx:$coreAndroidVersions.androidxTest", //Added
+        androidTestRules: "androidx.test:rules:$coreAndroidVersions.androidxTest",
+        androidTestRunner: "androidx.test:runner:$coreAndroidVersions.androidxTest",
+        androidToolsR8: "com.android.tools:r8:$coreAndroidVersions.androidToolsR8",
+        androidXOrchestrator: "androidx.test:orchestrator:$coreAndroidVersions.androidxOrchestrator",
+        appCompat: "androidx.appcompat:appcompat:$coreAndroidVersions.appCompat",
+        coreKtx: "androidx.core:core-ktx:$coreAndroidVersions.coreKtx",
+        dataBindingCompiler: "androidx.databinding:databinding-compiler:$coreAndroidVersions.gradlePlugin",
+        testCoreKtx: "androidx.test:core-ktx:$coreAndroidVersions.textCorektx",
+        desugarJdkLibs: "com.android.tools:desugar_jdk_libs:$coreAndroidVersions.desugarJdkLibs",
+        espressoAccessibility: "androidx.test.espresso:espresso-accessibility:$coreAndroidVersions.espresso",
+        espressoContrib: "androidx.test.espresso:espresso-contrib:$coreAndroidVersions.espresso",
+        espressoCore: "androidx.test.espresso:espresso-core:$coreAndroidVersions.espresso",
+        espressoIntents: "androidx.test.espresso:espresso-intents:$coreAndroidVersions.espresso",
+        espressoIdlingResource: "androidx.test.espresso:espresso-idling-resource:$coreAndroidVersions.espresso",
+        fragmentTesting: "androidx.fragment:fragment-testing:$coreAndroidVersions.fragmentTesting",
+        gmsGoogleServices: "com.google.gms:google-services:$coreAndroidVersions.gmsGoogleServices",
+        jetpackNavigation: "androidx.navigation:navigation-fragment-ktx:$coreAndroidVersions.jetpackNavigation",
+        jetpackComposeUITestJUnit4: "androidx.compose.ui:ui-test-junit4:$coreAndroidVersions.jetpackCompose",
+        junitAndroidX: "androidx.test.ext:junit-ktx:$coreAndroidVersions.junitAndroidX",
+        kaspresso: "com.kaspersky.android-components:kaspresso:$coreAndroidVersions.kaspresso",
+        kaspressoAllureSupport: "com.kaspersky.android-components:kaspresso:$coreAndroidVersions.kaspressoAllureSupport",
+        playPublisher: "com.github.triplet.gradle:play-publisher:$coreAndroidVersions.playPublisher",
+        uiAutomator: "androidx.test.uiautomator:uiautomator:$coreAndroidVersions.uiAutomator",
+        hamcrest: "org.hamcrest:hamcrest:$coreAndroidVersions.hamcrest",
+        liveData: "androidx.lifecycle:lifecycle-livedata-ktx:$coreAndroidVersions.lifecycle", //Added
+        lifecycleTest: "androidx.lifecycle:lifecycle-runtime-testing:$coreAndroidVersions.lifecycle",  //Added
+    ]
+    //endregion
+
+    //region Miscellaneous Dependency declarations
+    coreVersions = [
+        backbaseIdentitySdk             : '[6.0.0, 7.0.0[',  //'5.2.0', Updated
+        backbaseSdk                     : '[10.0.0, 11.0.0[', //'[9.7.0, 10.0.0[', Updated
+        bbMobilePlugin                  : '4.0.2', //Added
+        buildInfoExtractor              : '4.24.14',
+        conditionWatcher                : '0.2',
+        coroutines                      : '1.4.3',
+        deferredResources               : '1.6.0',
+        dokkaGradlePlugin               : '1.8.21',
+        entrustSdkDebug                 : '1.0.0', //Added
+        entrustSdk                      : '1.1.0', //Added
+        entrustUsSdk                    : '1.1.0', //Added
+        firebase                        : '33.1.0',
+        firebaseCrashlyticsGradle       : '2.9.5',
+        glide                           : '4.16.0',
+        greenRobot                      : '3.3.1',
+        groovy                          : '2.5.6',
+        gson                            : '2.8.9', //Added
+        jaCoCo                          : '0.8.8',
+        jacocoGradlePlugin              : '0.16.0',
+        junit                           : '4.13.2',
+//        koin                            : '2.1.5', No use
+        koinTest                        : '3.4.3', //'2.1.6', Updated
+        kotlin                          : '1.8.21',
+        kotlinBinaryCompatibility       :  '0.13.2', //'0.11.1', Updated
+        leakCanary                      : '2.8.1',
+        mockKAndroid                    : '1.13.2', //'1.9.3', Updated
+        mockK                           : '1.13.2', //'1.10.0', Updated
+        pokoGradlePlugin                : '0.13.0', //'0.11.0', Updated
+        pushNotifications               : '5.2.0',  //It refers smart-banking lib version //'3.2.0',
+        retailLogTag                    : '1.0.1',
+        sonarGradlePlugin               : '3.1.1',
+        truth                           : '1.1.3'
+    ]
+
+    coreDeps = [
+        backbaseIdentitySdk: "com.backbase.android.identity:identitysdk:$coreVersions.backbaseIdentitySdk",
+        backbaseSdk: "com.backbase.android.sdk:backbase:$coreVersions.backbaseSdk",
+        bbMobilePlugin: "common.gradle.plugin:bb-mobile-gradle-plugin:$coreVersions.bbMobilePlugin",
+        buildInfoExtractor: "org.jfrog.buildinfo:build-info-extractor-gradle:$coreVersions.buildInfoExtractor",
+        conditionWatcher: "com.azimolabs.conditionwatcher:conditionwatcher:$coreVersions.conditionWatcher",
+        coroutinesTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coreVersions.coroutines",
+        deferredResources: "com.backbase.oss.deferredresources:deferred-resources:$coreVersions.deferredResources",
+        deferredAnimationLottie: "com.backbase.oss.deferredresources:deferred-resources-animation-lottie:$coreVersions.deferredResources", //Added
+        dokkaGradlePlugin: "org.jetbrains.dokka:dokka-gradle-plugin:$coreVersions.dokkaGradlePlugin",
+        entrustSdkDebug: "com.backbase.android.entrust:entrust-sdk-debug:$coreVersions.entrustSdkDebug", //Added
+        entrustSdk: "com.backbase.android.entrust:entrust-sdk:$coreVersions.entrustSdk", //Added
+        entrustUsSdk: "com.backbase.android.entrust:entrust-us-sdk:$coreVersions.entrustUsSdk", //Added
+        firebase: "com.google.firebase:firebase-bom:$coreVersions.firebase",
+        firebaseAnalytics: "com.google.firebase:firebase-analytics-ktx",
+        firebaseMessaging: "com.google.firebase:firebase-messaging-ktx",
+        glide: "com.github.bumptech.glide:glide:$coreVersions.glide",
+        greenRobot: "org.greenrobot:eventbus:$coreVersions.greenRobot",
+        groovy: "org.codehaus.groovy:groovy-all:$coreVersions.groovy",
+        gson: "com.google.code.gson:gson:$coreVersions.gson",
+        jacocoGradlePlugin: "com.vanniktech:gradle-android-junit-jacoco-plugin:$coreVersions.jacocoGradlePlugin",
+        junit: "junit:junit:$coreVersions.junit",
+//        koin: "org.koin:koin-android-viewmodel:$coreVersions.koin", //no use
+        koinCore: "io.insert-koin:koin-core:$coreVersions.koin",
+        koinTest: "io.insert-koin:koin-test:$coreVersions.koinTest",
+        koinJUnitTest: "io.insert-koin:koin-test-junit4:$coreVersions.koinTest", //Added
+        kotlinBinaryCompatibility: "org.jetbrains.kotlinx:binary-compatibility-validator:$coreVersions.kotlinBinaryCompatibility",
+        kotlinGradlePlugin: "org.jetbrains.kotlin:kotlin-gradle-plugin:$coreVersions.kotlin",
+        kotlinStdLib: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$coreVersions.kotlin",
+        leakCanary: "com.squareup.leakcanary:leakcanary-android:$coreVersions.leakCanary",
+        leakCanaryInstrumentationTest: "com.squareup.leakcanary:leakcanary-android-instrumentation:$coreVersions.leakCanary",
+        logTag: "com.backbase.retail.logging:kotlin-log-tag:$coreVersions.retailLogTag",
+        mockK: "io.mockk:mockk:$coreVersions.mockK",
+        mockKAndroid: "io.mockk:mockk-android:$coreVersions.mockKAndroid",
+        pokoGradlePlugin: "dev.drewhamilton.poko:poko-gradle-plugin:$coreVersions.pokoGradlePlugin",
+        pushNotificationsCore: "com.backbase.mobilenotifications:core:$coreVersions.pushNotifications",
+        pushNotificationsFirebase: "com.backbase.mobilenotifications:firebase:$coreVersions.pushNotifications",
+        pushNotificationsHuawei: "com.backbase.mobilenotifications:huawei:$coreVersions.pushNotifications",
+        pushNotificationsPresentation: "com.backbase.mobilenotifications:presentation:$coreVersions.pushNotifications",
+        roboElectric: "org.robolectric:robolectric:$coreVersions.roboElectric",
+        sonarGradlePlugin: "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:$coreVersions.sonarGradlePlugin",
+        truth: "com.google.truth:truth:$coreVersions.truth",
+    ]
+    //endregion
+
+    // List of folders on Backbase JFrog repositories ( artifacts & repo )
+    backbaseRepositories = [
+        "android3",
+        "android-business",
+        "android-retail3",
+        "android-identity",
+        "design-android",
+        "android-engagement-channels",
+        "android-mobile-notifications",
+        "android-mitek-misnap",
+        "android-flow-production",
+        "android-flow-development",
+    ]
+
+    // Screen shot and recording variables - needed to record test failures.
+    modelBankTestFailureRelativePath = "modelBank"
+    failuresRelativePath = "failures"
+    testScreenshotAbsolutePath = "/sdcard/Pictures/screenshots/$modelBankTestFailureRelativePath"
+
+    // List of files excluded using `packagingOptions { resources {} }
+    resourceExclusions = [
+        'META-INF/core_release.kotlin_module',
+        'META-INF/gen-paymentorder-client-2-payments-use-case_release.kotlin_module',
+        'win32-x86-64/attach_hotspot_windows.dll',
+        'win32-x86/attach_hotspot_windows.dll',
+        'META-INF/AL2.0',
+        'META-INF/LGPL2.1',
+        'META-INF/LICENSE.md',
+        'META-INF/journey-common_release.kotlin_module',
+        'META-INF/licenses/ASM',
+        'META-INF/LICENSE-notice.md',
+        'META-INF/LICENSE.md',
+        'META-INF/journey-common_release.kotlin_module',
+        'META-INF/universal-app-ui-tests_localDevelopDebug.kotlin_module',
+        'META-INF/universal-app-ui-tests_serverStgDebug.kotlin_module',
+        'META-INF/universal-app-ui-tests_serverDevelopDebug.kotlin_module',
+        'META-INF/universal-app-ui-tests_serverProdDebug.kotlin_module',
+        'META-INF/us-app-ui-tests_localDevelopDebug.kotlin_module',
+        'META-INF/us-app-ui-tests_serverStgDebug.kotlin_module',
+        'META-INF/us-app-ui-tests_serverDevelopDebug.kotlin_module',
+        'META-INF/us-app-ui-tests_serverProdDebug.kotlin_module',
+        'MANIFEST.MF',
+    ]
+}
