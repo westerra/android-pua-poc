@@ -9,7 +9,7 @@ class MessagesMenuItem : BaseMenuItem() {
         title = R.string.messages_title,
         icon = R.drawable.ic_messages,
         actionBlock = {
-            OnActionComplete.NavigateTo(R.id.action_mainScreen_to_messagesJourney, bundleOf())
+            OnActionComplete.NavigateTo(R.id.action_mainScreen_to_messagesJourney)
         },
     )
 }

@@ -124,6 +124,6 @@
     <fragment
         android:id="@+id/messagesJourney_destination_composeMessageScreen"
         android:name="com.backbase.engagementchannels.messages.compose.ComposeMessageScreen"
-        tools:layout="@layout/compose_message_screen" />
+        tools:layout="@layout/compose_message_screen_pua" />
 
 </navigation>
