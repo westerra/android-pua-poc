@@ -1,0 +1,319 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.firebase.crashlytics'
+apply from: 'aws-waf-sdk/build.gradle'
+apply plugin: 'common.gradle.plugin.bb-mobile'
+
+android {
+    compileSdkVersion sdkVersions.compileSdk
+    ndkVersion '27.0.11902837'
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+        buildConfig true
+    }
+    defaultConfig {
+        applicationId 'com.westerra.release'
+        minSdkVersion sdkVersions.minSdk
+        targetSdkVersion sdkVersions.targetSdk
+        versionCode 179
+        versionName "2.2410.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/core_release.kotlin_module', 'META-INF/gen-paymentorder-client-2-payments-use-case_release.kotlin_module', 'win32-x86-64/attach_hotspot_windows.dll', 'win32-x86/attach_hotspot_windows.dll', 'META-INF/AL2.0', 'META-INF/LGPL2.1', 'META-INF/LICENSE.md', 'META-INF/journey-common_release.kotlin_module', 'META-INF/licenses/ASM', 'META-INF/LICENSE-notice.md']
+        }
+        doNotStrip "*/*/libscm.so"
+    }
+    testOptions {
+        animationsDisabled = true
+    }
+    testOptions {
+        animationsDisabled = true
+        unitTests.returnDefaultValues = true
+    }
+    signingConfigs {
+        westerra {
+            storeFile file("../westerra_keystore.jks")
+            storePassword "4fC60695"
+            keyAlias "westerra_keystore"
+            keyPassword "4fC60695"
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.westerra
+            applicationIdSuffix '.debug'
+            debuggable true
+            shrinkResources false
+            minifyEnabled false
+        }
+        release {
+            signingConfig signingConfigs.westerra
+            applicationIdSuffix '.release'
+            debuggable false
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            ndk {
+                debugSymbolLevel 'symbol_table'
+                abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86', 'x86_64'
+            }
+        }
+    }
+    flavorDimensions.add("default")
+    productFlavors {
+        dev {
+            applicationIdSuffix ".dev"
+            dimension "default"
+        }
+
+        uat {
+            applicationIdSuffix ".uat"
+            dimension "default"
+        }
+
+        prod {
+            applicationIdSuffix ".prod"
+            dimension "default"
+        }
+    }
+    sourceSets {
+        main { assets.srcDirs = ['src/main/assets', 'src/main/assets/fonts'] }
+
+        dev {
+            res.srcDirs = ['src/dev/res', 'src/dev/res/']
+            java.srcDirs = ['src/dev/java', 'src/dev/java/']
+        }
+
+        uat {
+            res.srcDirs = ['src/uat/res', 'src/uat/res/']
+            java.srcDirs = ['src/uat/java', 'src/uat/java/']
+        }
+
+        prod {
+            res.srcDirs = ['src/prod/res', 'src/prod/res/']
+            java.srcDirs = ['src/prod/java', 'src/prod/java/']
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+        coreLibraryDesugaringEnabled false
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+        freeCompilerArgs = ['-Xjvm-default=all']
+    }
+    lint {
+        abortOnError false
+    }
+    namespace 'com.westerra.release'
+}
+
+mobile {
+    mobileCliConfigFile="${projectDir}/bb-mobile-cli-config.json"
+}
+
+dependencies {
+    implementation 'com.google.android.gms:play-services-maps:18.2.0'
+    coreLibraryDesugaring androidDeps.desugarJdkLibs
+
+    //region Backbase retail app artifacts
+    implementation deps.usApp
+
+    //region Core dependencies
+    implementation platform(coreDeps.firebase)
+//    implementation coreDeps.firebaseAnalytics
+//    implementation coreDeps.firebaseMessaging
+   // implementation coreDeps.kotlinStdLib
+    implementation coreDeps.deferredAnimationLottie
+    //endregion
+
+    //region Backbase UseCase artifacts
+    // add useCase dependencies here ...
+    implementation deps.cardsEntrustWalletUseCase
+    implementation deps.rdcJourneyRdcClient2UseCase
+    implementation deps.rdhJourneyRdcClient2UseCase
+    // endregion
+
+    //region Backbase Journey artifacts
+    implementation deps.flowselector
+
+    // region Backbase shared library dependencies
+    implementation deps.businessJourneyCommon
+    implementation deps.journeyCommonKoin
+    implementation deps.rdcJourneyMisnapAction
+    implementation deps.appCommon
+    implementation deps.clientsCommon
+    implementation deps.observability
+    // endregion
+
+    //region Other Backbase artifacts
+    implementation deps.designSystem
+    implementation deps.retailDesign
+    //endregion
+
+    //region Third party libraries
+//    stgImplementation coreDeps.entrustSdkDebug
+//    prodImplementation coreDeps.entrustSdk
+    //endregion
+
+    implementation 'pub.devrel:easypermissions:3.0.0'
+
+    // region UseCase dependencies
+    implementation deps.accountsAndTransactionsAccountsUseCase
+    implementation deps.accountsAndTransactionsFinancialInstitutionsUseCase
+    implementation deps.accountsAndTransactionsTransactionUseCase
+    implementation deps.accountStatementsUseCase
+    implementation deps.addressAutocompleteUseCase
+    implementation deps.billPaySsoUseCase
+    implementation deps.cardsManagementUseCase
+    implementation deps.cardsProductUseCase
+    implementation deps.cardsTravelNoticeUseCase
+    implementation deps.cardsUserManagerUseCase
+    implementation deps.contactsUseCase
+    implementation deps.creditScoreClient
+    implementation deps.creditScoreUseCase
+    implementation deps.engagementChannelsOrchestratorBannersUseCase
+    implementation deps.entitlementsUseCase
+    implementation deps.externalAccountAggregatorUseCase
+    implementation deps.featureFilterUseCase
+    implementation deps.financialInsightsBudgetsUseCase
+    implementation deps.financialInsightsTransactionCategoriesUseCase
+    implementation deps.financialInsightsUseCase
+    implementation deps.identityAuthenticationJourneyUseCase
+    implementation deps.identityManagementUseCase
+    implementation deps.loanDetailsUseCase
+    implementation deps.messagesUseCase
+    implementation deps.messagesMetricUseCase
+    implementation deps.notificationAccountsUseCase
+    implementation deps.notificationsUseCase
+    implementation deps.notificationSettingsUseCaseOrchestrator
+    implementation deps.paymentUseCase
+    implementation deps.paymentAccountsUseCase
+    implementation deps.paymentBenefiniaryValidationUseCase
+    implementation deps.paymentContactsUseCase
+    implementation deps.paymentExternalAccountsUseCase
+    implementation deps.placesUseCase
+    implementation deps.pocketsGen2ArrangementsUseCase
+    implementation deps.pocketsGen2PaymentsUseCase
+//    implementation deps.pocketsPaymentsUseCase
+    implementation deps.pocketsTransactionsUseCase
+    implementation deps.pocketsUseCase
+    implementation deps.rdcJourneyRdcClient2UseCase
+    implementation deps.rdhJourneyRdcClient2UseCase
+    implementation deps.rtcConversationUseCase
+    implementation deps.rtcConversationSDKUseCase
+    implementation deps.unreadNotificationsUseCase
+    implementation deps.unreadNotificationsUseCaseV2
+    implementation deps.upcomingPaymentsUseCase
+    implementation deps.userProfileUseCase
+    // endregion
+
+    // region Client dependencies
+    implementation deps.accountStatementsClient
+    implementation deps.accountStatementsV2Client2
+    implementation deps.addressAutocompleteClient
+    implementation deps.accessControlClientGen2
+    implementation deps.arrangementsClient
+    implementation deps.beneficiaryValidationClient
+    implementation deps.budgetsClient
+
+    implementation deps.genV2ArrangementsClient2
+    implementation deps.genV2FinancialInstitutionManagerClient1
+    implementation deps.cardsManagementClientGen2
+//    implementation deps.cardsManagementClient
+    implementation deps.cardsWalletClient
+    implementation deps.engagementPreferencesClient
+    implementation deps.externalAccountAggregatorClient
+    implementation deps.genV2RdcClient2
+    implementation deps.genBillPayIntegratorClient2
+    implementation deps.incomeExpenseAnalyzerClient
+    implementation deps.loansClient
+    implementation deps.metricClient
+
+//    implementation deps.notificationSettingsUseCaseActions
+//    implementation deps.notificationSettingsUseCaseOrchestrator
+    implementation deps.paymentOrderA2aClient
+    implementation deps.paymentOrderClient
+    implementation deps.paymentOrderClientGen2
+    implementation deps.paymentOrderV2Client
+    implementation deps.transactionCategoryClient
+    implementation deps.transactionClient
+    implementation deps.transactionClientV2
+    implementation deps.userManagerClient
+    implementation deps.contactsClientGen2
+
+    // endregion
+
+//    // region Fix duplicate versions being used, listing here
+//    // forces use of deps specified version.
+//    implementation deps.accountsAndTransactionsJourney
+//    implementation deps.accountStatementsJourney
+//    implementation deps.paymentJourney
+//    implementation deps.rdcJourney
+//    // endregion
+
+    //region Android libraries
+    implementation androidDeps.appCompat
+    implementation androidDeps.coreKtx
+    implementation coreDeps.glide
+    implementation coreDeps.greenRobot
+    implementation coreDeps.kotlinStdLib
+    implementation androidDeps.liveData
+
+    // Firebase
+    implementation platform(deps.firebaseBoM)
+    implementation deps.firebaseCrashlyticsKts
+    implementation deps.firebaseAnalyticsKtx
+    implementation deps.firebaseMessaging
+    implementation deps.firebaseMessagingKtx
+    implementation deps.firebaseConfigKtx
+    implementation coreDeps.gson
+
+    // AppCenter
+    implementation deps.appCenterAnalytics
+    implementation deps.appCenterCrashes
+
+    // AWS WAF
+    implementation "com.amazonaws.waf:waf-mobile-sdk:0.0.6"
+
+
+//    // Firebase
+//    implementation platform(deps.firebaseBoM)
+//    implementation deps.firebaseCrashlyticsKts
+//    implementation deps.firebaseAnalyticsKtx
+//    implementation deps.firebaseMessaging
+//    implementation deps.firebaseMessagingKtx
+
+    // Westerra custom screens
+    kapt androidDeps.dataBindingCompiler
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    // Workaround for https://issuetracker.google.com/issues/119070777, otherwise would be androidTestImplementation
+    debugImplementation(androidDeps.fragmentTesting) {
+        exclude group: 'androidx.test'
+    }
+
+    implementation androidDeps.espressoIdlingResource
+
+    testImplementation coreDeps.junit
+    testImplementation androidDeps.testCoreKtx
+    testImplementation androidDeps.espressoCore
+    testImplementation androidDeps.espressoIdlingResource
+    testImplementation androidDeps.hamcrest
+
+    androidTestImplementation androidDeps.testCoreKtx
+    androidTestImplementation androidDeps.espressoCore
+    androidTestImplementation androidDeps.espressoContrib
+    androidTestImplementation androidDeps.espressoIntents
+    androidTestImplementation androidDeps.espressoIdlingResource
+    androidTestImplementation androidDeps.uiAutomator
+    androidTestImplementation androidDeps.junitAndroidX
+    androidTestImplementation androidDeps.hamcrest
+}
