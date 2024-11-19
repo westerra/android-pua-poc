@@ -73,12 +73,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        app:layout_constraintBottom_toTopOf="@+id/selfEnrollmentJourney_selfEnrollmentScreen_enrollButton"
+        app:layout_constraintBottom_toTopOf="@+id/selfEnrollmentJourney_selfEnrollmentScreen_newButton"
         app:layout_constraintEnd_toEndOf="@+id/selfEnrollmentJourney_selfEnrollmentScreen_scrollView"
         app:layout_constraintStart_toStartOf="@+id/selfEnrollmentJourney_selfEnrollmentScreen_scrollView" />
 
     <com.backbase.android.design.button.BackbaseButton
-        android:id="@+id/selfEnrollmentJourney_selfEnrollmentScreen_enrollButton"
+        android:id="@+id/selfEnrollmentJourney_selfEnrollmentScreen_newButton"
         style="?buttonStyleLink"
 
         android:layout_width="0dp"
