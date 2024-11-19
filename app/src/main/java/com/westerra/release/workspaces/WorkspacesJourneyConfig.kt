@@ -14,15 +14,15 @@ object WorkspacesJourneyConfig {
             workspacesSelectorScreenConfiguration = WorkspaceSelectorScreenConfiguration {
                 background = R.color.authenticationBackgroundColor.toDeferredDrawable()
                 loadingProgressBarColor = R.color.textColorPrimary.toDeferredColor()
-                errorTitleColor = R.color.textColorPrimary.toDeferredColor()
-                errorMessageColor = R.color.textColorPrimary.toDeferredColor()
+                errorTitleColorV2 = R.color.textColorPrimary.toDeferredColor()
+                errorMessageColorV2 = R.color.textColorPrimary.toDeferredColor()
             }
 
             workspacesSwitcherScreenConfiguration = WorkspaceSwitcherScreenConfiguration {
                 background = R.color.authenticationBackgroundColor.toDeferredDrawable()
                 loadingProgressBarColor = R.color.textColorPrimary.toDeferredColor()
-                errorTitleColor = R.color.textColorPrimary.toDeferredColor()
-                errorMessageColor = R.color.textColorPrimary.toDeferredColor()
+                errorTitleColorV2 = R.color.textColorPrimary.toDeferredColor()
+                errorMessageColorV2 = R.color.textColorPrimary.toDeferredColor()
             }
         }
     }
